@@ -9,23 +9,17 @@ $utils = new UtilityFunctions();
 
 if (file_exists("controllers" . $utils->getUrl() . "/index.php")) {
     $title = $utils->makeTitle();
-    $header = $utils->replace(
-        [ "%%SITENAME%%" => SITE_NAME ],
-        file_get_contents("views/header.html")
-    );
-    $breadcrumb = $utils->replace(
-        [ "%%PATH%%" => $utils->makePath() ],
-        file_get_contents("views/breadcrumb.html")
-    );
-    $footer = file_get_contents("views/footer.html");
+    $header = $utils->makeHeader();
+    $breadcrumb = $utils->makeBreadcrumb();
+    $footer = $utils->makeFooter();
 
     $arr = include "controllers" . $utils->getUrl() . "/index.php";
     $main = $arr[0];
     $description = $arr[1];
     $keywords = SITE_NAME . ", computer, tablet, smartphone, console, " . $arr[2];
 
-    echo $utils->checkLinks(
-        $utils->replace(
+    echo UtilityFunctions::checkLinks(
+        UtilityFunctions::replace(
             [
                 "%%DESCRIPTION%%" =>$description,
                 "%%KEYWORDS%%" => $keywords,

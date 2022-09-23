@@ -2,8 +2,6 @@
 
 use Utils\UtilityFunctions;
 
-$utils = new UtilityFunctions();
-
 if (isset($_GET["itemId"])) {
     // ritorna la pagina corrispondente a quel prodotto
     //$id = $_GET["item-id"];
@@ -13,7 +11,7 @@ if (isset($_GET["itemId"])) {
     //...
     $name = "PS4";
     return [
-        $utils->replace(
+        UtilityFunctions::replace(
             [
                 "%%NAME%%" => $name,
                 "%%DESCRIPTION%%" => "PlayStation 4 del 2018 usata.",
@@ -22,7 +20,7 @@ if (isset($_GET["itemId"])) {
             file_get_contents(ROOT . "/views/acquisto/item-id/index.html")
         ),
         "Tutte le informazioni sull'articolo $name",
-        "$name"
+        $name
     ];
 } else {
     // ritorna la pagina con tutti i prodotti
@@ -33,7 +31,7 @@ if (isset($_GET["itemId"])) {
     ];
     $itemsHTML = "";
     foreach ($items as $item) {
-        $itemsHTML .= $utils->replace(
+        $itemsHTML .= UtilityFunctions::replace(
             [
                 "%%NAME%%" => $item["name"],
                 "%%DESCRIPTION%%" => $item["description"],
@@ -43,7 +41,7 @@ if (isset($_GET["itemId"])) {
         );
     }
     return [
-        $utils->replace(
+        UtilityFunctions::replace(
             [ "%%ITEMS%%" => $itemsHTML ],
             file_get_contents(ROOT . "/views/acquisto/index.html")
         ),

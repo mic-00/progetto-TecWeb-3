@@ -28,18 +28,18 @@ class UtilityFunctions
         return $this->query;
     }
 
-    public function replace(array $array, string $string): string {
+    public static function replace(array $array, string $string): string {
         foreach ($array as $key => $value) {
             $string = str_replace($key, $value, $string);
         }
         return $string;
     }
 
-    public function kebabCaseToText(string $string): string {
+    public static function kebabCaseToText(string $string): string {
         return str_replace("-", " ", $string);
     }
 
-    public function checkLinks(string $html): string {
+    public static function checkLinks(string $html): string {
         $dom = new DOMDocument();
         libxml_use_internal_errors(true);
         $dom->loadHTML($html);
@@ -52,7 +52,7 @@ class UtilityFunctions
         return $dom->saveHTML();
     }
 
-    public function makePath(): string {
+    public function makeBreadcrumb(): string {
         $path = "<a href='/' lang='en'>Home</a> ";
         if ($this->url !== "/") {
             $href = "";
@@ -65,7 +65,8 @@ class UtilityFunctions
                         return "<a href='$href'>" . ucfirst($this->kebabCaseToText($a)) . "</a>";
                     }, explode(
                         "/",
-                        substr($this->url, 1))))
+                        substr($this->url, 1)
+                )))
                 . " / "
                 . implode(
                     " / ",
@@ -78,9 +79,12 @@ class UtilityFunctions
                     ), array_keys(explode(
                         "&",
                         $this->query
-                    ))));
+                ))));
         }
-        return $path;
+        return $this->replace(
+            [ "%%PATH%%" => $path ],
+            file_get_contents(ROOT . "/views/breadcrumb.html")
+        );
     }
 
     public function makeTitle(): string {
@@ -91,6 +95,19 @@ class UtilityFunctions
                     !$this->query
                         ? preg_replace("/[\/\w]*\//", "", $this->url)
                         : preg_replace("/[^ ]*&\w*=|\w*=/", "", $this->query)
-            )) . " - " . SITE_NAME;
+            ))
+            . " - "
+            . SITE_NAME;
+    }
+
+    public function makeHeader(): string {
+        return $this->replace(
+            [ "%%SITENAME%%" => SITE_NAME ],
+            file_get_contents(ROOT . "/views/header.html")
+        );
+    }
+
+    public function makeFooter(): string {
+        return file_get_contents(ROOT . "/views/footer.html");
     }
 }
