@@ -1,13 +1,59 @@
 <main id="main">
   <div id="mainSlidingImg">
-    //ul immagini
+
+    <div class="mySlides fade">
+      <div class="numbertext">1 / 4</div>
+      <img src="../img/portatile.jpg">
+      <div class="text">
+        <h3>Caption title</h3>
+        <p>Caption text</p>
+      </div>
+    </div>
+
+    <div class="mySlides fade dispN">
+      <div class="numbertext">2 / 4</div>
+      <img src="../img/riparazione.jpg">
+      <div class="text">
+        <h3>Caption title</h3>
+        <p>Caption text</p>
+      </div>
+    </div>
+
+    <div class="mySlides fade dispN">
+      <div class="numbertext">3 / 4</div>
+      <img src="../img/telefoni.jpg">
+      <div class="text">
+        <h3>Caption title</h3>
+        <p>Caption text</p>
+      </div>
+    </div>
+
+    <div class="mySlides fade dispN">
+      <div class="numbertext">4 / 4</div>
+      <img src="../img/tablet.jpg">
+      <div class="text">
+        <h3>Caption title</h3>
+        <p>Caption text</p>
+      </div>
+    </div>
+
+    <a class="prev" onclick="plusSlides(-1)">❮</a>
+    <a class="next" onclick="plusSlides(1)">❯</a>
+
+    <div class="dots">
+      <span class="dot" onclick="currentSlide(1)"></span>
+      <span class="dot" onclick="currentSlide(2)"></span>
+      <span class="dot" onclick="currentSlide(3)"></span>
+      <span class="dot" onclick="currentSlide(4)"></span>
+    </div>
+
   </div>
   <div id="mainCategory">
-    <h2>Categorie <span>piu popolari</span></h2>
+    <h2>Categorie <span class="focus">piu popolari</span></h2>
     <ul>
-      <li><a href="#"><img clas="categoryImg" src="" alt="immagine pc portatile">Portatile</a></li>
-      <li><a href="#"><img clas="categoryImg" src="" alt="immagine pc fisso">Fisso</a></li>
-      <li><a href="#"><img clas="categoryImg" src="" alt="immagine telefono">Telefonia</a></li>
+      <li><a href="#"><img class="categoryImg" src="../img/pc.jpg" alt="immagine pc portatile"><span>Portatile</span></a></li>
+      <li><a href="#"><img class="categoryImg" src="../img/pc.jpg" alt="immagine pc fisso"><span>Fisso</span></a></li>
+      <li><a href="#"><img class="categoryImg" src="../img/pc.jpg" alt="immagine telefono"><span>Telefonia</span></a></li>
     </ul>
   </div>
 </main>
