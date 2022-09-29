@@ -1,13 +1,13 @@
 <body>
     <form>
-        <label for="nome">Nome</label>
-        <input type="text" name="nome" id="nome">
+        <label>Nome</label>
+        <input type="text">
         <br>
-        <label for="cognome">Cognome</label>
-        <input type="text" name="cognome" id="cognome">
+        <label>Cognome</label>
+        <input type="text">
 		<br>
-        <label for="email">email</label>
-        <input type="text" name="email" id="email">
+        <label>email</label>
+        <input type="email">
         <input type="submit" value="Invia">
     </form>
 </body>
