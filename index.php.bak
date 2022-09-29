@@ -2,13 +2,10 @@
 
 require_once "config/config.php";
 require_once "utils/utilityFunctions.php";
-require_once "utils/dbConnection.php";
 
 use Utils\UtilityFunctions;
-use Utils\dbConnectionFunctions;
 
 $utils = new UtilityFunctions();
-$utils2 = new dbConnection();
 
 if (file_exists("controllers" . $utils->getUrl() . "/index.php")) {
     $title = $utils->makeTitle();
