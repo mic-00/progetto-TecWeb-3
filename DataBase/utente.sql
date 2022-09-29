@@ -14,7 +14,6 @@ CREATE TABLE `UTENTE` (
 INSERT INTO `UTENTE` (`email`, `username`, `birthday`, `password`, `isAdmin`, `birthdayModified`) VALUES
 ('gorlandi@unipd.it', 'gorlandi', '0000-00-00 00:00:00', 'Password1', 0, 0),
 ('mmasetto@unipd.it', 'mmasetto', '0000-00-00 00:00:00', 'Password2', 0, 0),
-('mvignaga@unipd.it', 'mvignaga', '0000-00-00 00:00:00', 'Password3', 0, 0),
 ('test@gmail.com', 'testuser', '0000-00-00 00:00:00', 'Password4', 1, 0),
 ('zzhenwei@unipd.it', 'zzhenwei', '0000-00-00 00:00:00', 'Password5', 0, 0),
 ('admin@admin.com', 'admin', '0000-00-00 00:00:00', 'admin', 1, 0),

@@ -11,10 +11,6 @@ CREATE TABLE `UTENTE` (
   `birthdayModified` tinyint(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
---
--- Dump dei dati per la tabella `UTENTE`
---
-
 INSERT INTO `UTENTE` (`email`, `username`, `birthday`, `password`, `isAdmin`, `birthdayModified`) VALUES
 ('gorlandi@unipd.it', 'gorlandi', '0000-00-00 00:00:00', 'Password1', 0, 0),
 ('mmasetto@unipd.it', 'mmasetto', '0000-00-00 00:00:00', 'Password2', 0, 0),
