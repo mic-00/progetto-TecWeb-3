@@ -1,25 +1,21 @@
 <?php
 
 require_once "config/config.php";
-require_once "utils/utilityFunctions.php";
-require_once "utils/dbConnection.php";
+require_once "utils/UtilityFunctions.php";
+require_once "utils/DBConnection.php";
 
 use Utils\UtilityFunctions;
-use Utils\dbConnectionFunctions;
 
-$utils = new UtilityFunctions();
-$utils2 = new dbConnection();
+$urlPath = parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH);
 
-if (file_exists("controllers" . $utils->getUrl() . "/index.php")) {
-    $title = $utils->makeTitle();
-    $header = $utils->makeHeader();
-    $breadcrumb = $utils->makeBreadcrumb();
-    $footer = $utils->makeFooter();
+if (file_exists(ROOT . "/controllers" . $urlPath . "/index.php")) {
+    $title = include ROOT . "/controllers/title.php";
+    $header = include ROOT . "/controllers/header.php";
+    $breadcrumb = include ROOT . "/controllers/breadcrumb.php";
+    $footer = include ROOT . "/controllers/footer.php";
 
-    $arr = include "controllers" . $utils->getUrl() . "/index.php";
-    $main = $arr[0];
-    $description = $arr[1];
-    $keywords = SITE_NAME . ", computer, tablet, smartphone, console, " . $arr[2];
+    list($main, $description, $keywords) = include "controllers" . $urlPath . "/index.php";
+    $keywords = SITE_NAME . ", computer, tablet, smartphone, console, " . $keywords;
 
     echo UtilityFunctions::checkLinks(
         UtilityFunctions::replace(
