@@ -14,7 +14,7 @@ if (file_exists(ROOT . "/controllers" . $urlPath . "/index.php")) {
     $breadcrumb = include ROOT . "/controllers/breadcrumb.php";
     $footer = include ROOT . "/controllers/footer.php";
 
-    list($main, $description, $keywords) = include "controllers" . $urlPath . "/index.php";
+    list($main, $description, $keywords) = include ROOT . "/controllers" . $urlPath . "/index.php";
     $keywords = SITE_NAME . ", computer, tablet, smartphone, console, " . $keywords;
 
     echo UtilityFunctions::checkLinks(
