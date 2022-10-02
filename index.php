@@ -6,6 +6,9 @@ require_once "utils/DBConnection.php";
 
 use Utils\UtilityFunctions;
 
+if (session_status() === PHP_SESSION_NONE)
+    session_start();
+
 $urlPath = parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH);
 
 if (file_exists(ROOT . "/controllers" . $urlPath . "/index.php")) {

@@ -4,9 +4,9 @@ use DB\DBConnection;
 
 $connection = new DBConnection();
 
-$query = "SELECT * FROM `UTENTE` WHERE `email`=? AND `password`=?";
-$result = $connection->query($query, $_POST["email"], $_POST["password"]);
+$query = "SELECT * FROM `UTENTE` WHERE `username`=? AND `password`=?";
+$result = $connection->query($query, $_POST["username"], $_POST["password"])[0];
 
-return count($result);
+return $result;
 
 ?>

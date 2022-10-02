@@ -2,9 +2,6 @@
 
 use Utils\UtilityFunctions;
 
-if (session_status() === PHP_SESSION_NONE)
-    session_start();
-
 $description = "";
 $keywords = "carrello";
 

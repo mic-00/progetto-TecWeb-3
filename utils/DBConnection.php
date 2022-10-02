@@ -26,16 +26,18 @@ class DBConnection {
         $stmt = mysqli_prepare($this->connection, $template);
         $types = str_repeat("s", count($args));
         $stmt->bind_param($types, ...$args);
-        $stmt->execute();
-        $result = $stmt->get_result();
-        if (gettype($result) === "object") {
-            $resultSet = [];
-            while ($row = $result->fetch_assoc()) {
-                $resultSet[] = $row;
+        if ($stmt->execute()) {
+            $result = $stmt->get_result();
+            if ($result) {
+                $resultSet = [];
+                while ($row = $result->fetch_assoc()) {
+                    $resultSet[] = $row;
+                }
+                return $resultSet;
             }
-            return $resultSet;
+            return mysqli_affected_rows($this->connection);
         }
-        return $result;
+        return false;
     }
 }
 
