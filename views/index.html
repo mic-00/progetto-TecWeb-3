@@ -1,9 +1,9 @@
-<main id="main">
+<main id="home">
   <div id="mainSlidingImg">
-
     <div class="mySlides fade">
       <div class="numbertext">1 / 4</div>
-      <img src="../img/portatile.jpg">
+      <img src="/img/portatile.jpg">
+      <!-- TODO missing alt attribute -->
       <div class="text">
         <h3>Caption title</h3>
         <p>Caption text</p>
@@ -12,7 +12,7 @@
 
     <div class="mySlides fade dispN">
       <div class="numbertext">2 / 4</div>
-      <img src="../img/riparazione.jpg">
+      <img src="/img/riparazione.jpg">
       <div class="text">
         <h3>Caption title</h3>
         <p>Caption text</p>
@@ -21,7 +21,7 @@
 
     <div class="mySlides fade dispN">
       <div class="numbertext">3 / 4</div>
-      <img src="../img/telefoni.jpg">
+      <img src="/img/telefoni.jpg">
       <div class="text">
         <h3>Caption title</h3>
         <p>Caption text</p>
@@ -30,15 +30,15 @@
 
     <div class="mySlides fade dispN">
       <div class="numbertext">4 / 4</div>
-      <img src="../img/tablet.jpg">
+      <img src="/img/tablet.jpg">
       <div class="text">
         <h3>Caption title</h3>
         <p>Caption text</p>
       </div>
     </div>
 
-    <a class="prev" onclick="plusSlides(-1)">❮</a>
-    <a class="next" onclick="plusSlides(1)">❯</a>
+    <a class="prev" onclick="plusSlides(-1)">&lt;</a>
+    <a class="next" onclick="plusSlides(1)">&gt;</a>
 
     <div class="dots">
       <span class="dot" onclick="currentSlide(1)"></span>
@@ -49,11 +49,13 @@
 
   </div>
   <div id="mainCategory">
-    <h2>Categorie <span class="focus">piu popolari</span></h2>
-    <ul>
-      <li><a href="#"><img class="categoryImg" src="../img/pc.jpg" alt="immagine pc portatile"><span>Portatile</span></a></li>
-      <li><a href="#"><img class="categoryImg" src="../img/pc.jpg" alt="immagine pc fisso"><span>Fisso</span></a></li>
-      <li><a href="#"><img class="categoryImg" src="../img/pc.jpg" alt="immagine telefono"><span>Telefonia</span></a></li>
-    </ul>
+    <h2>Categorie <span class="focus">più popolari</span></h2>
+    <nav>
+      <ul>
+        <li><a href="/acquisto?category=portatile"><img class="categoryImg" src="/img/pc.jpg" alt="immagine computer portatile"><span>Portatile</span></a></li>
+        <li><a href="/acquisto?category=fisso"><img class="categoryImg" src="/img/pc.jpg" alt="immagine computer fisso"><span>Fisso</span></a></li>
+        <li><a href="/acquisto?category=smartphone"><img class="categoryImg" src="/img/pc.jpg" alt="immagine telefono"><span lang="en">Smartphone</span></a></li>
+      </ul>
+    </nav>
   </div>
 </main>
