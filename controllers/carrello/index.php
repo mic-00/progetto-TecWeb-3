@@ -10,7 +10,7 @@ if (isset($_SESSION["cart"]) && count($_SESSION["cart"])) {
     $cartItemsHTML = "";
     $amount = 0;
     foreach ($cartItems as $cartItem) {
-        $name = "<a href='/acquisto?id={$cartItem["id"]}'>{$cartItem["brand"]} {$cartItem["device"]}</a>";
+        $name = "<a href='/acquisto?id={$cartItem["id"]}'>{$cartItem["brand"]} {$cartItem["model"]}</a>";
         $price = $cartItem["price"];
         $id = $cartItem["id"];
         $cartItemsHTML .= UtilityFunctions::replace(

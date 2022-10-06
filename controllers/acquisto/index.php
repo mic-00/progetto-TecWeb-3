@@ -4,43 +4,63 @@ use Utils\UtilityFunctions;
 
 if (isset($_GET["id"])) {
     $item = include ROOT . "/models/acquisto/id.php";
-    $id = $item["id"];
-    $name = "{$item["brand"]} {$item["device"]}";
-    $price = "{$item["price"]}&euro;";
-    $images = "";
-    for ($i = 1; file_exists(ROOT . "/public/img/purchase/$id/$i.jpg"); ++$i) {
-        $src = "/public/img/purchase/$id/$i.jpg";
-        $images .= "<img src='$src' alt='' />";
-        // TODO aggiungere alt!!!!!
+    if ($item) {
+        $id = $item["id"];
+        $name = "{$item["brand"]} {$item["model"]}";
+        $price = "{$item["price"]}&euro;";
+        $description = $item["description"];
+        $images = "";
+        for ($i = 1; file_exists(ROOT . "/public/img/purchase/$id/$i.jpg"); ++$i) {
+            $src = "/public/img/purchase/$id/$i.jpg";
+            $images .= "<img src='$src' alt='' />";
+            // TODO aggiungere alt!!!!!
+        }
+        $releasedAt = $item["released_at"];
+        $os = $item["os"];
+        $displaySize = $item["display_size"];
+        $displayResolution = $item["display_resolution"];
+        $cameraPixels = $item["camera_pixels"];
+        $chipset = $item["chipset"];
+        $batterySize = $item["battery_size"];
+        $batteryType = $item["battery_type"];
+        $bluetooth = $item["bluetooth"];
+        $sim = $item["sim"];
+        $gps = $item["gps"];
+        $weight = $item["weight"] . " gr";
+        $dimensions = $item["dimensions"] . " mm";
+        $link = isset($_SESSION["cart"]) && in_array($id, $_SESSION["cart"])
+            ? "<a href='/carrello/rimuovi?id=$id'>Rimuovi dal carrello</a>"
+            : "<a href='/carrello/aggiungi?id=$id'>Aggiungi al carrello</a>";
+        return [
+            UtilityFunctions::replace(
+                [
+                    "%%NAME%%" => $name,
+                    "%%PRICE%%" => $price,
+                    "%%DESCRIPTION%%" => $description,
+                    "%%IMAGES%%" => $images,
+                    "%%RELEASED_AT%%" => $releasedAt,
+                    "%%OS%%" => $os,
+                    "%%DISPLAY_SIZE%%" => $displaySize,
+                    "%%DISPLAY_RESOLUTION%%" => $displayResolution,
+                    "%%CAMERA_PIXELS%%" => $cameraPixels,
+                    "%%CHIPSET%%" => $chipset,
+                    "%%BATTERY_SIZE%%" => $batterySize,
+                    "%%BATTERY_TYPE%%" => $batteryType,
+                    "%%BLUETOOTH%%" => $bluetooth,
+                    "%%SIM%%" => $sim,
+                    "%%GPS%%" => $gps,
+                    "%%WEIGHT%%" => $weight,
+                    "%%DIMENSIONS%%" => $dimensions,
+                    "%%LINK%%" => $link
+                ],
+                file_get_contents(ROOT . "/views/acquisto/id/index.html")
+            ),
+            "",
+            ""
+        ];
+    } else {
+        // TODO
     }
-    $displaySize = $item["display_size"];
-    $displayResolution = $item["display_resolution"];
-    $cameraPixels = $item["camera_pixels"];
-    $chipset = $item["chipset"];
-    $batterySize = $item["battery_size"];
-    $batteryType = $item["battery_type"];
-    $link = isset($_SESSION["cart"]) && in_array($id, $_SESSION["cart"])
-        ? "<a href='/carrello/rimuovi?id=$id'>Rimuovi dal carrello</a>"
-        : "<a href='/carrello/aggiungi?id=$id'>Aggiungi al carrello</a>";
-    return [
-        UtilityFunctions::replace(
-            [
-                "%%NAME%%" => $name,
-                "%%PRICE%%" => $price,
-                "%%IMAGES%%" => $images,
-                "%%DISPLAY_SIZE%%" => $displaySize,
-                "%%DISPLAY_RESOLUTION%%" => $displayResolution,
-                "%%CAMERA_PIXELS%%" => $cameraPixels,
-                "%%CHIPSET%%" => $chipset,
-                "%%BATTERY_SIZE%%" => $batterySize,
-                "%%BATTERY_TYPE%%" => $batteryType,
-                "%%LINK%%" => $link
-            ],
-            file_get_contents(ROOT . "/views/acquisto/id/index.html")
-        ),
-        "",
-        ""
-    ];
 } else {
     $items = include ROOT . "/models/acquisto/index.php";
     $itemsHTML = "";
@@ -51,7 +71,7 @@ if (isset($_GET["id"])) {
             $src = "/public/img/purchase/$id/1.jpg";
             $image = "<img src='$src' width='200' height='200' />";
         }
-        $name = "<a href='/acquisto?id={$item["id"]}'>{$item["brand"]} {$item["device"]}</a>";
+        $name = "<a href='/acquisto?id={$item["id"]}'>{$item["brand"]} {$item["model"]}</a>";
         $price = "{$item["price"]}&euro;";
         $itemsHTML .= UtilityFunctions::replace(
             [

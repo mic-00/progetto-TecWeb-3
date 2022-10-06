@@ -6,9 +6,9 @@ $connection = new DBConnection();
 
 $items = implode(", ", $_SESSION["cart"]);
 
-$query = "SELECT `brands`.`name` AS `brand`, `devices`.`name` as `device`, `purchase_item`.`id` AS `id`, `price` " .
-    "FROM `brands` JOIN `devices` ON `brands`.`id`=`devices`.`brand` " .
-    "JOIN `purchase_item` ON `devices`.`id`=`purchase_item`.`device` " .
+$query = "SELECT `brand`.`name` AS `brand`, `model`.`name` as `model`, `purchase_item`.`id` AS `id`, `price` " .
+    "FROM `brand` JOIN `model` ON `brand`.`id`=`model`.`brand` " .
+    "JOIN `purchase_item` ON `model`.`id`=`purchase_item`.`model` " .
     "WHERE `purchase_item`.`id` IN ($items)";
 
 return $connection->query($query);
