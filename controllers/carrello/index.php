@@ -5,27 +5,28 @@ use Utils\UtilityFunctions;
 $description = "";
 $keywords = "carrello";
 
-if (isset($_SESSION["shoppingCartItems"])) {
-    $items = $_SESSION["shoppingCartItems"];
-    $itemsHTML = "";
+if (isset($_SESSION["cart"]) && count($_SESSION["cart"])) {
+    $cartItems = include ROOT . "/models/carrello/index.php";
+    $cartItemsHTML = "";
     $amount = 0;
-    foreach ($items as $id) {
-        /// get item by id from db
-        $itemsHTML .= UtilityFunctions::replace(
+    foreach ($cartItems as $cartItem) {
+        $name = "<a href='/acquisto?id={$cartItem["id"]}'>{$cartItem["brand"]} {$cartItem["device"]}</a>";
+        $price = $cartItem["price"];
+        $id = $cartItem["id"];
+        $cartItemsHTML .= UtilityFunctions::replace(
             [
-                "%%IMAGE%%" => "<img src='{$item["imgSrc"]}' alt='' />",
-                "%%NAME%%" => $item["name"],
-                "%%DESCRIPTION%%" => $item["description"],
-                "%%PRICE%%" => $item["price"]
+                "%%NAME%%" => $name,
+                "%%PRICE%%" => $price,
+                "%%ID%%" => $id
             ],
-            file_get_contents(ROOT . "/views/carrello/shopping-cart-item.html")
+            file_get_contents(ROOT . "/views/carrello/cart-item.html")
         );
-        $amount += $item["price"];
+        $amount += $price;
     }
     $main = UtilityFunctions::replace(
         [
-            "%%SHOPPINGCARTITEMS%%" => $itemsHTML,
-            "%%AMOUNT%%" => "$amount&euro;"
+            "%%SHOPPINGCARTITEMS%%" => $cartItemsHTML,
+            "%%AMOUNT%%" => $amount
         ],
         file_get_contents(ROOT . "/views/carrello/index.html")
     );
@@ -33,7 +34,7 @@ if (isset($_SESSION["shoppingCartItems"])) {
     $main = UtilityFunctions::replace(
         [
             "%%SHOPPINGCARTITEMS%%" => "<p>Nessun articolo è stato selezionato. Per visionare i nostri prodotti, clicca <a href='../acquisto'>qui</a>.</a></p>",
-            "%%AMOUNT%%" => ""
+            "%%AMOUNT%%" => 0
         ],
         file_get_contents(ROOT . "/views/carrello/index.html")
     );

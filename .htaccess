@@ -1,4 +1,5 @@
-RewriteEngine on
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^(.*)$ /index.php [NC,L,QSA]
+RewriteEngine On
+
+RewriteCond %{REQUEST_URI} !=/index.php
+RewriteCond %{REQUEST_URI} !^/public/(.*)$
+RewriteRule ^(.*)$ /index.php [L]

@@ -24,8 +24,10 @@ class DBConnection {
 
     public function query($template, ...$args) {
         $stmt = mysqli_prepare($this->connection, $template);
-        $types = str_repeat("s", count($args));
-        $stmt->bind_param($types, ...$args);
+        if (count($args)) {
+            $types = str_repeat("s", count($args));
+            $stmt->bind_param($types, ...$args);
+        }
         if ($stmt->execute()) {
             $result = $stmt->get_result();
             if ($result) {

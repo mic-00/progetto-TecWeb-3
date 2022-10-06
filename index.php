@@ -18,7 +18,7 @@ if (file_exists(ROOT . "/controllers" . $urlPath . "/index.php")) {
     $footer = include ROOT . "/controllers/footer.php";
 
     list($main, $description, $keywords) = include ROOT . "/controllers" . $urlPath . "/index.php";
-    $keywords = SITE_NAME . ", computer, tablet, smartphone, console, " . $keywords;
+    $keywords = SITE_NAME . ", tablet, smartphone, " . $keywords;
 
     echo UtilityFunctions::checkLinks(
         UtilityFunctions::replace(
@@ -34,5 +34,5 @@ if (file_exists(ROOT . "/controllers" . $urlPath . "/index.php")) {
             file_get_contents("index.html")
     ));
 } else {
-    header("HTTP/1.1 404 Not Found");
+    header("{$_SERVER["SERVER_PROTOCOL"]} 404 Not Found");
 }
