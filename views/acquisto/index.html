@@ -22,6 +22,17 @@
         </div>
     </div>
   <h2>Articoli</h2>
+  <form action="" method="get">
+    <label for="brand">Scegli una marca:</label>
+    <select id="brand" name="brand" onchange="f['getModels']()">
+      <option value="">--Seleziona--</option>
+    </select>
+    <label for="model">Scegli un modello:</label>
+    <select id="model" name="model" disabled="disabled">
+      <option value="">--Seleziona--</option>
+    </select>
+    <input type="submit" />
+  </form>
   <div id="listaProdotti">
 	%%ITEMS%%
   </div>

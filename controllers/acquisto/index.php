@@ -2,9 +2,11 @@
 
 use Utils\UtilityFunctions;
 
+$items = include ROOT . "/models/acquisto/index.php";
+
 if (isset($_GET["id"])) {
-    $item = include ROOT . "/models/acquisto/id.php";
-    if ($item) {
+    if (isset($items[0])) {
+        $item = $items[0];
         $id = $item["id"];
         $name = "{$item["brand"]} {$item["model"]}";
         $price = "{$item["price"]}&euro;";
@@ -62,7 +64,6 @@ if (isset($_GET["id"])) {
         // TODO
     }
 } else {
-    $items = include ROOT . "/models/acquisto/index.php";
     $itemsHTML = "";
     foreach ($items as $item) {
         $id = $item["id"];
@@ -84,7 +85,9 @@ if (isset($_GET["id"])) {
     }
     return [
         UtilityFunctions::replace(
-            [ "%%ITEMS%%" => $itemsHTML ],
+            [
+                "%%ITEMS%%" => $itemsHTML
+            ],
             file_get_contents(ROOT . "/views/acquisto/index.html")
         ),
         "Dispositivi elettronici usati come nuovi e a prezzi da urlo! Approfittane subito.",

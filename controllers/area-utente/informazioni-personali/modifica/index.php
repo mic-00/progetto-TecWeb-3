@@ -9,23 +9,26 @@ if (isset($_SESSION["email"], $_SESSION["username"], $_SESSION["password"])) {
     if (isset($_POST["email"], $_POST["username"], $_POST["password"])
         && filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)
         && strlen($_POST["username"]) > 0
-        && strlen($_POST["password"]) >= 8) {
-        $result = include ROOT . "/models/area-utente/informazioni-personali/modifica/index.php";
-        if ($result) {
-            $alert = "<p>Le modifiche sono state apportate correttamente.</p>";
+        && strlen($_POST["password"]) >= 8
+        && preg_match("/[0-9]+/", $_POST["password"])
+        && preg_match("/[A-Z]+/", $_POST["password"])
+    ) {
+        $changesDone = include ROOT . "/models/area-utente/informazioni-personali/modifica/index.php";
+        if ($changesDone) {
+            $alert = "Le modifiche sono state apportate correttamente.";
             $_SESSION["email"] = $_POST["email"];
             $_SESSION["username"] = $_POST["username"];
             $_SESSION["password"] = $_POST["password"];
         } else {
-            $alert = "<p>Nome utente già in uso. Per favore riprovare con uno diverso.</p>";
+            $alert = "Nome utente già in uso. Per favore riprovare con uno diverso.";
         }
     } else if (isset($_POST["email"], $_POST["username"], $_POST["password"])) {
         if (!filter_var($_POST["email"], FILTER_VALIDATE_EMAIL))
-            $alert .= "<p>Formato dell'indirizzo <span lang='en'>email</span> fornito non valido.</p>";
+            $alert .= "Formato dell'indirizzo <span lang='en'>email</span> fornito non valido.";
         if (!strlen($_POST["username"]))
-            $alert .= "<p>Il nome utente deve contenere almeno un carattere.</p>";
+            $alert .= "Il nome utente deve contenere almeno un carattere.";
         if (strlen($_POST["password"]) < 8)
-            $alert = "<p>La password deve contenere almeno otto caratteri.</p>";
+            $alert = "La password deve contenere almeno 8 caratteri, un numero e una lettera maiuscola.";
     }
     return [
         UtilityFunctions::replace(

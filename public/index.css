@@ -255,18 +255,18 @@ main {
   width: 100%;
   margin: auto;
   display: grid;
-  grid-template-columns: auto auto auto;
+  grid-template-columns: auto auto auto auto;
   gap: 1em;
 }
 
 .item {
-  padding: 1em;
+  width: 22vw;
+  padding: .5em;
   border: 1px solid black;
 }
 
 .item img {
-  display: block;
-  margin: auto;
+  width: 100%;
   height: auto;
 }
 /* footer
