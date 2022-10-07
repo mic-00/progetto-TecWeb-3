@@ -74,11 +74,13 @@ if (isset($_GET["id"])) {
         }
         $name = "<a href='/acquisto?id={$item["id"]}'>{$item["brand"]} {$item["model"]}</a>";
         $price = "{$item["price"]}&euro;";
+        $description = $item["description"];
         $itemsHTML .= UtilityFunctions::replace(
             [
                 "%%IMAGE%%" => $image,
                 "%%NAME%%" => $name,
-                "%%PRICE%%" => $price
+                "%%PRICE%%" => $price,
+                "%%DESCRIPTION%%" => $description
             ],
             file_get_contents("./views/acquisto/item.html")
         );
