@@ -1,14 +1,39 @@
-<main>
+<main class="main">
   <p>%%ERROR%%</p>
-  <div class="smallContainer">
-  <form action="" method="post">
-    <label for="email" lang="en">Email:</label>
-    <input type="text" id="email" name="email" required="required" />
-    <label for="username">Nome utente:</label>
-    <input type="text" id="username" name="username" required="required" />
-    <label for="password" lang="en">Password:</label>
-    <input type="password" id="password" name="password" required="required" />
-    <input type="submit" />
-  </form>
-  </div>
+          <div class="form-holder">
+              <div class="form-content">
+                  <div class="form-items">
+                      <h3>Registazione</h3>
+                      <p>Compila i seguenti dati.</p>
+                      <form action="" method="POST" class="requires-validation" novalidate>
+
+                          <div class="col-md-12">
+                            <label for="email">Email: </label>
+                             <input class="form-control" type="email" name="email" placeholder="Indirizzo E-mail" required="required">
+                             <!--  ma dove stracazzo e' scritto che deve essere required="required" ??? -->
+                             <div class="valid-feedback hidden">Email e' valido!</div>
+                             <div class="invalid-feedback hidden">Campo email non puo' essere vuoto!</div>
+                          </div>
+
+                          <div class="col-md-12">
+                            <label for="email">Nome utente: </label>
+                              <input class="form-control" type="text" name="utente" placeholder="Nome utente" required="required">
+                               <div class="valid-feedback hidden">Nome utente e' valido!</div>
+                               <div class="invalid-feedback hidden">Campo nome utente non puo' essere vuoto!</div>
+                          </div>
+
+                         <div class="col-md-12">
+                           <label for="email">Password: </label>
+                            <input class="form-control" type="password" name="password" placeholder="Password" required="required">
+                             <div class="valid-feedback hidden">Password e' valido!</div>
+                             <div class="invalid-feedback hidden">Campo password non puo' essere vuoto!</div>
+                         </div>
+
+                          <div class="form-button mt-3">
+                              <button id="submit" type="submit" class="button submit">Registrati!</button>
+                          </div>
+                      </form>
+                  </div>
+              </div>
+          </div>
 </main>

@@ -1,4 +1,4 @@
-<main id="home">
+<main class="main">
   <!-- TODO cambiare immagini con quelle di smartphone-->
   <div id="mainSlidingImg">
     <div class="mySlides fade">
@@ -38,16 +38,14 @@
       </div>
     </div>
 
-    <a class="prev" onclick="f['plusSlides'](-1)">&lt;</a>
-    <a class="next" onclick="f['plusSlides'](1)">&gt;</a>
-    <!-- TODO fare in modo che vengano letti pagina precedente/pagina successiva dallo screenreader e non minore/maggiore -->
+    <a class="prev" onclick="f['plusSlides'](-1)" aria-label="precedente">&lt;</a>
+    <a class="next" onclick="f['plusSlides'](1)" aria-label="successiva">&gt;</a>
 
     <div class="dots">
-      <span class="dot" onclick="f['currentSlide'](1)"></span>
-      <span class="dot" onclick="f['currentSlide'](2)"></span>
-      <span class="dot" onclick="f['currentSlide'](3)"></span>
-      <span class="dot" onclick="f['currentSlide'](4)"></span>
-      <!-- TODO aggiungere contenuto non visibile a span per screenreader -->
+      <span class="dot" onclick="f['currentSlide'](1)" aria-hidden="true"></span>
+      <span class="dot" onclick="f['currentSlide'](2)" aria-hidden="true"></span>
+      <span class="dot" onclick="f['currentSlide'](3)" aria-hidden="true"></span>
+      <span class="dot" onclick="f['currentSlide'](4)" aria-hidden="true"></span>
     </div>
 
   </div>
@@ -55,9 +53,24 @@
     <h2>Categorie <span class="focus">più popolari</span></h2>
     <nav>
       <ul>
-        <li><a href="/acquisto?category=portatile"><img class="categoryImg" src="/public/img/pc.jpg" alt="immagine computer portatile"><span>Portatile</span></a></li>
-        <li><a href="/acquisto?category=fisso"><img class="categoryImg" src="/public/img/pc.jpg" alt="immagine computer fisso"><span>Fisso</span></a></li>
-        <li><a href="/acquisto?category=smartphone"><img class="categoryImg" src="/public/img/pc.jpg" alt="immagine telefono"><span lang="en">Smartphone</span></a></li>
+        <li>
+          <a href="/acquisto?category=portatile">
+            <img class="categoryImg" src="/public/img/pc.jpg" alt="immagine computer portatile">
+            <span class="button popularCategory">Portatile</span>
+          </a>
+        </li>
+        <li>
+          <a href="/acquisto?category=fisso">
+            <img class="categoryImg" src="/public/img/pc.jpg" alt="immagine computer fisso">
+            <span class="button popularCategory">Fisso</span>
+          </a>
+        </li>
+        <li>
+          <a href="/acquisto?category=smartphone">
+            <img class="categoryImg" src="/public/img/pc.jpg" alt="immagine telefono">
+            <span lang="en" class="button popularCategory">Smartphone</span>
+          </a>
+        </li>
       </ul>
     </nav>
   </div>

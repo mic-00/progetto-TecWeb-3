@@ -57,6 +57,28 @@ nav ul {
   height: 1px;
   overflow: hidden;
 }
+
+.button{
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  cursor: pointer;
+  border-radius: .5em;
+  transition-duration: 0.4s;
+}
+
+.main {
+  background-color: #201f1d;
+  color: white;
+  padding: 1em;
+}
+
+.hidden{
+  display: none;
+}
 /* header
 ================================================== */
 #header {
@@ -93,19 +115,31 @@ nav ul {
   background-color: #f9f9f9;
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
   z-index: 1;
+  border: .2em solid green;
+  border-radius: .5em;
 }
 
-.dropdown:hover .dropdown-content {
+.show, .dropdown:hover .dropdown-content{
   display: block;
-  color: green;
 }
 
 .dropdown-content li {
   padding: 1em;
+  border-bottom: 1px solid grey;
 }
 
 .dropdown-content li:hover {
   border-left: .5em solid green;
+}
+
+.dropbtn{
+  background: none!important;
+  border: none;
+  padding: 0!important;
+  /*input has OS specific font-family*/
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
 }
 /* breadcrumb
 ================================================== */
@@ -114,6 +148,7 @@ nav ul {
   background-color: #201f1d;
   color: white;
   border-left: .5em solid green;
+  border-bottom: 1px solid white;
 }
 
 #breadcrumb p {
@@ -126,10 +161,6 @@ main {
 }
 /* home
 ================================================== */
-#home {
-  background-color: #201f1d;
-  color: white;
-}
 
 .dispN {
   display: none
@@ -248,6 +279,23 @@ main {
   width: 324px;
   height: 324px;
 }
+
+.popularCategory{
+  display: block;
+  margin: 1em;
+  padding: 1em;
+  background: linear-gradient(to left, white 50%, #4CAF50 50%) right;
+  background-size: 200%;
+  transition: .5s ease-out;
+  color: black;
+  border: 2px solid #4CAF50;
+  border-radius: .5em;
+}
+
+.popularCategory:hover {
+  background-position: left;
+  color: white;
+}
 /* acquisto
 ================================================== */
 #items {
@@ -268,6 +316,127 @@ main {
 .item img {
   width: 100%;
   height: auto;
+}
+/* Registrazione
+================================================== */
+.form-holder {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+}
+
+.form-holder .form-content {
+    position: relative;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 3em;
+}
+
+.form-content .form-items {
+    border: 3px solid #fff;
+    padding: 2em;
+    display: inline-block;
+    width: 540px;
+    border-radius: 10px;
+    text-align: left;
+}
+
+.form-content h3 {
+    color: #fff;
+    text-align: left;
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.form-content h3.form-title {
+    margin-bottom: 30px;
+}
+
+.form-content p {
+    color: #fff;
+    text-align: left;
+    font-size: 17px;
+    font-weight: 300;
+    line-height: 20px;
+    margin-bottom: 30px;
+}
+
+
+.form-content label, .was-validated .form-check-input:invalid~.form-check-label, .was-validated .form-check-input:valid~.form-check-label{
+    color: #fff;
+}
+
+.form-content input[type=text], .form-content input[type=password], .form-content input[type=email]{
+    width: 100%;
+    padding: 9px 20px;
+    text-align: left;
+    border: 0;
+    outline: 0;
+    border-radius: 6px;
+    background-color: #fff;
+    font-size: 15px;
+    font-weight: 300;
+    color: #8D8D8D;
+    margin-top: 1em;
+    margin-bottom: 1.5em;
+}
+
+.submit{
+  margin: 1em 0;
+  padding: 1em;
+  font-size: 1em;
+  font-weight: 600;
+}
+
+.submit:hover{
+  background-color: #28662a;
+}
+
+.mv-up{
+    margin-top: -9px !important;
+    margin-bottom: 8px !important;
+}
+
+.invalid-feedback{
+    color: #ff606e;
+}
+
+.valid-feedback{
+   color: #2acc80;
+}
+/* chi siamo
+================================================== */
+.container{
+  margin: 1em;
+  background-color: white;
+  border: .2em solid;
+  color: black;
+  border-radius: .5em;
+}
+
+.subtitle{
+  background-color: green;
+  color: white;
+  text-align: center;
+  padding: .5em;
+  margin: 0;
+}
+
+.testiLunghi{
+  padding: 1em;
+}
+
+#map{
+  width: 100%;
+  height: 500px;
+  padding: 0;
+  border: 1px solid green;
+  border-radius: 1em;
 }
 /* footer
 ================================================== */

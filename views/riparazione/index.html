@@ -1,15 +1,12 @@
-<main>
+<main class="main">
+  <div class="container">
   <form action="" method="post" enctype="multipart/form-data">
     <fieldset id="infoDisp">
       <legend>Informazioni sul dispositivo</legend>
-      <label for="category">Tipo del dispositivo: </label>
-      <input id="category" name="category" type="text" required="required" />
-	  <label for="marchio">Marchio del dispositivo: </label>
+	     <label for="marchio">Marchio del dispositivo: </label>
       <input id="marchio" name="marchio" type="text" required="required" />
   	  <label for="serie">Serie del dispositivo: </label>
       <input id="serie" name="serie" type="text" />
-	  <label for="buyDate">Anno d'acquisto del dispositivo: </label>
-      <input id="buyDate" name="buyDate" type="date" required="required" />
 	</fieldset>
     <fieldset id="infoDanno">
       <legend>Informazioni sul danno/malfunzionamento</legend>
@@ -18,7 +15,8 @@
       <label for="image">Caricare un'immagine del danno (facoltativo):</label>
       <input id="image" name="image" type="file" accept="image/*" />
     </fieldset>
-	<input type="reset" value="Reset" />
-	<input type="submit" value="Invia" />
+	<input class="button" type="reset" value="Reset" />
+	<input class="button" type="submit" value="Invia" />
   </form>
+  </div>
 </main>
