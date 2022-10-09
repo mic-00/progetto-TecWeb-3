@@ -1,11 +1,35 @@
 <?php
 
-if (isset($_POST[""])) {
+use Utils\UtilityFunctions;
 
+$alert = "";
+
+if (!isset($_SESSION["username"])) {
+    header("Location: /login");
+} else if (isset($_POST["brand"], $_POST["model"], $_POST["description"])) {
+    $isInserted = include ROOT . "/models/riparazione/index.php";
+    if ($isInserted) {
+        $alert = "Richiesta di riparazione accettata.";
+        if ($_FILES["image"]) {
+            $id = 1;
+            while (file_exists(ROOT . "/public/img/repair/$id")) ++$id;
+            rename(
+                $_FILES["image"]["tmp_name"],
+                ROOT . "/public/img/repair/$id." . pathinfo($_FILES["image"]["name"])["extension"]
+            );
+        }
+    } else {
+        $alert = "Richiesta di riparazione rifiutata. Controllare la corrispondenza tra nome del marchio e nome del modello.";
+    }
 } else {
-    return [
-        file_get_contents(ROOT . "/views/riparazione/index.html"),
-        "Riparare dispositivi malfunzionanti o danneggiati è la nostra passione! Non buttare via il tuo vecchio computer, portalo da noi, e tornerà come nuovo!",
-        "riparazione"
-    ];
+    $alert = "Cortesemente fornire il modello del dispositivo, una descrizione del danno e se possibile una immagine del danno.";
 }
+
+return [
+    UtilityFunctions::replace(
+        [ "%%ALERT%%" => $alert ],
+        file_get_contents(ROOT . "/views/riparazione/index.html")
+    ),
+    "Riparare dispositivi malfunzionanti o danneggiati è la nostra passione! Non buttare via il tuo vecchio computer, portalo da noi, e tornerà come nuovo!",
+    "riparazione"
+];

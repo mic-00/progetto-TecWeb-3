@@ -7,9 +7,9 @@ $connection = new DBConnection();
 $id = $brand = $model = "";
 if (isset($_GET["id"]))
     $id = "AND `purchase_item`.`id`={$_GET["id"]} ";
-if (isset($_GET["brand"]))
+if (isset($_GET["brand"]) && $_GET["brand"])
     $brand = "AND `brand`.`name`='{$_GET["brand"]}' ";
-if (isset($_GET["model"]))
+if (isset($_GET["model"]) && $_GET["model"])
     $model = "AND `model`.`name`='{$_GET["model"]}' ";
 
 $query = "SELECT `brand`.`name` AS `brand`, `model`.`name` as `model`, `purchase_item`.`id` AS `id`, `description`, `released_at`, `os`, `display_size`, " .

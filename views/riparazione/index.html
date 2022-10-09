@@ -1,22 +1,29 @@
 <main class="main">
+  <p>%%ALERT%%</p>
   <div class="container">
   <form action="" method="post" enctype="multipart/form-data">
     <fieldset id="infoDisp">
       <legend>Informazioni sul dispositivo</legend>
-	     <label for="marchio">Marchio del dispositivo: </label>
-      <input id="marchio" name="marchio" type="text" required="required" />
-  	  <label for="serie">Serie del dispositivo: </label>
-      <input id="serie" name="serie" type="text" />
-	</fieldset>
+      <label for="brand">Scegli una marca:</label>
+      <select id="brand" name="brand" onchange="f['getModels']()" disabled="disabled" required="required">
+        <option value="">--Seleziona--</option>
+      </select>
+      <label for="model">Scegli un modello:</label>
+      <select id="model" name="model" disabled="disabled" required="required">
+        <option value="">--Seleziona--</option>
+      </select>
+	  </fieldset>
     <fieldset id="infoDanno">
       <legend>Informazioni sul danno/malfunzionamento</legend>
       <label for="description">Fornire una descrizione del danno/malfunzionamento:</label>
-      <textarea id="description" name="description" type="text" required="required" />
+      <input id="description" name="description" type="text" required="required" />
       <label for="image">Caricare un'immagine del danno (facoltativo):</label>
-      <input id="image" name="image" type="file" accept="image/*" />
+      <input id="image" name="image" type="file" accept="image/*" onchange="f['enableAlt']()" />
+      <label for="alt">Fornire una descrizione alternativa dell'immagine:</label>
+      <input id="alt" name="alt" type="text" disabled="disabled" required="required" />
     </fieldset>
-	<input class="button" type="reset" value="Reset" />
-	<input class="button" type="submit" value="Invia" />
+    <input class="button" type="reset" value="Reset" />
+    <input class="button" type="submit" value="Invia" />
   </form>
   </div>
 </main>

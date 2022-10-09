@@ -48,7 +48,8 @@ if (window.location.pathname === '/') {
 //REGISTRAZIONE
 
 // ACQUISTO
-if (window.location.pathname === '/acquisto') {
+// RIPARAZIONE
+if (window.location.pathname === '/acquisto' || window.location.pathname === '/riparazione') {
   fetch('/public/brands.php')
       .then((res) => res.json())
       .then(function (data) {
@@ -60,6 +61,8 @@ if (window.location.pathname === '/acquisto') {
           option.appendChild(text);
           selectBrand.appendChild(option);
         });
+        if (data.length)
+          selectBrand.removeAttribute('disabled');
       });
 
   f['getModels'] = function () {
@@ -83,4 +86,14 @@ if (window.location.pathname === '/acquisto') {
             selectModel.setAttribute('disabled', 'disabled');
         });
   }
+}
+
+// RIPARAZIONE
+if (window.location.pathname === '/riparazione') {
+  f['enableAlt'] = function () {
+    if (document.getElementById("image").files.length)
+      document.getElementById("alt").removeAttribute("disabled")
+    else
+      document.getElementById("alt").setAttribute("disabled", "disabled");
+  };
 }
