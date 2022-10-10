@@ -92,8 +92,12 @@ if (window.location.pathname === '/acquisto' || window.location.pathname === '/r
 if (window.location.pathname === '/riparazione') {
   f['enableAlt'] = function () {
     if (document.getElementById("image").files.length)
-      document.getElementById("alt").removeAttribute("disabled")
+      document.getElementById("alt").removeAttribute("disabled");
+      document.getElementById("alt").classList.remove("disabled");
+      document.getElementById("disableddiv").classList.remove("disabled");
     else
       document.getElementById("alt").setAttribute("disabled", "disabled");
+      document.getElementById("alt").classList.add("disabled");
+      document.getElementById("disableddiv").classList.add("disabled");
   };
 }

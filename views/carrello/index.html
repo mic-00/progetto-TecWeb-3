@@ -1,5 +1,10 @@
-<main>
-  %%SHOPPINGCARTITEMS%%
-  <p>Importo totale: %%AMOUNT%%&euro;</p>
-  <a href="/carrello/paga">Procedi al pagamento</a>
+<main class="main">
+  <h1>CARRELLO</h1>
+  <div class="container">
+    %%SHOPPINGCARTITEMS%%
+  </div>
+  <div id="totalebox" class="container">
+    <p>Importo totale: <span id="totale">%%AMOUNT%%&euro;</span></p>
+    <a class="button payButton" href="/carrello/paga">Procedi al pagamento</a>
+  </div>
 </main>
