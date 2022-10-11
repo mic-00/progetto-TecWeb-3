@@ -57,7 +57,10 @@ fieldset {
   margin: 0;
 }
 
-input[type="text"], input[type="password"], input[type="email"], textarea {
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="file"] {
   width: 100%;
   border: 1px solid #8C92AC;
   border-radius: .5em;
@@ -66,7 +69,7 @@ input[type="text"], input[type="password"], input[type="email"], textarea {
   margin: 1em 0;
 }
 
-input[type="text"]::placeholder, input[type="password"]::placeholder, input[type="email"]::placeholder, textarea::placeholder {
+input[type="text"]::placeholder, input[type="password"]::placeholder, input[type="email"]::placeholder {
   color: #45555D;
 }
 
@@ -76,9 +79,10 @@ select {
   border-radius: .5em;
 }
 
-select:disabled, input:disabled, textarea:disabled {
+select:disabled, input:disabled {
   background-color: #D0D0DC;
   color: #45555D;
+  cursor: not-allowed;
 }
 
 .sr-only {
@@ -94,7 +98,33 @@ select:disabled, input:disabled, textarea:disabled {
   display: none
 }
 
+.form {
+  width: 75%;
+  margin: 3em auto;
+}
+
+.form > fieldset {
+  padding: 1em;
+  background-color: #FFFFFF;
+  border: 1px solid #8C92AC;
+  border-radius: 1em;
+}
+
+.form > input:not(.submit) { display: block; }
+
+.form > fieldset > legend {
+  position: relative;
+  margin: 0 auto 0 0;
+  padding: .25em;
+  background-color: #FFFFFF;
+  border: 1px solid #8C92AC;
+  border-radius: .5em;
+  text-align: center;
+}
+
 .button {
+  padding: 1em;
+  font-size: 1em;
   background-color: #4CAF50; /* Green */
   border: none;
   color: white;
@@ -102,13 +132,19 @@ select:disabled, input:disabled, textarea:disabled {
   text-decoration: none;
   display: inline-block;
   cursor: pointer;
+  border: 1px solid #046A38;
   border-radius: .5em;
-  transition-duration: 0.4s;
+  transition-duration: .25s;
+}
+
+.button:hover {
+  background-color: #046A38;
 }
 
 .hidden{
   display: none;
 }
+
 /* header
 ================================================== */
 #header {
@@ -131,34 +167,6 @@ select:disabled, input:disabled, textarea:disabled {
   border-top: 1px solid #8C92AC;
 }
 
-.dropdown {
-  position: relative;
-  display: inline-block;
-  cursor: default;
-}
-
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f9f9f9;
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-  z-index: 1;
-  border: 1px solid #8C92AC;
-}
-
-.show, .dropdown:hover .dropdown-content{
-  display: block;
-}
-
-.dropdown-content li {
-  padding: 1em;
-  border-bottom: 1px solid grey;
-}
-
-.dropdown-content li:hover {
-  border-left: .5em solid green;
-}
-
 /* breadcrumb
 ================================================== */
 #breadcrumb {
@@ -170,12 +178,14 @@ select:disabled, input:disabled, textarea:disabled {
 #breadcrumb p {
   margin: 0;
 }
+
 /* main
 ================================================== */
 #main {
   padding: 1em;
   background: #E0E0F0;
 }
+
 /* home
 ================================================== */
 #mainSlidingImg {
@@ -228,7 +238,7 @@ select:disabled, input:disabled, textarea:disabled {
   width: 50%;
   margin: auto;
   padding: 0 1em;
-  background-color: #E0E0F0;
+  background-color: #D0D0DC;
   border: 1px solid #8C92AC;
   border-radius: .5em;
   text-align: center;
@@ -318,6 +328,7 @@ select:disabled, input:disabled, textarea:disabled {
   background-position: left;
   color: white;
 }
+
 /* acquisto
 ================================================== */
 #items {
@@ -343,42 +354,7 @@ select:disabled, input:disabled, textarea:disabled {
 .item > div {
   padding: .5em;
 }
-/* Registrazione
-================================================== */
-.form {
-  width: 75%;
-  margin: 3em auto;
-}
 
-.form > fieldset {
-  padding: 1em;
-  background-color: #D0D0DC;
-  border: 1px solid #8C92AC;
-  border-radius: 1em;
-}
-
-.form > fieldset > * { display: block; }
-
-.form > fieldset > legend {
-  position: relative;
-  width: 30%;
-  margin: 0 auto 0 0;
-  padding: .25em;
-  background-color: #D0D0DC;
-  border: 1px solid #8C92AC;
-  border-radius: .5em;
-  text-align: center;
-}
-
-.submit {
-  padding: 1em;
-  font-size: 1em;
-  font-weight: 600;
-}
-
-.submit:hover {
-  background-color: #28662a;
-}
 /* chi siamo
 ================================================== */
 
@@ -389,20 +365,9 @@ select:disabled, input:disabled, textarea:disabled {
   border: 1px solid green;
   border-radius: 1em;
 }
+
 /* riparazione
 ================================================== */
-#riparazioneBox{
-  padding: 1em;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-#riparazioneBox fieldset {
-  background-color: #FFFFFF;
-}
-
 #infoDisp, #infoDanno{
   margin-bottom: 1em;
   padding: 1em;
@@ -410,26 +375,9 @@ select:disabled, input:disabled, textarea:disabled {
   border-radius: 12px;
 }
 
-#riparazioneBox textarea{
-  resize: none;
-  width: 100%;
-  height: 5em;
-}
-
 .container legend{
   font-size: 1em;
   font-weight: bold;
-}
-
-.reset, .invia {
-  margin: 1em 0 1em auto;
-  padding: 1em;
-  font-size: 1em;
-  font-weight: 600;
-}
-
-.reset:hover, .invia:hover{
-  background-color: #28662a;
 }
 
 /* carrello
@@ -468,6 +416,7 @@ select:disabled, input:disabled, textarea:disabled {
   font-size: 2em;
   color: green;
 }
+
 /* footer
 ================================================== */
 #footer {
