@@ -1,48 +1,57 @@
-<main class="main">
-  <!-- TODO cambiare immagini con quelle di smartphone-->
+<main id="main">
   <div id="mainSlidingImg">
     <div class="mySlides fade">
       <div class="numbertext">1 / 4</div>
-      <img src="/public/img/portatile.jpg">
-      <!-- TODO missing alt attribute -->
-      <div class="text">
-        <h3>Caption title</h3>
-        <p>Caption text</p>
+      <div>
+        <img src="/public/img/home_1.jpg" alt="" aria-describedby="text-1" />
+        <div id="text-1" class="text">
+          <div>
+            <p>Ripariamo e vendiamo dispositivi di qualsiasi marca!<p>
+            <p><span lang="en">Apple, Samsung, Huawei, Xiaomi... </span>Solo per citarne alcune.</p>
+          </div>
+        </div>
       </div>
     </div>
 
-    <div class="mySlides fade dispN">
+    <div class="mySlides fade hidden">
       <div class="numbertext">2 / 4</div>
-      <img src="/public/img/riparazione.jpg">
-      <div class="text">
-        <h3>Caption title</h3>
-        <p>Caption text</p>
+      <img src="/public/img/home_2.jpg" alt="" aria-describedby="text-3" />
+      <div id="text-2" class="text">
+        <div>
+          <p>Non solo smartphone, ma anche tablet.</p>
+          <p>Anche in questo caso siamo in grado di soddisfare ogni richiesta del cliente.</p>
+        </div>
       </div>
     </div>
 
-    <div class="mySlides fade dispN">
+    <div class="mySlides fade hidden">
       <div class="numbertext">3 / 4</div>
-      <img src="/public/img/telefoni.jpg">
-      <div class="text">
-        <h3>Caption title</h3>
-        <p>Caption text</p>
+      <img src="/public/img/home_3.jpg" alt="" aria-describedby="text-3" />
+      <div id="text-3" class="text">
+        <div>
+          <p>Mettiamo sempre il massimo della cura in quello che facciamo.</p>
+          <p>Pazienza e meticolosit&agrave; sono alla base del nostro mestiere.</p>
+        </div>
       </div>
     </div>
 
-    <div class="mySlides fade dispN">
+    <div class="mySlides fade hidden">
       <div class="numbertext">4 / 4</div>
-      <img src="/public/img/tablet.jpg">
-      <div class="text">
-        <h3>Caption title</h3>
-        <p>Caption text</p>
+      <img src="/public/img/home_4.jpg" alt="" aria-describedby="text-4" />
+      <div id="text-4" class="text">
+        <div>
+          <p>La soddisfazione del cliente &egrave; la nostra soddisfazione.</p>
+          <p>Per noi &egrave; un orgoglio potervi aiutare.</p>
+          <p></p>
+        </div>
       </div>
     </div>
 
-    <a class="prev" onclick="f['plusSlides'](-1)" aria-label="precedente">&lt;</a>
-    <a class="next" onclick="f['plusSlides'](1)" aria-label="successiva">&gt;</a>
+    <a class="prev" onclick="f['plusSlides'](-1)" aria-label="Slide precedente">&lt;</a>
+    <a class="next" onclick="f['plusSlides'](1)" aria-label="Slide successiva">&gt;</a>
 
     <div class="dots">
-      <span class="dot" onclick="f['currentSlide'](1)" aria-hidden="true"></span>
+      <span class="dot active" onclick="f['currentSlide'](1)" aria-hidden="true"></span>
       <span class="dot" onclick="f['currentSlide'](2)" aria-hidden="true"></span>
       <span class="dot" onclick="f['currentSlide'](3)" aria-hidden="true"></span>
       <span class="dot" onclick="f['currentSlide'](4)" aria-hidden="true"></span>

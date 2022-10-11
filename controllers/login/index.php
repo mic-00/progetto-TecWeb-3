@@ -2,6 +2,8 @@
 
 use Utils\UtilityFunctions;
 
+$error = "";
+
 if (isset($_SESSION["username"])) {
     if (!$_SESSION["admin"]) {
         header("Location: /area-utente/informazioni-personali");
@@ -21,23 +23,17 @@ if (isset($_SESSION["username"])) {
             header("Location: /area-amministratore");
         }
     } else {
-        $error = "<p>Credenziali errate. Per favore riprovare con un nome utente o <span lang='en'>password</span> diversa.</p>";
-        return [
-            UtilityFunctions::replace(
-                [ "%%ERROR%%" => $error ],
-                file_get_contents(ROOT . "/views/login/index.html")
-            ),
-            "Accedi per usufruire dei nostri servizi.",
-            "login, accesso"
-        ];
+        $error = "Credenziali errate. Per favore riprovare con un nome utente o <span lang='en'>password</span> diversa.";
     }
 } else {
-    return [
-        UtilityFunctions::replace(
-            [ "%%ERROR%%" => "" ],
-            file_get_contents(ROOT . "/views/login/index.html")
-        ),
-        "Accedi per usufruire dei nostri servizi.",
-        "login, accesso"
-    ];
+    $error = "Inserisci il tuo indirizzo <span lang='en'>email</span> e la tua <span lang='en'>password</span> per accedere.";
 }
+
+return [
+    UtilityFunctions::replace(
+        [ "%%ERROR%%" => $error ],
+        file_get_contents(ROOT . "/views/login/index.html")
+    ),
+    "Accedi per usufruire dei nostri servizi.",
+    "login, accesso"
+];

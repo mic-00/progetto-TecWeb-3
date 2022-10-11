@@ -1,39 +1,14 @@
-<main class="main">
+<main id="main">
+  <h2>Registrazione</h2>
   <p>%%ERROR%%</p>
-          <div class="form-holder">
-              <div class="form-content">
-                  <div class="form-items">
-                      <h3>Registazione</h3>
-                      <p>Compila i seguenti dati.</p>
-                      <form action="" method="POST" class="requires-validation" novalidate>
-
-                          <div class="col-md-12">
-                            <label for="email">Email: </label>
-                             <input class="form-control" type="email" name="email" placeholder="Indirizzo E-mail" required="required">
-                             <!--  ma dove stracazzo e' scritto che deve essere required="required" ??? -->
-                             <div class="valid-feedback hidden">Email e' valido!</div>
-                             <div class="invalid-feedback hidden">Campo email non puo' essere vuoto!</div>
-                          </div>
-
-                          <div class="col-md-12">
-                            <label for="email">Nome utente: </label>
-                              <input class="form-control" type="text" name="utente" placeholder="Nome utente" required="required">
-                               <div class="valid-feedback hidden">Nome utente e' valido!</div>
-                               <div class="invalid-feedback hidden">Campo nome utente non puo' essere vuoto!</div>
-                          </div>
-
-                         <div class="col-md-12">
-                           <label for="email">Password: </label>
-                            <input class="form-control" type="password" name="password" placeholder="Password" required="required">
-                             <div class="valid-feedback hidden">Password e' valido!</div>
-                             <div class="invalid-feedback hidden">Campo password non puo' essere vuoto!</div>
-                         </div>
-
-                          <div class="form-button mt-3">
-                              <button id="submit" type="submit" class="button submit">Registrati!</button>
-                          </div>
-                      </form>
-                  </div>
-              </div>
-          </div>
+  <form action="" method="post" class="form">
+    <fieldset>
+      <legend>Credenziali di accesso</legend>
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" placeholder="Indirizzo E-mail" required="required">
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" placeholder="Password" required="required">
+      <input id="submit" type="submit" class="button submit" value="Invia" />
+    </fieldset>
+  </form>
 </main>
