@@ -1,13 +1,15 @@
 <main id="main">
   <h2>Registrazione</h2>
   <p>%%ERROR%%</p>
-  <form action="" method="post" class="form">
+  <form id="signup" class="form" action="" method="post">
     <fieldset>
       <legend>Credenziali di accesso</legend>
-      <label for="email">Email:</label>
-      <input type="email" id="email" name="email" placeholder="Indirizzo E-mail" required="required">
-      <label for="password">Password:</label>
-      <input type="password" id="password" name="password" placeholder="Password" required="required">
+      <label for="username">Nome utente:</label>
+      <input type="text" id="username" name="username" placeholder="Nome utente:" required="required" />
+      <label for="email">Indirizzo <span lang="en">email</span>:</label>
+      <input type="email" id="email" name="email" placeholder="Indirizzo email:" required="required" />
+      <label for="password" lang="en">Password:</label>
+      <input type="password" id="password" name="password" placeholder="Password" required="required" />
       <input id="submit" type="submit" class="button submit" value="Invia" />
     </fieldset>
   </form>

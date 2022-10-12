@@ -1,65 +1,16 @@
 <main id="main">
   <h2>%%NAME%%</h2>
-  <h3>Informazioni sull'articolo</h3>
-  <p>%%PRICE%%</p>
-  <p>%%DESCRIPTION%%</p>
-  <div id="images">
-    %%IMAGES%%
-  </div>
-  <h3>Informazioni sul modello</h3>
-  <table>
-    <tr>
-      <td>Anno</td>
-      <td>%%RELEASED_AT%%</td>
-    </tr>
-    <tr>
-      <td>Sistema operativo</td>
-      <td>%%OS%%</td>
-    </tr>
-    <tr>
-      <td>Grandezza schermo</td>
-      <td>%%DISPLAY_SIZE%%</td>
-    </tr>
-    <tr>
-      <td>Risoluzione schermo</td>
-      <td>%%DISPLAY_RESOLUTION%%</td>
-    </tr>
-    <tr>
-      <td>Fotocamera posteriore</td>
-      <td>%%CAMERA_PIXELS%%</td>
-    </tr>
-    <tr>
-      <td>Processore</td>
-      <td>%%CHIPSET%%</td>
-    </tr>
-    <tr>
-      <td>Grandezza batteria</td>
-      <td>%%BATTERY_SIZE%%</td>
-    </tr>
-    <tr>
-      <td>Tipo batteria</td>
-      <td>%%BATTERY_TYPE%%</td>
-    </tr>
-    <tr>
-      <td lang="en">Bluetooth</td>
-      <td>%%BLUETOOTH%%</td>
-    </tr>
-    <tr>
-      <td>Tipo SIM</td>
-      <td>%%SIM%%</td>
-    </tr>
-    <tr>
-      <td>GPS</td>
-      <td>%%GPS%%</td>
-    </tr>
-    <tr>
-      <td>Peso</td>
-      <td>%%WEIGHT%%</td>
-    </tr>
-    <tr>
-      <td>Dimensioni</td>
-      <td>%%DIMENSIONS%%</td>
-    </tr>
-  </table>
+  <section>
+    <h3>Informazioni sull'articolo</h3>
+    <p>%%PRICE%%</p>
+    <p>%%DESCRIPTION%%</p>
+    <div id="images">
+      %%IMAGES%%
+    </div>
+  </section>
+  <section>
+    <h3>Informazioni sul modello</h3>
+    %%SPECS%%
+  </section>
   %%LINK%%
 </main>

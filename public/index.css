@@ -22,12 +22,12 @@ h1 {
 
 h2 {
   font-size: 1.5em;
-  font-weight: 600;
+  font-weight: 650;
 }
 
 h3 {
   font-size: 1em;
-  font-weight: 500;
+  font-weight: 600;
 }
 
 p, h1, h2, h3 {
@@ -57,6 +57,10 @@ fieldset {
   margin: 0;
 }
 
+label {
+  display: inline-block;
+}
+
 input[type="text"],
 input[type="password"],
 input[type="email"],
@@ -69,12 +73,15 @@ input[type="file"] {
   margin: 1em 0;
 }
 
-input[type="text"]::placeholder, input[type="password"]::placeholder, input[type="email"]::placeholder {
+input[type="text"]::placeholder,
+input[type="password"]::placeholder,
+input[type="email"]::placeholder {
   color: #45555D;
 }
 
 select {
-  padding: 0 .25em;
+  margin: .5em 0;
+  padding: .1em .25em;
   border: 1px solid #8C92AC;
   border-radius: .5em;
 }
@@ -98,11 +105,6 @@ select:disabled, input:disabled {
   display: none
 }
 
-.form {
-  width: 75%;
-  margin: 3em auto;
-}
-
 .form > fieldset {
   padding: 1em;
   background-color: #FFFFFF;
@@ -122,14 +124,12 @@ select:disabled, input:disabled {
   text-align: center;
 }
 
-.button {
+.button, a.button {
   padding: 1em;
   font-size: 1em;
   background-color: #4CAF50; /* Green */
-  border: none;
   color: white;
   text-align: center;
-  text-decoration: none;
   display: inline-block;
   cursor: pointer;
   border: 1px solid #046A38;
@@ -137,12 +137,46 @@ select:disabled, input:disabled {
   transition-duration: .25s;
 }
 
+.button.danger {
+  background-color: #ED3825;
+  border: 1px solid #DA2A2A;
+}
+
 .button:hover {
   background-color: #046A38;
 }
 
+.button.danger:hover {
+  background-color: #C80004;
+}
+
 .hidden{
   display: none;
+}
+
+/* device specifications
+================================================== */
+.specs {
+  margin-bottom: 1em;
+  background-color: white;
+  text-align: left;
+  border: 1px solid #8C92AC;
+}
+
+.specs > caption {
+  font-style: italic;
+}
+
+.specs th, .specs td {
+  padding: .25em;
+}
+
+.specs th:not(.specs th:last-child), .specs td:not(.specs td:last-child) {
+  border-right: 1px solid #8C92AC;
+}
+
+.specs tr:not(.specs tr:last-child) > th, .specs tr:not(.specs tr:last-child) > td {
+  border-bottom: 1px solid #8C92AC;
 }
 
 /* header
@@ -164,6 +198,7 @@ select:disabled, input:disabled {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  gap: 1em;
   border-top: 1px solid #8C92AC;
 }
 
@@ -188,7 +223,7 @@ select:disabled, input:disabled {
 
 /* home
 ================================================== */
-#mainSlidingImg {
+.slide, .slide-img {
   position: relative;
 }
 
@@ -217,24 +252,21 @@ select:disabled, input:disabled {
   right: 1em;
 }
 
-.mySlides {
-  position: relative;
-}
-
-.mySlides img {
+.slide-img img {
   display: block;
   margin: auto;
   max-width: 100%;
   max-height: 500px;
 }
 
-.text {
+.slide-text {
   position: absolute;
   bottom: 1em;
   width: 100%;
+  padding-top: 1em;
 }
 
-.text > div {
+.slide-text > div {
   width: 50%;
   margin: auto;
   padding: 0 1em;
@@ -244,11 +276,7 @@ select:disabled, input:disabled {
   text-align: center;
 }
 
-.text h3 {
-  font-size: 2em;
-}
-
-.numbertext {
+.slide-number {
   position: absolute;
   top: .5em;
   left: .5em;
@@ -287,48 +315,6 @@ select:disabled, input:disabled {
   to {opacity: 1}
 }
 
-#mainCategory {
-  text-align: center;
-  font-size: 1.5em;
-}
-
-.focus {
-  color: green;
-  font-style: oblique;
-}
-
-#mainCategory ul {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
-
-#mainCategory ul li {
-  padding: 0 1em;
-}
-
-.categoryImg {
-  width: 324px;
-  height: 324px;
-}
-
-.popularCategory {
-  display: block;
-  margin: 1em;
-  padding: 1em;
-  background: linear-gradient(to left, white 50%, #4CAF50 50%) right;
-  background-size: 200%;
-  transition: .5s ease-out;
-  color: black;
-  border: 2px solid #4CAF50;
-  border-radius: .5em;
-}
-
-.popularCategory:hover {
-  background-position: left;
-  color: white;
-}
-
 /* acquisto
 ================================================== */
 #items {
@@ -343,6 +329,7 @@ select:disabled, input:disabled {
 }
 
 .item {
+  background-color: #FFFFFF;
   border: 1px solid #8C92AC;
 }
 
@@ -355,15 +342,28 @@ select:disabled, input:disabled {
   padding: .5em;
 }
 
+#images {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  justify-content: space-between;
+  grid-gap: 1em;
+}
+
+#images img {
+  width: auto;
+  height: 100px;
+}
+
 /* chi siamo
 ================================================== */
+#chi-siamo-img-1, #chi-siamo-img-2 {
+  max-width: 100%;
+  height: auto;
+}
 
-#map{
-  width: 100%;
-  height: 500px;
-  padding: 0;
-  border: 1px solid green;
-  border-radius: 1em;
+#chi-siamo-img-1 {
+  margin: 0 0 1em 1em;
+  float: right;
 }
 
 /* riparazione
@@ -382,40 +382,21 @@ select:disabled, input:disabled {
 
 /* carrello
 ================================================== */
-#totalebox{
-  margin: 1em;
-  padding: 1em;
-  display: flex;
-  text-align: center;
-  justify-content: space-between;
-}
-
-#totalebox p{
-  font-size: 1em;
+#amount {
   font-weight: 600;
 }
 
-.payButton{
-  padding: 1em;
-  font-size: 1.5em;
-  background: linear-gradient(to left, white 50%, #4CAF50 50%) right;
-  background-size: 200%;
-  transition: .5s ease-out;
-  color: black;
-  border: 2px solid #4CAF50;
-  border-radius: .5em;
-}
-
-
-.payButton:hover {
-  background-position: left;
-  color: white;
-}
-
-#totale{
+#amount-value {
   font-size: 2em;
-  color: green;
+  color: #4CAF50;
 }
+/* login, registrazione
+================================================== */
+#signin, #signup {
+  width: 75%;
+  margin: 3em auto;
+}
+
 
 /* footer
 ================================================== */

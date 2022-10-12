@@ -1,37 +1,18 @@
 <main id="main">
-	<div id="sidebar">
-        <div id="categories">
-            <h2>Categorie</h2>
-            <ul>
-                <li>
-                    <a id="all" href="./">Tutto</a>
-                </li>
-                <li>
-                    <a id="portatile" href="./?category=portatile" lang="en">Portatili</a>
-                </li>
-                <li>
-                    <a id="fisso" href="./?category=fisso">Fissi</a>
-                </li>
-                <li>
-                    <a id="telefonia" href="./?category=telefonia">Telefonia</a>
-                </li>
-                <li>
-                    <a id="tablet" href="./?category=tablet">Tablet</a>
-                </li>
-            </ul>
-        </div>
-    </div>
   <h2>Articoli</h2>
-  <form action="" method="get">
-    <label for="brand">Scegli una marca:</label>
-    <select id="brand" name="brand" onchange="f['getModels']()" disabled="disabled">
-      <option value="">--Seleziona--</option>
-    </select>
-    <label for="model">Scegli un modello:</label>
-    <select id="model" name="model" disabled="disabled">
-      <option value="">--Seleziona--</option>
-    </select>
-    <input type="submit" />
+  <form action="" method="get" class="form">
+    <fieldset>
+      <legend>Filtro contenuti</legend>
+      <label for="brand">Scegli una marca:</label>
+      <select id="brand" name="brand" onchange="f['getModels']()" disabled="disabled">
+        <option value="">--Seleziona--</option>
+      </select>
+      <label for="model">Scegli un modello:</label>
+      <select id="model" name="model" disabled="disabled">
+        <option value="">--Seleziona--</option>
+      </select>
+      <input type="submit" value="Applica filtro" />
+    </fieldset>
   </form>
   <ul id="items">
 	  %%ITEMS%%

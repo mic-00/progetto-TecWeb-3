@@ -23,6 +23,7 @@ if (isset($_SESSION["cart"]) && count($_SESSION["cart"])) {
         );
         $amount += $price;
     }
+    $cartItemsHTML = "<ul>$cartItemsHTML</ul>";
     $main = UtilityFunctions::replace(
         [
             "%%SHOPPINGCARTITEMS%%" => $cartItemsHTML,

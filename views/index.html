@@ -1,10 +1,14 @@
 <main id="main">
-  <div id="mainSlidingImg">
-    <div class="mySlides fade">
-      <div class="numbertext">1 / 4</div>
+  <section>
+    <div class="slide fade">
+      <div class="slide-number">1 / 4</div>
       <div>
-        <img src="/public/img/home_1.jpg" alt="" aria-describedby="text-1" />
-        <div id="text-1" class="text">
+        <div class="slide-img">
+          <img src="/public/img/home_1.jpg" alt="" aria-describedby="text-1" />
+          <button class="prev" onclick="f['plusSlides'](-1)" aria-label="Slide precedente">&lt;</button>
+          <button class="next" onclick="f['plusSlides'](1)" aria-label="Slide successiva">&gt;</button>
+        </div>
+        <div id="text-1" class="slide-text">
           <div>
             <p>Ripariamo e vendiamo dispositivi di qualsiasi marca!<p>
             <p><span lang="en">Apple, Samsung, Huawei, Xiaomi... </span>Solo per citarne alcune.</p>
@@ -13,10 +17,14 @@
       </div>
     </div>
 
-    <div class="mySlides fade hidden">
-      <div class="numbertext">2 / 4</div>
-      <img src="/public/img/home_2.jpg" alt="" aria-describedby="text-3" />
-      <div id="text-2" class="text">
+    <div class="slide fade hidden">
+      <div class="slide-number">2 / 4</div>
+      <div class="slide-img">
+        <img src="/public/img/home_2.jpg" alt="" aria-describedby="text-2" />
+        <button class="prev" onclick="f['plusSlides'](-1)" aria-label="Slide precedente">&lt;</button>
+        <button class="next" onclick="f['plusSlides'](1)" aria-label="Slide successiva">&gt;</button>
+      </div>
+      <div id="text-2" class="slide-text">
         <div>
           <p>Non solo smartphone, ma anche tablet.</p>
           <p>Anche in questo caso siamo in grado di soddisfare ogni richiesta del cliente.</p>
@@ -24,10 +32,14 @@
       </div>
     </div>
 
-    <div class="mySlides fade hidden">
-      <div class="numbertext">3 / 4</div>
-      <img src="/public/img/home_3.jpg" alt="" aria-describedby="text-3" />
-      <div id="text-3" class="text">
+    <div class="slide fade hidden">
+      <div class="slide-number">3 / 4</div>
+      <div class="slide-img">
+        <img src="/public/img/home_3.jpg" alt="" aria-describedby="text-3" />
+        <button class="prev" onclick="f['plusSlides'](-1)" aria-label="Slide precedente">&lt;</button>
+        <button class="next" onclick="f['plusSlides'](1)" aria-label="Slide successiva">&gt;</button>
+      </div>
+      <div id="text-3" class="slide-text">
         <div>
           <p>Mettiamo sempre il massimo della cura in quello che facciamo.</p>
           <p>Pazienza e meticolosit&agrave; sono alla base del nostro mestiere.</p>
@@ -35,20 +47,20 @@
       </div>
     </div>
 
-    <div class="mySlides fade hidden">
-      <div class="numbertext">4 / 4</div>
-      <img src="/public/img/home_4.jpg" alt="" aria-describedby="text-4" />
-      <div id="text-4" class="text">
+    <div class="slide fade hidden">
+      <div class="slide-number">4 / 4</div>
+      <div class="slide-img">
+        <img src="/public/img/home_4.jpg" alt="" aria-describedby="text-4" />
+        <button class="prev" onclick="f['plusSlides'](-1)" aria-label="Slide precedente">&lt;</button>
+        <button class="next" onclick="f['plusSlides'](1)" aria-label="Slide successiva">&gt;</button>
+      </div>
+      <div id="text-4" class="slide-text">
         <div>
           <p>La soddisfazione del cliente &egrave; la nostra soddisfazione.</p>
           <p>Per noi &egrave; un orgoglio potervi aiutare.</p>
-          <p></p>
         </div>
       </div>
     </div>
-
-    <a class="prev" onclick="f['plusSlides'](-1)" aria-label="Slide precedente">&lt;</a>
-    <a class="next" onclick="f['plusSlides'](1)" aria-label="Slide successiva">&gt;</a>
 
     <div class="dots">
       <span class="dot active" onclick="f['currentSlide'](1)" aria-hidden="true"></span>
@@ -56,31 +68,5 @@
       <span class="dot" onclick="f['currentSlide'](3)" aria-hidden="true"></span>
       <span class="dot" onclick="f['currentSlide'](4)" aria-hidden="true"></span>
     </div>
-
-  </div>
-  <div id="mainCategory">
-    <h2>Categorie <span class="focus">più popolari</span></h2>
-    <nav>
-      <ul>
-        <li>
-          <a href="/acquisto?category=portatile">
-            <img class="categoryImg" src="/public/img/pc.jpg" alt="immagine computer portatile">
-            <span class="button popularCategory">Portatile</span>
-          </a>
-        </li>
-        <li>
-          <a href="/acquisto?category=fisso">
-            <img class="categoryImg" src="/public/img/pc.jpg" alt="immagine computer fisso">
-            <span class="button popularCategory">Fisso</span>
-          </a>
-        </li>
-        <li>
-          <a href="/acquisto?category=smartphone">
-            <img class="categoryImg" src="/public/img/pc.jpg" alt="immagine telefono">
-            <span lang="en" class="button popularCategory">Smartphone</span>
-          </a>
-        </li>
-      </ul>
-    </nav>
-  </div>
+  </section>
 </main>

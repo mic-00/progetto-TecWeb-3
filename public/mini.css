@@ -1,0 +1,15 @@
+/* header
+================================================== */
+#navigation > ul {
+  flex-wrap: wrap;
+}
+
+/* header
+================================================== */
+.slide-text {
+  position: static;
+}
+
+.slide-text > div {
+  width: 100%;
+}
