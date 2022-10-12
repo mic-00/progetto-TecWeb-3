@@ -50,7 +50,7 @@ if (isset($_GET["id"])) {
         );
         $link = isset($_SESSION["cart"]) && in_array($id, $_SESSION["cart"])
             ? "<a class='button' href='/carrello/rimuovi?id=$id'>Rimuovi dal carrello</a>"
-            : "<a class='button danger' href='/carrello/aggiungi?id=$id'>Aggiungi al carrello</a>";
+            : "<a class='button' href='/carrello/aggiungi?id=$id'>Aggiungi al carrello</a>";
         return [
             UtilityFunctions::replace(
                 [

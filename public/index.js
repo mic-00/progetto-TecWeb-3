@@ -1,20 +1,18 @@
-let f = [];
-//HEAD
-function dropdown(){
-  document.getElementById("myDropdown").classList.toggle("show");
-}
-window.onclick = function(event) {
-  if (!event.target.matches('.dropbtn')) {
-    var dropdowns = document.getElementsByClassName("dropdown-content");
-    var i;
-    for (i = 0; i < dropdowns.length; i++) {
-      var openDropdown = dropdowns[i];
-      if (openDropdown.classList.contains('show')) {
-        openDropdown.classList.remove('show');
-      }
-    }
+window.onscroll = function () {
+  if (document.body.scrollTop > 150 || document.documentElement.scrollTop > 150) {
+    document.getElementById('back-to-top').classList.remove('hidden');
+  } else {
+    document.getElementById('back-to-top').classList.add('hidden');
   }
 }
+
+const backToTop = function () {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+}
+
+let f = [];
+
 // HOME
 if (window.location.pathname === '/') {
   let slideIndex = 1;

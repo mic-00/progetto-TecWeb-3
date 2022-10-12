@@ -61,6 +61,10 @@ label {
   display: inline-block;
 }
 
+button {
+  cursor: pointer;
+}
+
 input[type="text"],
 input[type="password"],
 input[type="email"],
@@ -404,4 +408,22 @@ select:disabled, input:disabled {
   padding: 1em;
   background-color: #D0D0DC;
   border-top: 1px solid #8C92AC;
+}
+
+#back-to-top {
+  position: fixed;
+  right: 2em;
+  bottom: 2em;
+  width: max(5vw, 9vh);
+  height: max(5vw, 9vh);
+  padding: 0;
+  -webkit-box-shadow: -2px 2px 5px 0 #000000;
+  -moz-box-shadow: -2px 2px 5px 0 #000000;
+  -o-box-shadow: -2px 2px 5px 0 #000000;
+  box-shadow: -2px 2px 5px 0 #000000;
+}
+
+#back-to-top > img {
+  width: 100%;
+  height: 100%;
 }
