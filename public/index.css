@@ -111,6 +111,7 @@ select:disabled, input:disabled {
 
 .form > fieldset {
   padding: 1em;
+  margin-bottom: 1em;
   background-color: #FFFFFF;
   border: 1px solid #8C92AC;
   border-radius: 1em;
@@ -128,17 +129,20 @@ select:disabled, input:disabled {
   text-align: center;
 }
 
-.button, a.button {
+.button {
   padding: 1em;
   font-size: 1em;
   background-color: #4CAF50; /* Green */
-  color: white;
   text-align: center;
   display: inline-block;
   cursor: pointer;
   border: 1px solid #046A38;
   border-radius: .5em;
   transition-duration: .25s;
+}
+
+.button, a.button, .button * {
+  color: #FFFFFF;
 }
 
 .button.danger {
@@ -372,17 +376,6 @@ select:disabled, input:disabled {
 
 /* riparazione
 ================================================== */
-#infoDisp, #infoDanno{
-  margin-bottom: 1em;
-  padding: 1em;
-  border: 1px solid #8C92AC;
-  border-radius: 12px;
-}
-
-.container legend{
-  font-size: 1em;
-  font-weight: bold;
-}
 
 /* carrello
 ================================================== */
