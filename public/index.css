@@ -195,8 +195,13 @@ select:disabled, input:disabled {
   border-bottom: 1px solid #8C92AC;
 }
 
-#site-name {
+#site-name, #user-welcome {
   display: inline-block;
+  width: 50%;
+}
+
+#user-welcome {
+  text-align: right;
 }
 
 #navigation > ul {
