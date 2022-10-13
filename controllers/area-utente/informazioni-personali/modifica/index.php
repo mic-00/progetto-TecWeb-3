@@ -4,7 +4,7 @@ use Utils\UtilityFunctions;
 
 if (isset($_SESSION["email"], $_SESSION["username"], $_SESSION["password"])) {
 
-    $alert = "";
+    $error = "";
 
     if (isset($_POST["email"], $_POST["username"], $_POST["password"])
         && filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)
@@ -20,20 +20,23 @@ if (isset($_SESSION["email"], $_SESSION["username"], $_SESSION["password"])) {
             $_SESSION["username"] = $_POST["username"];
             $_SESSION["password"] = $_POST["password"];
         } else {
-            $alert = "Nome utente già in uso. Per favore riprovare con uno diverso.";
+            $error = "Nome utente già in uso. Per favore riprovare con uno diverso.";
         }
     } else if (isset($_POST["email"], $_POST["username"], $_POST["password"])) {
         if (!filter_var($_POST["email"], FILTER_VALIDATE_EMAIL))
-            $alert .= "Formato dell'indirizzo <span lang='en'>email</span> fornito non valido.";
-        if (!strlen($_POST["username"]))
-            $alert .= "Il nome utente deve contenere almeno un carattere.";
-        if (strlen($_POST["password"]) < 8)
-            $alert = "La password deve contenere almeno 8 caratteri, un numero e una lettera maiuscola.";
+            $error .= "Formato dell'indirizzo <span lang='en'>email</span> fornito non valido.";
+        else if (!strlen($_POST["username"]) || preg_match("/\s+/", $_POST["username"]))
+            $error .= "Il nome utente deve contenere almeno un carattere e non può contenere spazi.";
+        else
+            $error = "La password deve contenere almeno 8 caratteri, un numero e una lettera maiuscola.";
+    } else {
+        $error = "Inserisci un nome utente, una <span lang='en'>email</span> o una <span lang='en'>password</span> per apportare le modifiche.";
     }
+
     return [
         UtilityFunctions::replace(
             [
-                "%%ALERT%%" => $alert,
+                "%%ALERT%%" => $error,
                 "%%EMAIL%%" => $_SESSION["email"],
                 "%%USERNAME%%" => $_SESSION["username"],
                 "%%PASSWORD%%" => $_SESSION["password"]
