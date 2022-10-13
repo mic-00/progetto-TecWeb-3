@@ -4,7 +4,7 @@ use Utils\UtilityFunctions;
 
 $error = "";
 
-if (isset($_SESSION["email"], $_SESSION["username"], $_SESSION["password"])) {
+if (isset($_SESSION["email"], $_SESSION["username"], $_SESSION["password"], $_SESSION["admin"])) {
 
     if (isset($_POST["email"], $_POST["username"], $_POST["password"])
         && filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)
@@ -36,7 +36,7 @@ if (isset($_SESSION["email"], $_SESSION["username"], $_SESSION["password"])) {
     return [
         UtilityFunctions::replace(
             [
-                "%%ERROR%%" => $error,
+                "%%ALERT%%" => $error,
                 "%%EMAIL%%" => $_SESSION["email"],
                 "%%USERNAME%%" => $_SESSION["username"],
                 "%%PASSWORD%%" => $_SESSION["password"]
@@ -47,7 +47,5 @@ if (isset($_SESSION["email"], $_SESSION["username"], $_SESSION["password"])) {
         "informazioni personali, info, modifica"
     ];
 }
-
-header("Location: /login");
 
 ?>

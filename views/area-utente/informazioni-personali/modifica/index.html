@@ -15,14 +15,17 @@
       </li>
     </ul>
   </nav>
-  <p>%%ALERT%%</p>
-  <form action="" method="post">
-    <label for="email" lang="en">Email:</label>
-    <input type="text" id="email" name="email" value="%%EMAIL%%" required="required" />
-    <label for="username">Nome utente:</label>
-    <input type="text" id="username" name="username" value="%%USERNAME%%" required="required" />
-    <label for="password" lang="en">Password:</label>
-    <input type="password" id="password" name="password" value="%%PASSWORD%%" required="required" />
-    <input type="submit" />
+  <h2>Modifica i tuoi dati</h2>
+  <p>%%ERROR%%</p>
+  <form class="form" action="" method="post">
+    <fieldset>
+      <label for="email" lang="en">Email:</label>
+      <input type="text" id="email" name="email" value="%%EMAIL%%" required="required" />
+      <label for="username">Nome utente:</label>
+      <input type="text" id="username" name="username" value="%%USERNAME%%" required="required" />
+      <label for="password" lang="en">Password:</label>
+      <input type="text" id="password" name="password" value="%%PASSWORD%%" required="required" />
+      <input class="button" type="submit" />
+    </fieldset>
   </form>
 </main>
