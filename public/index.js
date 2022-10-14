@@ -23,12 +23,12 @@ if (window.location.pathname === '/') {
     if (n > slides.length) { slideIndex = 1; }
     if (n < 1) { slideIndex = slides.length; }
     for (let i = 0; i < slides.length; i++) {
-      slides[i].classList.add('hidden');
+      slides[i].classList.add('sr-only');
     }
     for (let i = 0; i < dots.length; i++) {
       dots[i].classList.remove('active');
     }
-    slides[slideIndex - 1].classList.remove('hidden');
+    slides[slideIndex - 1].classList.remove('sr-only');
     dots[slideIndex-1].classList.add('active');
   };
 
@@ -52,8 +52,8 @@ if (window.location.pathname === '/registrazione'
   f['validateUsername'] = function () {
     const input = document.getElementById('username');
     const alert = document.getElementById('username-alert');
-    const invalidRegex = /^\w*\s+\w*$/;
-    if (!input.value.match(invalidRegex)) {
+    const validRegex = /^\w+$/;
+    if (input.value.match(validRegex)) {
       alert.classList.add('hidden')
       input.classList.remove('danger');
     } else {
@@ -80,7 +80,7 @@ if (window.location.pathname === '/registrazione'
   f['validatePwd'] = function () {
     const input = document.getElementById('password');
     const alert = document.getElementById('pwd-alert');
-    const validRegex = [ /^\w{8,40}$/, /[0-9]+/, /[A-Z]+/ ];
+    const validRegex = [ /^\w{8,}$/, /[0-9]+/, /[A-Z]+/ ];
     if (validRegex.every((regex) => input.value.match(regex))) {
       alert.classList.add('hidden')
       input.classList.remove('danger');
@@ -142,4 +142,10 @@ if (window.location.pathname === '/riparazione') {
       document.getElementById("alt").setAttribute("disabled", "disabled");
     }
   };
+
+  f['resetForm'] = function () {
+    const form = document.getElementById('repair-form');
+    form.reset();
+    f['enableAlt']();
+  }
 }

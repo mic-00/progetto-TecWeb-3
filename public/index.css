@@ -147,14 +147,14 @@ select:disabled, input:disabled {
   text-align: center;
 }
 
-.form label {
+.form .label-with-alert {
   width: 30%;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
-.form label + span[role="alert"]:not(.hidden) {
+.form .label-with-alert + span[role="alert"]:not(.hidden) {
   display: inline-block;
   width: 70%;
   text-align: right;

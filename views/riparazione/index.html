@@ -1,7 +1,7 @@
 <main id="main">
   <h2>Chiedi una riparazione</h2>
   <p>%%ALERT%%</p>
-  <form class="form" action="" method="post" enctype="multipart/form-data">
+  <form id="repair-form" class="form" action="" method="post" enctype="multipart/form-data">
     <fieldset id="infoDisp">
       <legend>Informazioni sul dispositivo</legend>
       <label for="brand">Scegli una marca:</label>
@@ -16,13 +16,13 @@
     <fieldset id="infoDanno">
       <legend>Informazioni sul danno/malfunzionamento</legend>
       <label for="description">Fornire una descrizione del danno/malfunzionamento:</label>
-      <input id="description" name="description" type="text" placeholder="Inserisci una descrizione" required="required" />
+      <input id="description" name="description" type="text" placeholder="Inserisci una descrizione:" required="required" />
       <label for="image">Caricare un'immagine del danno (facoltativo):</label>
-      <input id="image" name="image" type="file" accept="image/*" />
+      <input id="image" name="image" type="file" accept="image/*" onchange="f['enableAlt']()" />
       <label for="alt">Fornire una descrizione alternativa dell'immagine:</label>
-      <input id="alt" class="disabled" name="alt" type="text" placeholder="Inserisci una descrizione alternativa" disabled="disabled" required="required" />
+      <input id="alt" class="disabled" name="alt" type="text" placeholder="Inserisci una descrizione alternativa:" disabled="disabled" required="required" />
     </fieldset>
-    <input class="submit button" type="reset" value="Reset" />
+    <input class="submit button" type="button" value="Reset" onclick="f['resetForm']()" />
     <input class="submit button" type="submit" value="Invia" />
   </form>
 </main>

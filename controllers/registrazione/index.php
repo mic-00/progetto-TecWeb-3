@@ -6,8 +6,8 @@ $error = "";
 
 if (isset($_POST["email"], $_POST["username"], $_POST["password"])
     && filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)
-    && !preg_match("/^\w*\s+\w*$/", $_POST["username"])
-    && preg_match("/^\w{8,40}$/", $_POST["password"])
+    && preg_match("/^\w+$/", $_POST["username"])
+    && preg_match("/^\w{8,}$/", $_POST["password"])
     && preg_match("/[0-9]+/", $_POST["password"])
     && preg_match("/[A-Z]+/", $_POST["password"])
     ) {

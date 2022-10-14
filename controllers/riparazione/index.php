@@ -7,12 +7,10 @@ $alert = "";
 if (!isset($_SESSION["username"])) {
     header("Location: /login");
 } else if (isset($_POST["brand"], $_POST["model"], $_POST["description"])) {
-    $isInserted = include ROOT . "/models/riparazione/index.php";
-    if ($isInserted) {
+    $id = include ROOT . "/models/riparazione/index.php";
+    if ($id) {
         $alert = "Richiesta di riparazione accettata.";
         if ($_FILES["image"]) {
-            $id = 1;
-            while (file_exists(ROOT . "/public/img/repair/$id")) ++$id;
             rename(
                 $_FILES["image"]["tmp_name"],
                 ROOT . "/public/img/repair/$id." . pathinfo($_FILES["image"]["name"])["extension"]

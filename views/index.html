@@ -1,12 +1,12 @@
 <main id="main">
   <section>
     <div class="slide fade">
-      <div class="slide-number">1 / 4</div>
+      <div class="slide-number" aria-hidden="true">1 / 4</div>
       <div>
         <div class="slide-img">
           <img src="/public/img/home_1.jpg" alt="" aria-describedby="text-1" />
-          <button class="prev" onclick="f['plusSlides'](-1)" aria-label="Slide precedente">&lt;</button>
-          <button class="next" onclick="f['plusSlides'](1)" aria-label="Slide successiva">&gt;</button>
+          <button class="prev" onclick="f['plusSlides'](-1)" aria-hidden="true">&lt;</button>
+          <button class="next" onclick="f['plusSlides'](1)" aria-hidden="true">&gt;</button>
         </div>
         <div id="text-1" class="slide-text">
           <div>
@@ -17,12 +17,12 @@
       </div>
     </div>
 
-    <div class="slide fade hidden">
-      <div class="slide-number">2 / 4</div>
+    <div class="slide fade sr-only">
+      <div class="slide-number" aria-hidden="true">2 / 4</div>
       <div class="slide-img">
         <img src="/public/img/home_2.jpg" alt="" aria-describedby="text-2" />
-        <button class="prev" onclick="f['plusSlides'](-1)" aria-label="Slide precedente">&lt;</button>
-        <button class="next" onclick="f['plusSlides'](1)" aria-label="Slide successiva">&gt;</button>
+        <button class="prev" onclick="f['plusSlides'](-1)" aria-hidden="true">&lt;</button>
+        <button class="next" onclick="f['plusSlides'](1)" aria-hidden="true">&gt;</button>
       </div>
       <div id="text-2" class="slide-text">
         <div>
@@ -32,12 +32,12 @@
       </div>
     </div>
 
-    <div class="slide fade hidden">
-      <div class="slide-number">3 / 4</div>
+    <div class="slide fade sr-only">
+      <div class="slide-number" aria-hidden="true">3 / 4</div>
       <div class="slide-img">
         <img src="/public/img/home_3.jpg" alt="" aria-describedby="text-3" />
-        <button class="prev" onclick="f['plusSlides'](-1)" aria-label="Slide precedente">&lt;</button>
-        <button class="next" onclick="f['plusSlides'](1)" aria-label="Slide successiva">&gt;</button>
+        <button class="prev" onclick="f['plusSlides'](-1)" aria-hidden="true">&lt;</button>
+        <button class="next" onclick="f['plusSlides'](1)" aria-hidden="true">&gt;</button>
       </div>
       <div id="text-3" class="slide-text">
         <div>
@@ -47,12 +47,12 @@
       </div>
     </div>
 
-    <div class="slide fade hidden">
-      <div class="slide-number">4 / 4</div>
+    <div class="slide fade sr-only">
+      <div class="slide-number" aria-hidden="true">4 / 4</div>
       <div class="slide-img">
         <img src="/public/img/home_4.jpg" alt="" aria-describedby="text-4" />
-        <button class="prev" onclick="f['plusSlides'](-1)" aria-label="Slide precedente">&lt;</button>
-        <button class="next" onclick="f['plusSlides'](1)" aria-label="Slide successiva">&gt;</button>
+        <button class="prev" onclick="f['plusSlides'](-1)" aria-hidden="true">&lt;</button>
+        <button class="next" onclick="f['plusSlides'](1)" aria-hidden="true">&gt;</button>
       </div>
       <div id="text-4" class="slide-text">
         <div>
@@ -62,11 +62,11 @@
       </div>
     </div>
 
-    <div class="dots">
-      <span class="dot active" onclick="f['currentSlide'](1)" aria-hidden="true"></span>
-      <span class="dot" onclick="f['currentSlide'](2)" aria-hidden="true"></span>
-      <span class="dot" onclick="f['currentSlide'](3)" aria-hidden="true"></span>
-      <span class="dot" onclick="f['currentSlide'](4)" aria-hidden="true"></span>
+    <div class="dots" aria-hidden="true">
+      <button class="dot active" onclick="f['currentSlide'](1)" aria-label="Passa alla slide 1"></button>
+      <button class="dot" onclick="f['currentSlide'](2)" aria-label="Passa alla slide 2"></button>
+      <button class="dot" onclick="f['currentSlide'](3)" aria-label="Passa alla slide 3"></button>
+      <button class="dot" onclick="f['currentSlide'](4)" aria-label="Passa alla slide 4"></button>
     </div>
   </section>
 </main>

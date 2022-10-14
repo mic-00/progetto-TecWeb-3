@@ -8,8 +8,8 @@ if (isset($_SESSION["email"], $_SESSION["username"], $_SESSION["password"], $_SE
 
     if (isset($_POST["email"], $_POST["username"], $_POST["password"])
         && filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)
-        && strlen($_POST["username"]) > 0
-        && strlen($_POST["password"]) >= 8
+        && preg_match("/^\w+$/", $_POST["username"])
+        && preg_match("/^\w{8,}$/", $_POST["password"])
         && preg_match("/[0-9]+/", $_POST["password"])
         && preg_match("/[A-Z]+/", $_POST["password"])
     ) {

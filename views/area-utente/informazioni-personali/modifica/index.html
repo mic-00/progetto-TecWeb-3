@@ -1,25 +1,9 @@
 <main id="main">
-  <nav>
-    <ul>
-      <li>
-        <a href="/area-utente/informazioni-personali">Informazioni personali</a>
-      </li>
-      <li>
-        <a href="/area-utente/riparazioni">Le tue riparazioni</a>
-      </li>
-      <li>
-        <a href="/area-utente/vendite">Le tue vendite</a>
-      </li>
-      <li>
-        <a href="/area-utente/acquisti">I tuoi acquisti</a>
-      </li>
-    </ul>
-  </nav>
   <h2>Modifica i tuoi dati</h2>
   <p>%%ERROR%%</p>
   <form class="form" action="" method="post">
     <fieldset>
-      <label for="username">Nome utente:</label
+      <label class="label-with-alert" for="username">Nome utente:</label
       ><span id="username-alert" class="hidden" role="alert">
         Il nome utente deve contenere almeno un carattere e non può contenere spazi.
       </span>
@@ -32,7 +16,7 @@
           required="required"
           onchange="f['validateUsername']()"
       />
-      <label for="email" lang="en">Email:</label
+      <label class="label-with-alert" for="email" lang="en">Email:</label
       ><span id="email-alert" class="hidden" role="alert">
         Formato dell'indirizzo <span lang='en'>email</span> fornito non valido.
       </span>
@@ -45,7 +29,7 @@
           required="required"
           onchange="f['validateEmail']()"
       />
-      <label for="password" lang="en">Password:</label
+      <label class="label-with-alert" for="password" lang="en">Password:</label
       ><span id="pwd-alert" class="hidden" role="alert">
         La password deve contenere tra gli 8 e i 40 caratteri, di cui almeno un numero e una lettera maiuscola.
       </span>
