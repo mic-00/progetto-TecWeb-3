@@ -42,7 +42,55 @@ if (window.location.pathname === '/') {
 
   f['showSlides'](slideIndex);
 }
-//REGISTRAZIONE
+
+// REGISTRAZIONE
+// MODIFICA DATI UTENTE
+// MODIFICA DATI AMMINISTRATORE
+if (window.location.pathname === '/registrazione'
+    || window.location.pathname === '/area-utente/informazioni-personali/modifica'
+    || window.location.pathname === '/area-amministratore/informazioni-personali/modifica') {
+  f['validateUsername'] = function () {
+    const input = document.getElementById('username');
+    const alert = document.getElementById('username-alert');
+    const invalidRegex = /^\w*\s+\w*$/;
+    if (!input.value.match(invalidRegex)) {
+      alert.classList.add('hidden')
+      input.classList.remove('danger');
+    } else {
+      alert.classList.remove('hidden');
+      input.classList.add('danger');
+      input.value = null;
+    }
+  };
+
+  f['validateEmail'] = function () {
+    const input = document.getElementById('email');
+    const alert = document.getElementById('email-alert');
+    const validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
+    if (input.value.match(validRegex)) {
+      alert.classList.add('hidden')
+      input.classList.remove('danger');
+    } else {
+      alert.classList.remove('hidden');
+      input.classList.add('danger');
+      input.value = null;
+    }
+  };
+
+  f['validatePwd'] = function () {
+    const input = document.getElementById('password');
+    const alert = document.getElementById('pwd-alert');
+    const validRegex = [ /^\w{8,40}$/, /[0-9]+/, /[A-Z]+/ ];
+    if (validRegex.every((regex) => input.value.match(regex))) {
+      alert.classList.add('hidden')
+      input.classList.remove('danger');
+    } else {
+      alert.classList.remove('hidden');
+      input.classList.add('danger');
+      input.value = null;
+    }
+  }
+}
 
 // ACQUISTO
 // RIPARAZIONE

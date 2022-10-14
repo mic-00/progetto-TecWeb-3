@@ -28,7 +28,7 @@ if (isset($_SESSION["email"], $_SESSION["username"], $_SESSION["password"])) {
         else if (!strlen($_POST["username"]) || preg_match("/\s+/", $_POST["username"]))
             $error .= "Il nome utente deve contenere almeno un carattere e non può contenere spazi.";
         else
-            $error = "La password deve contenere almeno 8 caratteri, un numero e una lettera maiuscola.";
+            $error = "La password deve contenere tra gli 8 e i 40 caratteri, di cui almeno un numero e una lettera maiuscola.";
     } else {
         $error = "Inserisci un nome utente, una <span lang='en'>email</span> o una <span lang='en'>password</span> per apportare le modifiche.";
     }

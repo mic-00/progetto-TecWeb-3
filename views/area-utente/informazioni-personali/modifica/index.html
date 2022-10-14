@@ -19,13 +19,46 @@
   <p>%%ERROR%%</p>
   <form class="form" action="" method="post">
     <fieldset>
-      <label for="email" lang="en">Email:</label>
-      <input type="text" id="email" name="email" value="%%EMAIL%%" required="required" />
-      <label for="username">Nome utente:</label>
-      <input type="text" id="username" name="username" value="%%USERNAME%%" required="required" />
-      <label for="password" lang="en">Password:</label>
-      <input type="text" id="password" name="password" value="%%PASSWORD%%" required="required" />
-      <input class="button" type="submit" />
+      <label for="username">Nome utente:</label
+      ><span id="username-alert" class="hidden" role="alert">
+        Il nome utente deve contenere almeno un carattere e non può contenere spazi.
+      </span>
+      <input
+          type="text"
+          id="username"
+          name="username"
+          value="%%USERNAME%%"
+          placeholder="Nome utente:"
+          required="required"
+          onchange="f['validateUsername']()"
+      />
+      <label for="email" lang="en">Email:</label
+      ><span id="email-alert" class="hidden" role="alert">
+        Formato dell'indirizzo <span lang='en'>email</span> fornito non valido.
+      </span>
+      <input
+          type="email"
+          id="email"
+          name="email"
+          value="%%EMAIL%%"
+          placeholder="Indirizzo email:"
+          required="required"
+          onchange="f['validateEmail']()"
+      />
+      <label for="password" lang="en">Password:</label
+      ><span id="pwd-alert" class="hidden" role="alert">
+        La password deve contenere tra gli 8 e i 40 caratteri, di cui almeno un numero e una lettera maiuscola.
+      </span>
+      <input
+          type="password"
+          id="password"
+          name="password"
+          value="%%PASSWORD%%"
+          placeholder="Password:"
+          required="required"
+          onchange="f['validatePwd']()"
+      />
+      <input class="button" type="submit" value="Salva modifiche" />
     </fieldset>
   </form>
 </main>

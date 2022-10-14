@@ -42,6 +42,10 @@ a:visited {
   color: #551A8B;
 }
 
+span {
+  color: inherit;
+}
+
 nav ul {
   margin: 0;
   padding: 0;
@@ -77,10 +81,24 @@ input[type="file"] {
   margin: 1em 0;
 }
 
+input[type="text"].danger,
+input[type="password"].danger,
+input[type="email"].danger,
+input[type="file"].danger {
+  border: 1px solid #DA2A2A;
+  background-color: #FFF7F7;
+}
+
 input[type="text"]::placeholder,
 input[type="password"]::placeholder,
 input[type="email"]::placeholder {
   color: #45555D;
+}
+
+input[type="text"].danger::placeholder,
+input[type="password"].danger::placeholder,
+input[type="email"].danger::placeholder {
+  color: #DA2A2A;
 }
 
 select {
@@ -129,6 +147,21 @@ select:disabled, input:disabled {
   text-align: center;
 }
 
+.form label {
+  width: 30%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.form label + span[role="alert"]:not(.hidden) {
+  display: inline-block;
+  width: 70%;
+  text-align: right;
+  color: #C80004;
+  font-style: italic;
+}
+
 .button {
   padding: 1em;
   font-size: 1em;
@@ -156,10 +189,6 @@ select:disabled, input:disabled {
 
 .button.danger:hover {
   background-color: #C80004;
-}
-
-.hidden{
-  display: none;
 }
 
 /* device specifications
@@ -195,12 +224,14 @@ select:disabled, input:disabled {
   border-bottom: 1px solid #8C92AC;
 }
 
-#site-name, #user-welcome {
+#site-name {
   display: inline-block;
-  width: 50%;
+  width: 70%;
 }
 
 #user-welcome {
+  display: inline-block;
+  width: 30%;
   text-align: right;
 }
 
