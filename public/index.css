@@ -195,7 +195,7 @@ select:disabled, input:disabled {
 ================================================== */
 .specs {
   margin-bottom: 1em;
-  background-color: white;
+  background-color: #FFFFFF;
   text-align: left;
   border: 1px solid #8C92AC;
 }

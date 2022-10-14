@@ -1,0 +1,83 @@
+.button, .button.danger {
+  background-color: #FFFFFF00;
+}
+
+.button, a.button, .button * {
+  color: #046A38;
+}
+
+.button.danger, a.button.danger, .button.danger * {
+  color: #DA2A2A;
+}
+
+.form > fieldset {
+  background-color: #FFFFFF00;
+}
+
+.form > fieldset > legend {
+  background-color: #FFFFFF00;
+}
+
+/* device specifications
+================================================== */
+.specs {
+  background-color: #FFFFFF00;
+}
+
+/* header
+================================================== */
+#header {
+  padding: 0;
+  background-color: #FFFFFF00;
+}
+
+/* breadcrumb
+================================================== */
+#breadcrumb {
+  padding: 1em 0;
+  background-color: #FFFFFF00;
+}
+
+/* main
+================================================== */
+#main {
+  padding: 1em 0;
+  background-color: #FFFFFF00;
+}
+
+/* home
+================================================== */
+.prev, .next {
+  display: none;
+}
+
+.slide {
+  display: block;
+}
+
+.fade {
+  animation-name: none;
+}
+
+.slide-number {
+  display: none;
+}
+
+.slide-text > div {
+  background-color: #FFFFFF;
+}
+
+.dots {
+  display: none;
+}
+
+/* footer
+================================================== */
+#footer {
+  padding: 1em 0;
+  background-color: #FFFFFF00;
+}
+
+#back-to-top {
+  display: none;
+}
