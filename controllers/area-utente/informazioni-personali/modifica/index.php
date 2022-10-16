@@ -4,7 +4,7 @@ use Utils\UtilityFunctions;
 
 $error = "";
 
-if (isset($_SESSION["email"], $_SESSION["username"], $_SESSION["password"])) {
+if (isset($_SESSION["email"], $_SESSION["username"], $_SESSION["password"], $_SESSION["admin"])) {
 
     if (isset($_POST["email"], $_POST["username"], $_POST["password"])
         && filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)

@@ -94,7 +94,10 @@ if (window.location.pathname === '/registrazione'
 
 // ACQUISTO
 // RIPARAZIONE
-if (window.location.pathname === '/acquisto' || window.location.pathname === '/riparazione') {
+// GESTIONE MODELLI
+if (window.location.pathname === '/acquisto'
+    || window.location.pathname === '/riparazione'
+    || window.location.pathname === '/area-amministratore/gestione-modelli') {
   fetch('/public/brands.php')
       .then((res) => res.json())
       .then(function (data) {

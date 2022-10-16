@@ -36,6 +36,7 @@ if (isset($_SESSION["email"], $_SESSION["username"], $_SESSION["password"], $_SE
     return [
         UtilityFunctions::replace(
             [
+                "%%SIDEBAR%%" => file_get_contents(ROOT . "/views/area-amministratore/sidebar.html"),
                 "%%ALERT%%" => $error,
                 "%%EMAIL%%" => $_SESSION["email"],
                 "%%USERNAME%%" => $_SESSION["username"],

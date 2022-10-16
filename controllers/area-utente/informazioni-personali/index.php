@@ -2,7 +2,7 @@
 
 use Utils\UtilityFunctions;
 
-if (isset($_SESSION["email"], $_SESSION["username"], $_SESSION["password"])) {
+if (isset($_SESSION["email"], $_SESSION["username"], $_SESSION["password"], $_SESSION["admin"])) {
     return [
         UtilityFunctions::replace(
             [

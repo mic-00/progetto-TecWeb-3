@@ -1,5 +1,29 @@
 <main id="main">
+  %%SIDEBAR%%
   <h2>Gestione modelli</h2>
+  <form action="" method="get" class="form">
+    <fieldset>
+      <legend>Filtro contenuti</legend>
+      <label for="brand">Scegli una marca:</label>
+      <select id="brand" name="brand" onchange="f['getModels']()" disabled="disabled">
+        <option value="">--Seleziona--</option>
+      </select>
+      <label for="model">Scegli un modello:</label>
+      <select id="model" name="model" disabled="disabled">
+        <option value="">--Seleziona--</option>
+      </select>
+      <input type="submit" value="Applica filtro" class="small button" />
+    </fieldset>
+  </form>
+  <form action="" method="post" class="form">
+    <fieldset>
+      <input type="hidden" name="current-page" class="small button" value="%%CURRENT_PAGE%%" />
+      <input type="submit" id="first" name="first" value="<<" class="small button" aria-label="Passa alla prima pagina" />
+      <input type="submit" id="prev" name="prev" value="<" class="small button" aria-label="Passa alla pagina precedente" />
+      <input type="submit" id="next" name="next" value=">" class="small button" aria-label="Passa alla pagina successiva" />
+      <input type="submit" id="last" name="last" value=">>" class="small button" aria-label="Passa all'ultima pagina" />
+    </fieldset>
+  </form>
   <ul id="models">
     %%MODELS%%
   </ul>

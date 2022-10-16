@@ -3,8 +3,8 @@
 use Utils\UtilityFunctions;
 
 $user = $login = $logout = "";
-if (isset($_SESSION["username"], $_SESSION["email"], $_SESSION["password"])) {
-    $href = isset($_SESSION["admin"]) ? "/area-amministratore/informazioni-personali" : "/area-utente/informazioni-personali";
+if (isset($_SESSION["username"], $_SESSION["email"], $_SESSION["password"], $_SESSION["admin"])) {
+    $href = $_SESSION["admin"] ? "/area-amministratore/informazioni-personali" : "/area-utente/informazioni-personali";
     $user = "<span id='user-welcome'>Ciao <a href='$href'>{$_SESSION["username"]}</a>!</span>";
     $logout = "<li><a href='/logout' lang='en'>Logout</a></li>";
 } else {
