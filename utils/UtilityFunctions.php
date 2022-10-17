@@ -18,15 +18,16 @@ class UtilityFunctions
     }
 
     public static function checkLinks(string $html): string {
-        $urlPath = parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH);
         $dom = new DOMDocument();
         libxml_use_internal_errors(true);
         $dom->loadHTML($html);
         libxml_clear_errors();
         $links = $dom->getElementsByTagName("a");
         foreach ($links as $link) {
-            if ($_SERVER["REQUEST_URI"] === $link->getAttribute("href")
-            || !file_exists(ROOT . "/controllers" . $urlPath . "/index.php"))
+            $href = $link->getAttribute("href");
+            $path = parse_url($href, PHP_URL_PATH);
+            if ($_SERVER["REQUEST_URI"] === $href
+                || !file_exists(ROOT . "/controllers" . $path . "/index.php"))
                 $link->removeAttribute("href");
         }
         return $dom->saveHTML();

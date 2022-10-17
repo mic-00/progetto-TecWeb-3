@@ -18,7 +18,7 @@ if ($model)
 
 $query = "SELECT COUNT(`model`.`id`) AS `count` FROM `brand` JOIN `model` ON `brand`.`id`=`model`.`brand` {$clause}";
 $models = $connection->query($query)[0]["count"];
-$pages = floor($models / 100) + 1;
+$pages = floor($models / 50) + 1;
 
 $currentPage = 0;
 
@@ -50,7 +50,7 @@ $query = "SELECT `model`.`id` AS `id`, `model`.`name` AS `model`, `model`.`brand
 
 return [
     $currentPage,
-    $connection->query($query, ($currentPage + 1) * 100, $currentPage * 100)
+    $connection->query($query, ($currentPage + 1) * 50, $currentPage * 50)
 ];
 
 ?>

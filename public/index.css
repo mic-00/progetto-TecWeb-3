@@ -437,18 +437,21 @@ select:disabled, input:disabled {
 
 /* area amministratore
 ================================================== */
-#models {
+#models, #repairs {
   list-style-type: none;
   padding: 0;
 }
 
-#models > li {
+#models > li, #repairs > li {
   margin: 1em 0;
   padding: 1em;
   background-color: #FFFFFF;
   border: 1px solid #8C92AC;
   border-radius: 1em;
 }
+
+/* pagina 404
+================================================== */
 
 /* footer
 ================================================== */

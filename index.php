@@ -11,28 +11,33 @@ if (session_status() === PHP_SESSION_NONE)
 
 $urlPath = parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH);
 
+$title = include ROOT . "/controllers/title.php";
+$header = include ROOT . "/controllers/header.php";
+$breadcrumb = include ROOT . "/controllers/breadcrumb.php";
+$footer = include ROOT . "/controllers/footer.php";
+$main = $description = $keywords = null;
+
 if (file_exists(ROOT . "/controllers" . $urlPath . "/index.php")) {
-    $title = include ROOT . "/controllers/title.php";
-    $header = include ROOT . "/controllers/header.php";
-    $breadcrumb = include ROOT . "/controllers/breadcrumb.php";
-    $footer = include ROOT . "/controllers/footer.php";
-
     list($main, $description, $keywords) = include ROOT . "/controllers" . $urlPath . "/index.php";
-    $keywords = SITE_NAME . ", tablet, smartphone, " . $keywords;
-
-    echo UtilityFunctions::checkLinks(
-        UtilityFunctions::replace(
-            [
-                "%%DESCRIPTION%%" =>$description,
-                "%%KEYWORDS%%" => $keywords,
-                "%%TITLE%%" => $title,
-                "%%HEADER%%" => $header,
-                "%%BREADCRUMB%%" => $breadcrumb,
-                "%%MAIN%%" => $main,
-                "%%FOOTER%%" => $footer
-            ],
-            file_get_contents("index.html")
-    ));
 } else {
+    $main = file_get_contents(ROOT . "/views/page-404.html");
+    $description = "La pagina richiesta non è stata trovata.";
+    $keywords = "errore 404";
     header("{$_SERVER["SERVER_PROTOCOL"]} 404 Not Found");
 }
+
+$keywords = SITE_NAME . ", tablet, smartphone, " . $keywords;
+
+echo UtilityFunctions::checkLinks(
+    UtilityFunctions::replace(
+        [
+            "%%DESCRIPTION%%" =>$description,
+            "%%KEYWORDS%%" => $keywords,
+            "%%TITLE%%" => $title,
+            "%%HEADER%%" => $header,
+            "%%BREADCRUMB%%" => $breadcrumb,
+            "%%MAIN%%" => $main,
+            "%%FOOTER%%" => $footer
+        ],
+        file_get_contents("index.html")
+    ));
