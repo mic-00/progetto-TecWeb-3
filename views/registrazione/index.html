@@ -1,12 +1,12 @@
 <main id="main">
   <h2>Registrazione</h2>
   <p>%%ERROR%%</p>
-  <form id="signup" class="form" action="" method="post">
+  <form id="signup" class="form" action="" method="post" onsubmit="f['formIsValid']()">
     <fieldset>
       <legend>Credenziali di accesso</legend>
       <label class="label-with-alert" for="username">Nome utente:</label
       ><span id="username-alert" class="hidden" role="alert">
-        Il nome utente deve contenere almeno un carattere e non può contenere spazi.
+        Il nome utente deve contenere tra 4 e 10 caratteri (solo lettere minuscole e numeri ammessi).
       </span>
       <input
           type="text"

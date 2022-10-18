@@ -1,11 +1,11 @@
 <main id="main">
   <h2>Modifica i tuoi dati</h2>
   <p>%%ERROR%%</p>
-  <form class="form" action="" method="post">
+  <form class="form" action="" method="post" onsubmit="f['formIsValid']()">
     <fieldset>
       <label class="label-with-alert" for="username">Nome utente:</label
       ><span id="username-alert" class="hidden" role="alert">
-        Il nome utente deve contenere almeno un carattere e non può contenere spazi.
+        Il nome utente deve contenere tra 4 e 10 caratteri (solo lettere minuscole e numeri ammessi).
       </span>
       <input
           type="text"

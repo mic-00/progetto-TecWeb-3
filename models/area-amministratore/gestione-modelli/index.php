@@ -4,7 +4,7 @@ use DB\DBConnection;
 
 $connection = new DBConnection();
 
-$clause = "";
+$clause = "WHERE 1=1 ";
 $brand = $model = "";
 
 if (isset($_GET["brand"])) {
@@ -12,7 +12,7 @@ if (isset($_GET["brand"])) {
     $model = $_GET["model"] ?? "";
 }
 if ($brand)
-    $clause = "WHERE `brand`.`name`='$brand' ";
+    $clause = "AND `brand`.`name`='$brand' ";
 if ($model)
     $clause .= "AND `model`.`name`='$model' ";
 

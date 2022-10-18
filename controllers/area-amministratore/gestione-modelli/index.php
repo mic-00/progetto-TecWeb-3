@@ -5,7 +5,7 @@ use Utils\UtilityFunctions;
 if (isset($_SESSION["email"], $_SESSION["username"], $_SESSION["password"], $_SESSION["admin"])) {
     if ($_SESSION["admin"]) {
         if (isset($_GET["id"])) {
-
+            $model = include ROOT . "/models/area-amministratore/gestione-modelli/id/index.php";
         } else {
             list($currentPage, $models) = include ROOT . "/models/area-amministratore/gestione-modelli/index.php";
             $modelsHTML = "";

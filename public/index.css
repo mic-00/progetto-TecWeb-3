@@ -93,8 +93,12 @@ input[type="text"]::placeholder,
 input[type="password"]::placeholder,
 input[type="email"]::placeholder {
   color: #45555D;
+  opacity: .8;
 }
 
+input[type="text"].danger,
+input[type="password"].danger,
+input[type="email"].danger,
 input[type="text"].danger::placeholder,
 input[type="password"].danger::placeholder,
 input[type="email"].danger::placeholder {

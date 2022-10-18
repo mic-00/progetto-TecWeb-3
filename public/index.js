@@ -49,17 +49,32 @@ if (window.location.pathname === '/') {
 if (window.location.pathname === '/registrazione'
     || window.location.pathname === '/area-utente/informazioni-personali/modifica'
     || window.location.pathname === '/area-amministratore/informazioni-personali/modifica') {
+  f['formIsValid'] = function (event) {
+    if (!f['validateUsername']() || !f['validateEmail']() || !f['validatePwd']()) {
+      event.preventDefault();
+      if (!f['validateUsername']())
+        document.getElementById('username').focus();
+      else if (!f['validateEmail']())
+        document.getElementById('email').focus();
+      else
+        document.getElementById('password').focus();
+      return false;
+    }
+    return true;
+  }
+
   f['validateUsername'] = function () {
     const input = document.getElementById('username');
     const alert = document.getElementById('username-alert');
-    const validRegex = /^\w+$/;
+    const validRegex = /^(?=.{4,10}$)(?![_.])(?!.*[_.]{2})[a-zA-Z0-9]+(?<![_.])$/;
     if (input.value.match(validRegex)) {
       alert.classList.add('hidden')
       input.classList.remove('danger');
+      return true;
     } else {
       alert.classList.remove('hidden');
       input.classList.add('danger');
-      input.value = null;
+      return false;
     }
   };
 
@@ -70,10 +85,11 @@ if (window.location.pathname === '/registrazione'
     if (input.value.match(validRegex)) {
       alert.classList.add('hidden')
       input.classList.remove('danger');
+      return true;
     } else {
       alert.classList.remove('hidden');
       input.classList.add('danger');
-      input.value = null;
+      return false;
     }
   };
 
@@ -84,10 +100,11 @@ if (window.location.pathname === '/registrazione'
     if (validRegex.every((regex) => input.value.match(regex))) {
       alert.classList.add('hidden')
       input.classList.remove('danger');
+      return true;
     } else {
       alert.classList.remove('hidden');
       input.classList.add('danger');
-      input.value = null;
+      return false;
     }
   }
 }
