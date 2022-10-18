@@ -26,9 +26,11 @@ class UtilityFunctions
         foreach ($links as $link) {
             $href = $link->getAttribute("href");
             $path = parse_url($href, PHP_URL_PATH);
-            if ($_SERVER["REQUEST_URI"] === $href
-                || !file_exists(ROOT . "/controllers" . $path . "/index.php"))
-                $link->removeAttribute("href");
+            if (!preg_match("/^mailto:/", $href) && !preg_match("/^tel:/", $href)) {
+                if ($_SERVER["REQUEST_URI"] === $href
+                    || !file_exists(ROOT . "/controllers" . $path . "/index.php"))
+                    $link->removeAttribute("href");
+            }
         }
         return $dom->saveHTML();
     }

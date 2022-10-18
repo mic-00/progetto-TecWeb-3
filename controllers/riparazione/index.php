@@ -10,7 +10,7 @@ if (!isset($_SESSION["username"])) {
     $id = include ROOT . "/models/riparazione/index.php";
     if ($id) {
         $alert = "Richiesta di riparazione accettata.";
-        if ($_FILES["image"]) {
+        if ($_FILES["image"]["size"]) {
             rename(
                 $_FILES["image"]["tmp_name"],
                 ROOT . "/public/img/repair/$id." . pathinfo($_FILES["image"]["name"])["extension"]
