@@ -8,6 +8,7 @@ if (!isset($_SESSION["username"])) {
     header("Location: /login");
 } else if (isset($_POST["brand"], $_POST["model"], $_POST["description"])) {
     $id = include ROOT . "/models/riparazione/index.php";
+    echo $id;
     if ($id) {
         $alert = "Richiesta di riparazione accettata.";
         if ($_FILES["image"]["size"]) {

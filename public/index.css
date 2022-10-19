@@ -73,6 +73,7 @@ input[type="text"],
 input[type="password"],
 input[type="email"],
 input[type="file"] {
+  display: block;
   width: 100%;
   border: 1px solid #8C92AC;
   border-radius: .5em;
@@ -151,27 +152,10 @@ select:disabled, input:disabled {
   text-align: center;
 }
 
-.form .label-with-alert {
-  width: 50%;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.form .label-with-alert.perc-30 {
-  width: 30%;
-}
-
-.form .label-with-alert + span[role="alert"]:not(.hidden) {
-  display: inline-block;
-  width: 50%;
+.form .label-with-alert + p[role="alert"]:not(.hidden) {
   text-align: right;
   color: #C80004;
   font-style: italic;
-}
-
-.form .label-with-alert.perc-30 + span[role="alert"]:not(.hidden) {
-  width: 70%;
 }
 
 .button {
@@ -468,8 +452,22 @@ select:disabled, input:disabled {
   justify-content: space-evenly;
 }
 
-/* pagina 404
-================================================== */
+.sidebar ul {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-evenly;
+  gap: 1em;
+}
+
+.sidebar li {
+  background-color: #FFFFFF;
+  padding: 1em;
+  border: 1px solid #8C92AC;
+  border-radius: 1em;
+}
+
+  /* pagina 404
+  ================================================== */
 
 /* footer
 ================================================== */

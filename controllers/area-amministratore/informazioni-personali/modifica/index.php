@@ -31,14 +31,14 @@ if (isset($_SESSION["email"], $_SESSION["username"], $_SESSION["password"], $_SE
             else
                 $error = "La password deve contenere tra gli 8 e i 40 caratteri, di cui almeno un numero e una lettera maiuscola.";
         } else {
-            $error = "Inserisci un nome utente, una <span lang='en'>email</span> o una <span lang='en'>password</span> per apportare le modifiche.";
+            $error = "Inserisci un nuovo nome utente, una nuova <span lang='en'>email</span> o una nuova <span lang='en'>password</span> per apportare le modifiche.";
         }
 
         return [
             UtilityFunctions::replace(
                 [
                     "%%SIDEBAR%%" => file_get_contents(ROOT . "/views/area-amministratore/sidebar.html"),
-                    "%%ALERT%%" => $error,
+                    "%%ERROR%%" => $error,
                     "%%EMAIL%%" => $_SESSION["email"],
                     "%%USERNAME%%" => $_SESSION["username"],
                     "%%PASSWORD%%" => $_SESSION["password"]

@@ -1,0 +1,33 @@
+<main id="main">
+  <h2>Riparazione numero %%ID%%</h2>
+  <section>
+    <h3>Informazioni sul modello</h3>
+    <p>%%NAME%%</p>
+    %%SPECS%%
+  </section>
+  <section>
+    <h3>Informazioni sul danno</h3>
+    <p>%%DESCRIPTION%%</p>
+  </section>
+  <section>
+    <h3>Preventivo</h3>
+    <p>
+      Nel <span lang="en">form</span> sottostante inserisci una stima del costo dell'intervento e del tempo necessario.
+    </p>
+    <form class="form" action="" onsubmit="f['formIsValid'](event)">
+      <fieldset>
+        <label for="cost" class="label-with-alert">Costo della riparazione (in &euro;):</label>
+        <p id="cost-alert" class="hidden" role="alert">
+          &Egrave; necessario inserire un valore numerico che sia esprimibile in &euro;.
+        </p>
+        <input type="text" id="cost" name="cost" placeholder="Costo:" onchange="f['validateCost']()" />
+        <label for="time" class="label-with-alert">Tempo necessario (in giorni):</label>
+        <p id="time-alert" class="hidden" role="alert">
+          &Egrave; necessario inserire un valore intero positivo.
+        </p>
+        <input type="text" id="time" name="time" placeholder="Tempo necessario:" onchange="f['validateTime']()" />
+        <input type="submit" class="button" value="Invia" />
+      </fieldset>
+    </form>
+  </section>
+</main>

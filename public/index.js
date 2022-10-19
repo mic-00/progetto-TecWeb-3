@@ -193,6 +193,18 @@ if (window.location.pathname === '/riparazione') {
 
 // AREA AMMINISTRATORE -> GESTIONE RIPARAZIONI
 if (window.location.pathname === '/area-amministratore/gestione-riparazioni') {
+  f['formIsValid'] = function (event) {
+    if (!f['validateCost']() || !f['validateTime']()) {
+      event.preventDefault();
+      if (!f['validateCost']())
+        document.getElementById('cost').focus();
+      else
+        document.getElementById('time').focus();
+      return false;
+    }
+    return true;
+  }
+
   f['validateCost'] = function () {
     const input = document.getElementById('cost');
     const alert = document.getElementById('cost-alert');
