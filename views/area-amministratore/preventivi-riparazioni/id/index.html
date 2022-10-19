@@ -1,0 +1,17 @@
+<main id="main">
+  <h2>Riparazione numero %%ID%%</h2>
+  <form class="form" onsubmit="f['formIsValid']()">
+    <fieldset>
+      <label for="cost">Costo preventivato della riparazione (in &euro;):</label
+      ><span id="cost-alert" class="hidden" role="alert">
+        &Egrave; necessario inserire un valore numerico che sia esprimibile in &euro;.
+      </span>
+      <input type="text" id="cost" name="cost" onchange="f['validateCost']()" />
+      <label for="time">Tempo necessario previsto (in giorni):</label
+      ><span>
+        &Egrave; necessario inserire un valore intero positivo.
+      </span>
+      <input type="text" id="time" name="time" onchange="f['validateTime']()" />
+    </fieldset>
+  </form>
+</main>

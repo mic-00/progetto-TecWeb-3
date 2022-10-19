@@ -152,18 +152,26 @@ select:disabled, input:disabled {
 }
 
 .form .label-with-alert {
-  width: 30%;
+  width: 50%;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
+.form .label-with-alert.perc-30 {
+  width: 30%;
+}
+
 .form .label-with-alert + span[role="alert"]:not(.hidden) {
   display: inline-block;
-  width: 70%;
+  width: 50%;
   text-align: right;
   color: #C80004;
   font-style: italic;
+}
+
+.form .label-with-alert.perc-30 + span[role="alert"]:not(.hidden) {
+  width: 70%;
 }
 
 .button {
@@ -441,17 +449,23 @@ select:disabled, input:disabled {
 
 /* area amministratore
 ================================================== */
-#models, #repairs {
+#models, #repairs, #cart-items {
   list-style-type: none;
   padding: 0;
 }
 
-#models > li, #repairs > li {
+#models > li, #repairs > li, #cart-items > li {
   margin: 1em 0;
   padding: 1em;
   background-color: #FFFFFF;
   border: 1px solid #8C92AC;
   border-radius: 1em;
+}
+
+.page-control.form > fieldset {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-evenly;
 }
 
 /* pagina 404

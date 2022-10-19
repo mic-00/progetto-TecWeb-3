@@ -15,17 +15,26 @@
       <input type="submit" value="Applica filtro" class="small button" />
     </fieldset>
   </form>
-  <form action="" method="post" class="form">
+  <form action="" method="post" class="page-control form">
     <fieldset>
       <input type="hidden" name="current-page" class="small button" value="%%CURRENT_PAGE%%" />
-      <input type="submit" id="first" name="first" value="<<" class="small button" aria-label="Passa alla prima pagina" />
-      <input type="submit" id="prev" name="prev" value="<" class="small button" aria-label="Passa alla pagina precedente" />
-      <input type="submit" id="next" name="next" value=">" class="small button" aria-label="Passa alla pagina successiva" />
-      <input type="submit" id="last" name="last" value=">>" class="small button" aria-label="Passa all'ultima pagina" />
+      <input type="submit" name="first" value="<<" class="small button" aria-label="Passa alla prima pagina" />
+      <input type="submit" name="prev" value="<" class="small button" aria-label="Passa alla pagina precedente" />
+      <input type="submit" name="next" value=">" class="small button" aria-label="Passa alla pagina successiva" />
+      <input type="submit" name="last" value=">>" class="small button" aria-label="Passa all'ultima pagina" />
     </fieldset>
   </form>
   <a class="sr-only" href="#footer">Salta il contenuto</a>
   <ul id="models">
     %%MODELS%%
   </ul>
+  <form action="" method="post" class="page-control form">
+    <fieldset>
+      <input type="hidden" name="current-page" class="small button" value="%%CURRENT_PAGE%%" />
+      <input type="submit" name="first" value="<<" class="small button" aria-label="Passa alla prima pagina" />
+      <input type="submit" name="prev" value="<" class="small button" aria-label="Passa alla pagina precedente" />
+      <input type="submit" name="next" value=">" class="small button" aria-label="Passa alla pagina successiva" />
+      <input type="submit" name="last" value=">>" class="small button" aria-label="Passa all'ultima pagina" />
+    </fieldset>
+  </form>
 </main>

@@ -1,3 +1,5 @@
+window.onload = () => { document.getElementById('back-to-top').classList.add('hidden'); };
+
 window.onscroll = function () {
   if (document.body.scrollTop > 150 || document.documentElement.scrollTop > 150) {
     document.getElementById('back-to-top').classList.remove('hidden');
@@ -6,12 +8,19 @@ window.onscroll = function () {
   }
 }
 
-const backToTop = function () {
-  document.body.scrollTop = 0;
-  document.documentElement.scrollTop = 0;
-}
-
 let f = [];
+
+const inputIsValid = function (input, alert, validRegex) {
+  if (input.value.match(validRegex)) {
+    alert.classList.add('hidden')
+    input.classList.remove('danger');
+    return true;
+  } else {
+    alert.classList.remove('hidden');
+    input.classList.add('danger');
+    return false;
+  }
+}
 
 // HOME
 if (window.location.pathname === '/') {
@@ -67,30 +76,14 @@ if (window.location.pathname === '/registrazione'
     const input = document.getElementById('username');
     const alert = document.getElementById('username-alert');
     const validRegex = /^(?=.{4,10}$)(?![_.])(?!.*[_.]{2})[a-zA-Z0-9]+(?<![_.])$/;
-    if (input.value.match(validRegex)) {
-      alert.classList.add('hidden')
-      input.classList.remove('danger');
-      return true;
-    } else {
-      alert.classList.remove('hidden');
-      input.classList.add('danger');
-      return false;
-    }
+    return inputIsValid(input, alert, validRegex);
   };
 
   f['validateEmail'] = function () {
     const input = document.getElementById('email');
     const alert = document.getElementById('email-alert');
     const validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
-    if (input.value.match(validRegex)) {
-      alert.classList.add('hidden')
-      input.classList.remove('danger');
-      return true;
-    } else {
-      alert.classList.remove('hidden');
-      input.classList.add('danger');
-      return false;
-    }
+    return inputIsValid(input, alert, validRegex);
   };
 
   f['validatePwd'] = function () {
@@ -167,5 +160,50 @@ if (window.location.pathname === '/riparazione') {
     const form = document.getElementById('repair-form');
     form.reset();
     f['enableAlt']();
+  }
+
+  f['formIsValid'] = function (event) {
+    if (!f['validateDescription']() || !f['validateAlt']()) {
+      event.preventDefault();
+      if (!f['validateDescription']())
+        document.getElementById('description').focus();
+      else
+        document.getElementById('alt').focus();
+      return false;
+    }
+    return true;
+  }
+
+  f['validateDescription'] = function () {
+    const input = document.getElementById('description');
+    const alert = document.getElementById('desc-alert');
+    const validRegex = /\w+/;
+    return inputIsValid(input, alert, validRegex);
+  }
+
+  f['validateAlt'] = function () {
+    const input = document.getElementById('alt');
+    if (input.getAttribute('disabled'))
+      return true;
+    const alert = document.getElementById('alt-alert');
+    const validRegex = /\w+/;
+    return inputIsValid(input, alert, validRegex);
+  }
+}
+
+// AREA AMMINISTRATORE -> GESTIONE RIPARAZIONI
+if (window.location.pathname === '/area-amministratore/gestione-riparazioni') {
+  f['validateCost'] = function () {
+    const input = document.getElementById('cost');
+    const alert = document.getElementById('cost-alert');
+    const validRegex = /^[0-9]+.[0-9]{2}$|^[0-9]+$/;
+    return inputIsValid(input, alert, validRegex);
+  }
+
+  f['validateTime'] = function () {
+    const input = document.getElementById('time');
+    const alert = document.getElementById('time-alert');
+    const validRegex = /^[0-9]+$/;
+    return inputIsValid(input, alert, validRegex);
   }
 }

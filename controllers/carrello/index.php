@@ -23,9 +23,9 @@ if (isset($_SESSION["cart"]) && count($_SESSION["cart"])) {
         );
         $amount += $price;
     }
-    $cartItemsHTML = "<ul>$cartItemsHTML</ul>";
     $main = UtilityFunctions::replace(
         [
+            "%%ERROR%%" => "",
             "%%SHOPPINGCARTITEMS%%" => $cartItemsHTML,
             "%%AMOUNT%%" => $amount
         ],
@@ -34,7 +34,8 @@ if (isset($_SESSION["cart"]) && count($_SESSION["cart"])) {
 } else {
     $main = UtilityFunctions::replace(
         [
-            "%%SHOPPINGCARTITEMS%%" => "<p>Nessun articolo è stato selezionato. Per visionare i nostri prodotti, clicca <a href='../acquisto'>qui</a>.</a></p>",
+            "%%ERROR%%" => "<p>Nessun articolo è stato selezionato. Per visionare i nostri prodotti, clicca <a href='/acquisto'>qui</a>.</a></p>",
+            "%%SHOPPINGCARTITEMS%%" => "",
             "%%AMOUNT%%" => 0
         ],
         file_get_contents(ROOT . "/views/carrello/index.html")
