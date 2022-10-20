@@ -8,7 +8,8 @@ if (isset($_SESSION["email"], $_SESSION["username"], $_SESSION["password"], $_SE
             [
                 "%%EMAIL%%" => $_SESSION["email"],
                 "%%USERNAME%%" => $_SESSION["username"],
-                "%%PASSWORD%%" => $_SESSION["password"]
+                "%%PASSWORD%%" => $_SESSION["password"],
+                "%%SIDEBAR%%" => file_get_contents(ROOT . "/views/area-utente/sidebar.html")
             ],
             file_get_contents(ROOT . "/views/area-utente/informazioni-personali/index.html")
         ),

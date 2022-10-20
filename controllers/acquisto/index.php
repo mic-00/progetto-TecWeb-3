@@ -12,10 +12,21 @@ if (isset($_GET["id"])) {
         $price = $item["price"];
         $description = $item["description"];
         $images = "";
-        for ($i = 1; file_exists(ROOT . "/public/img/purchase/$id/$i.jpg"); ++$i) {
+        /*for ($i = 1; file_exists(ROOT . "/public/img/purchase/$id/$i.jpg"); ++$i) {
             $src = "/public/img/purchase/$id/$i.jpg";
             $images .= "<img src='$src' alt='' />";
             // TODO aggiungere alt!!!!!
+        }*/
+        if(file_exists(ROOT . "/public/img/purchase/$id/1.jpg")){
+          for ($i = 1; file_exists(ROOT . "/public/img/purchase/$id/$i.jpg"); ++$i) {
+              $src = "/public/img/purchase/$id/$i.jpg";
+              $images .= "<img src='$src' alt='' />";
+              // TODO aggiungere alt!!!!!
+          }
+        } else {
+          $src = "/public/img/common.jpg";
+          $alt = "computer con schermo acceso, mouse e tastiera";
+          $images = "<img src='$src' alt='$alt' />";
         }
         $releasedAt = $item["released_at"];
         $os = $item["os"];
@@ -74,9 +85,20 @@ if (isset($_GET["id"])) {
     foreach ($items as $item) {
         $id = $item["id"];
         $image = "";
-        if (file_exists(ROOT . "/public/img/purchase/$id/1.jpg")) {
+        /*if (file_exists(ROOT . "/public/img/purchase/$id/1.jpg")) {
             $src = "/public/img/purchase/$id/1.jpg";
             $image = "<img src='$src' width='200' height='200' />";
+        }*/
+        if(file_exists(ROOT . "/public/img/purchase/$id/1.jpg")){
+          for ($i = 1; file_exists(ROOT . "/public/img/purchase/$id/$i.jpg"); ++$i) {
+              $src = "/public/img/purchase/$id/$i.jpg";
+              $image .= "<img src='$src' alt='' />";
+              // TODO aggiungere alt!!!!!
+          }
+        } else {
+          $src = "/public/img/common.jpg";
+          $alt = "computer con schermo acceso, mouse e tastiera";
+          $image = "<img src='$src' alt='$alt' />";
         }
         $name = "<a href='/acquisto?id={$item["id"]}'>{$item["brand"]} {$item["model"]}</a>";
         $price = "{$item["price"]}&euro;";

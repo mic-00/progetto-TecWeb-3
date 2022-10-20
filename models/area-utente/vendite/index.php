@@ -10,7 +10,7 @@ $query = "SELECT `modello`.`brand` AS `brand`,
           `sell_item`.`price`
           FROM (SELECT `brand`.`name` AS `brand`,
                        `model`.`name` AS `model`,
-                       `model`.`id`
+                       `model`.`id` AS `id`
                        FROM `brand` JOIN `model` ON `brand`.`id`=`model`.`brand`) AS `modello`
                JOIN `sell_item` ON `modello`.`id`=`sell_item`.`model`
           WHERE `user`=?";

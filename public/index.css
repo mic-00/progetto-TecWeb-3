@@ -108,6 +108,7 @@ input[type="email"].danger::placeholder {
 
 select {
   margin: .5em 0;
+  margin-right: 2em;
   padding: .1em .25em;
   border: 1px solid #8C92AC;
   border-radius: .5em;
@@ -245,7 +246,7 @@ select:disabled, input:disabled {
   gap: 1em;
   border-top: 1px solid #8C92AC;
 }
-
+ 
 /* breadcrumb
 ================================================== */
 #breadcrumb {
@@ -367,8 +368,8 @@ select:disabled, input:disabled {
   width: 100%;
   margin: auto;
   display: grid;
-  grid-template-columns: auto auto auto;
-  justify-items: center;
+  grid-template-columns: 30% 30% 30%;
+  justify-content: center;
   gap: 1em;
 }
 
@@ -430,7 +431,73 @@ select:disabled, input:disabled {
   width: 75%;
   margin: 3em auto;
 }
+/* area utente
+================================================== */
+.userItems, .userItemsHead{
+  background-color: #FFFFFF;
+  border: 1px solid #8C92AC;
+  display: flex;
+  justify-content: space-between;
+  font-size: .75em;
+  font-weight: normal;
+}
 
+.userItems p, .userItemsHead p{
+  padding: .5em;
+  margin: 0;
+}
+
+.userItemsHead p{
+  font-weight: bold;
+  color: red; /*  DA CAMBIARE!!! */
+}
+      /* area utente-acquisti
+      ================================================== */
+      .purchaseItemModel{
+        width: 15%;
+        border-right: 1px solid black;
+      }
+
+      .purchaseItemDescription{
+        overflow: auto;
+        width: 75%;
+        border-right: 1px solid black;
+      }
+
+      .purchaseItemPrice{
+        width: 10%;
+        text-align: center;
+      }
+      /* area utente-riparazioni
+      ================================================== */
+      .repairItemModel{
+        width: 20%;
+        border-right: 1px solid black;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .repairItemDescription{
+        overflow: auto;
+        width: 50%;
+        border-right: 1px solid black;
+      }
+
+      .repairItemPrice{
+        width: 10%;
+        text-align: center;
+        border-right: 1px solid black;
+      }
+
+      .repairItemStart{
+        width: 10%;
+        border-right: 1px solid black;
+      }
+
+      .repairItemEnd{
+        width: 10%;
+      }
 /* area amministratore
 ================================================== */
 #models, #repairs, #cart-items {
@@ -469,6 +536,18 @@ select:disabled, input:disabled {
   /* pagina 404
   ================================================== */
 
+/* pagina esito pagamento
+================================================== */
+#result{
+    justify-content: center;
+    padding: 1em;
+    border: 1px solid white;
+    border-radius: 1em;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #FFFF;
+}
 /* footer
 ================================================== */
 #footer {

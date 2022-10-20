@@ -2,7 +2,7 @@
 
 define('ROOT', dirname(dirname(__FILE__)));
 
-define('SITE_NAME', 'Nome del sito');
+define('SITE_NAME', 'AICrash');
 
 define('DB_HOST', 'localhost');
 define('DB_USER', 'root');

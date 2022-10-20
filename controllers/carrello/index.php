@@ -13,11 +13,20 @@ if (isset($_SESSION["cart"]) && count($_SESSION["cart"])) {
         $name = "<a href='/acquisto?id={$cartItem["id"]}'>{$cartItem["brand"]} {$cartItem["model"]}</a>";
         $price = $cartItem["price"];
         $id = $cartItem["id"];
+        if(file_exists(ROOT . "/public/img/purchase/$id/1.jpg")){
+          $src = "/public/img/purchase/$id/1.jpg";
+          $alt = ""; //TODO
+        } else {
+          $src = "/public/img/common.jpg";
+          $alt = "computer con schermo acceso, mouse e tastiera";
+          $image = "<img src='$src' alt='$alt' />";
+        }
         $cartItemsHTML .= UtilityFunctions::replace(
             [
                 "%%NAME%%" => $name,
                 "%%PRICE%%" => $price,
-                "%%ID%%" => $id
+                "%%ID%%" => $id,
+                "%%IMG%%" => $image
             ],
             file_get_contents(ROOT . "/views/carrello/cart-item.html")
         );
