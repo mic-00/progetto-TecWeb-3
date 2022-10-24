@@ -24,7 +24,7 @@ if (isset($_POST["email"], $_POST["username"], $_POST["password"])
     } else if (isset($_POST["email"], $_POST["username"], $_POST["password"])) {
         if (!filter_var($_POST["email"], FILTER_VALIDATE_EMAIL))
             $error .= "Formato dell'indirizzo <span lang='en'>email</span> fornito non valido.";
-        else if (!strlen($_POST["username"]) || preg_match("/^\w*\s+\w*$/", $_POST["username"]))
+        else if (!preg_match("/^(?=.{4,10}$)(?![_.])(?!.*[_.]{2})[a-zA-Z0-9]+(?<![_.])$/", $_POST["username"]))
             $error .= "Il nome utente deve contenere tra 4 e 10 caratteri (solo lettere minuscole e numeri ammessi).";
         else
             $error = "La password deve contenere tra gli 8 e i 40 caratteri, di cui almeno un numero e una lettera maiuscola.";

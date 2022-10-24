@@ -1,0 +1,23 @@
+<main id="main">
+  <h2>Aggiungi articolo</h2>
+  <p>%%ERROR%%</p>
+  <form class="form" action="" method="post" enctype="multipart/form-data">
+    <fieldset>
+      <label for="brand" class="inline">Marca:</label>
+      <select id="brand" name="brand" onchange="f['getModels']()">
+        <option value="">--Seleziona--</option>
+      </select>
+      <label for="model" class="inline">Modello:</label>
+      <select id="model" name="model">
+        <option value="">--Seleziona--</option>
+      </select>
+      <label for="description">Descrizione:</label>
+      <input id="description" name="description" type="text" placeholder="Inserisci una descrizione:" />
+      <label for="price">Prezzo:</label>
+      <input id="price" name="price" type="text" placeholder="Inserisci un prezzo:" />
+      <label for="image">Immagine:</label>
+      <input id="image" name="image" type="file" accept="image/*" placeholder="Scegli un'immagine:" />
+      <input type="submit" class="button" value="Invia" />
+    </fieldset>
+  </form>
+</main>

@@ -1,3 +1,7 @@
+* {
+  -webkit-print-color-adjust: exact;
+}
+
 .button, .button.danger {
   background-color: #FFFFFF00;
 }

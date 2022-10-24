@@ -5,28 +5,15 @@ use Utils\UtilityFunctions;
 $items = include ROOT . "/models/acquisto/index.php";
 
 if (isset($_GET["id"])) {
+    $name = $error = $price = $description = $image = $specs = $link = "";
     if (isset($items[0])) {
         $item = $items[0];
         $id = $item["id"];
         $name = "{$item["brand"]} {$item["model"]}";
         $price = $item["price"];
         $description = $item["description"];
-        $images = "";
-        /*for ($i = 1; file_exists(ROOT . "/public/img/purchase/$id/$i.jpg"); ++$i) {
-            $src = "/public/img/purchase/$id/$i.jpg";
-            $images .= "<img src='$src' alt='' />";
-            // TODO aggiungere alt!!!!!
-        }*/
-        if(file_exists(ROOT . "/public/img/purchase/$id/1.jpg")){
-          for ($i = 1; file_exists(ROOT . "/public/img/purchase/$id/$i.jpg"); ++$i) {
-              $src = "/public/img/purchase/$id/$i.jpg";
-              $images .= "<img src='$src' alt='' />";
-              // TODO aggiungere alt!!!!!
-          }
-        } else {
-          $src = "/public/img/common.jpg";
-          $alt = "computer con schermo acceso, mouse e tastiera";
-          $images = "<img src='$src' alt='$alt' />";
+        if(file_exists(ROOT . "/public/img/purchase/$id.jpg")) {
+            $image = "<img src='/public/img/purchase/$id.jpg' alt='' />";
         }
         $releasedAt = $item["released_at"];
         $os = $item["os"];
@@ -62,43 +49,34 @@ if (isset($_GET["id"])) {
         $link = isset($_SESSION["cart"]) && in_array($id, $_SESSION["cart"])
             ? "<a class='button' href='/carrello/rimuovi?id=$id'>Rimuovi dal carrello</a>"
             : "<a class='button' href='/carrello/aggiungi?id=$id'>Aggiungi al carrello</a>";
-        return [
-            UtilityFunctions::replace(
-                [
-                    "%%NAME%%" => $name,
-                    "%%PRICE%%" => $price,
-                    "%%DESCRIPTION%%" => $description,
-                    "%%IMAGES%%" => $images,
-                    "%%SPECS%%" => $specs,
-                    "%%LINK%%" => $link
-                ],
-                file_get_contents(ROOT . "/views/acquisto/id/index.html")
-            ),
-            "",
-            ""
-        ];
     } else {
-        // TODO
+        $error = "Il prodotto che stai cercando non esiste.";
     }
+    return [
+        UtilityFunctions::replace(
+            [
+                "%%NAME%%" => $name,
+                "%%ERROR%%" => $error,
+                "%%PRICE%%" => $price,
+                "%%DESCRIPTION%%" => $description,
+                "%%IMAGES%%" => $image,
+                "%%SPECS%%" => $specs,
+                "%%LINK%%" => $link
+            ],
+            file_get_contents(ROOT . "/views/acquisto/id/index.html")
+        ),
+        "",
+        ""
+    ];
 } else {
     $itemsHTML = "";
     foreach ($items as $item) {
         $id = $item["id"];
         $image = "";
-        /*if (file_exists(ROOT . "/public/img/purchase/$id/1.jpg")) {
-            $src = "/public/img/purchase/$id/1.jpg";
-            $image = "<img src='$src' width='200' height='200' />";
-        }*/
-        if(file_exists(ROOT . "/public/img/purchase/$id/1.jpg")){
-          for ($i = 1; file_exists(ROOT . "/public/img/purchase/$id/$i.jpg"); ++$i) {
-              $src = "/public/img/purchase/$id/$i.jpg";
-              $image .= "<img src='$src' alt='' />";
-              // TODO aggiungere alt!!!!!
-          }
+        if(file_exists(ROOT . "/public/img/purchase/$id.jpg")) {
+            $image = "<img src='/public/img/purchase/$id.jpg' alt='' />";
         } else {
-          $src = "/public/img/common.jpg";
-          $alt = "computer con schermo acceso, mouse e tastiera";
-          $image = "<img src='$src' alt='$alt' />";
+            $image = "<img src='/public/img/common.jpg' alt='' />";
         }
         $name = "<a href='/acquisto?id={$item["id"]}'>{$item["brand"]} {$item["model"]}</a>";
         $price = "{$item["price"]}&euro;";

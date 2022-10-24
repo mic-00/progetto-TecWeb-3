@@ -107,7 +107,9 @@ if (window.location.pathname === '/registrazione'
 // GESTIONE MODELLI
 if (window.location.pathname === '/acquisto'
     || window.location.pathname === '/riparazione'
-    || window.location.pathname === '/area-amministratore/gestione-modelli') {
+    || window.location.pathname === '/area-amministratore/gestione-modelli'
+    || window.location.pathname === '/area-amministratore/gestione-modelli/aggiungi'
+    || window.location.pathname === '/area-amministratore/aggiungi-articolo') {
   fetch('/public/brands.php')
       .then((res) => res.json())
       .then(function (data) {
@@ -153,6 +155,8 @@ if (window.location.pathname === '/riparazione') {
       document.getElementById("alt").removeAttribute("disabled");
     } else {
       document.getElementById("alt").setAttribute("disabled", "disabled");
+      document.getElementById("alt").classList.remove("danger");
+      document.getElementById("alt-alert").classList.add("hidden");
     }
   };
 
@@ -183,7 +187,7 @@ if (window.location.pathname === '/riparazione') {
 
   f['validateAlt'] = function () {
     const input = document.getElementById('alt');
-    if (input.getAttribute('disabled'))
+    if (input.disabled)
       return true;
     const alert = document.getElementById('alt-alert');
     const validRegex = /\w+/;

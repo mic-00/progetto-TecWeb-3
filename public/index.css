@@ -34,6 +34,10 @@ p, h1, h2, h3 {
   margin: 1rem 0;
 }
 
+p, li {
+  line-height: 1.4;
+}
+
 a:link {
   color: #002D72;
 }
@@ -62,6 +66,11 @@ fieldset {
 }
 
 label {
+  display: block;
+  margin: 1em 0;
+}
+
+label.inline {
   display: inline-block;
 }
 
@@ -106,9 +115,15 @@ input[type="email"].danger::placeholder {
   color: #DA2A2A;
 }
 
+input + p[role="alert"] {
+  font-size: .9em;
+  text-align: right;
+  color: #C80004;
+  font-style: italic;
+}
+
 select {
-  margin: .5em 0;
-  margin-right: 2em;
+  margin: .5em 2em 0 0;
   padding: .1em .25em;
   border: 1px solid #8C92AC;
   border-radius: .5em;
@@ -134,7 +149,7 @@ select:disabled, input:disabled {
 }
 
 .form > fieldset {
-  padding: 1em;
+  padding: 0 1em;
   margin-bottom: 1em;
   background-color: #FFFFFF;
   border: 1px solid #8C92AC;
@@ -153,14 +168,9 @@ select:disabled, input:disabled {
   text-align: center;
 }
 
-.form .label-with-alert + p[role="alert"]:not(.hidden) {
-  text-align: right;
-  color: #C80004;
-  font-style: italic;
-}
-
 .button {
   padding: 1em;
+  margin-bottom: 1em;
   font-size: 1em;
   background-color: #4CAF50; /* Green */
   text-align: center;
@@ -262,12 +272,17 @@ select:disabled, input:disabled {
 /* main
 ================================================== */
 #main {
-  padding: 1em;
+  padding: 0 1em;
+  overflow: auto;
   background: #E0E0F0;
 }
 
 /* home
 ================================================== */
+.slide {
+  margin-top: 1em;
+}
+
 .slide, .slide-img {
   position: relative;
 }
@@ -498,6 +513,7 @@ select:disabled, input:disabled {
       .repairItemEnd{
         width: 10%;
       }
+
 /* area amministratore
 ================================================== */
 #models, #repairs, #cart-items {
@@ -506,8 +522,8 @@ select:disabled, input:disabled {
 }
 
 #models > li, #repairs > li, #cart-items > li {
-  margin: 1em 0;
-  padding: 1em;
+  margin: .5em 1em;
+  padding: .75em;
   background-color: #FFFFFF;
   border: 1px solid #8C92AC;
   border-radius: 1em;
@@ -519,6 +535,17 @@ select:disabled, input:disabled {
   justify-content: space-evenly;
 }
 
+.page-control.form > fieldset > * {
+  margin-top: 1em;
+}
+
+.sidebar {
+  background-color: #FFFFFF;
+  padding: 1em;
+  border: 1px solid #8C92AC;
+  border-top: 0;
+}
+
 .sidebar ul {
   display: flex;
   flex-wrap: nowrap;
@@ -526,15 +553,17 @@ select:disabled, input:disabled {
   gap: 1em;
 }
 
-.sidebar li {
-  background-color: #FFFFFF;
-  padding: 1em;
-  border: 1px solid #8C92AC;
-  border-radius: 1em;
+#damage-img {
+  width: 400px;
+  max-width: 100%;
 }
 
-  /* pagina 404
-  ================================================== */
+/* pagina 404
+================================================== */
+#page-404-img {
+  float: right;
+  margin-bottom: 1em;
+}
 
 /* pagina esito pagamento
 ================================================== */

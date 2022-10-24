@@ -11,7 +11,7 @@ return $urlPath === "/"
         UtilityFunctions::kebabCaseToText(
             !$urlQuery
                 ? preg_replace("/[^ ]*\//", "", $urlPath)
-                : preg_replace("/[^ ]*&\w*=|\w*=/", "", $urlQuery)
+                : urldecode(preg_replace("/[^ ]*&\w*=|\w*=/", "", $urlQuery))
         ))
     . " - "
     . SITE_NAME;

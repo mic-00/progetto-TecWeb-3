@@ -4,7 +4,7 @@
   flex-wrap: wrap;
 }
 
-/* header
+/* home
 ================================================== */
 .slide-text {
   position: static;
@@ -12,4 +12,10 @@
 
 .slide-text > div {
   width: 100%;
+}
+
+/* acquisto
+================================================== */
+#items {
+  grid-template-columns: 100%;
 }

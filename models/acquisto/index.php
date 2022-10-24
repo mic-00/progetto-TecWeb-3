@@ -10,13 +10,15 @@ $query = "SELECT `brand`.`name` AS `brand`, `model`.`name` as `model`, `purchase
     "JOIN `purchase_item` ON `model`.`id`=`purchase_item`.`model` " .
     "WHERE `user` IS NULL";
 
+
+
 if (isset($_GET["id"])) {
     $query .= " AND `purchase_item`.`id`=?";
     return $connection->query($query, $_GET["id"]);
 }
-if (isset($_GET["brand"])) {
+if (isset($_GET["brand"]) && $_GET["brand"]) {
     $query .= " AND `brand`.`name`=?";
-    if (isset($_GET["model"])) {
+    if (isset($_GET["model"]) && $_GET["model"]) {
         $query .= " AND `model`.`name`=?";
         return $connection->query($query, $_GET["brand"], $_GET["model"]);
     }

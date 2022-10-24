@@ -6,9 +6,11 @@ $alert = "";
 
 if (!isset($_SESSION["username"])) {
     header("Location: /login");
-} else if (isset($_POST["brand"], $_POST["model"], $_POST["description"])) {
+} else if (isset($_POST["brand"], $_POST["model"], $_POST["description"])
+    && preg_match("/\w+/", $_POST["description"])
+    && (!$_FILES["image"]["size"] || (isset($_POST["alt"]) && preg_match("/\w+/", $_POST["alt"])))
+) {
     $id = include ROOT . "/models/riparazione/index.php";
-    echo $id;
     if ($id) {
         $alert = "Richiesta di riparazione accettata.";
         if ($_FILES["image"]["size"]) {
@@ -18,7 +20,7 @@ if (!isset($_SESSION["username"])) {
             );
         }
     } else {
-        $alert = "Richiesta di riparazione rifiutata. Controllare la corrispondenza tra nome del marchio e nome del modello.";
+        $alert = "L'inserimento non &egrave; andato a buon fine. Controllare la corrispondenza tra nome del marchio e nome del modello.";
     }
 } else {
     $alert = "Cortesemente fornire il modello del dispositivo, una descrizione del danno e se possibile una immagine del danno.";

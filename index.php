@@ -29,15 +29,15 @@ if (file_exists(ROOT . "/controllers" . $urlPath . "/index.php")) {
 $keywords = SITE_NAME . ", tablet, smartphone, " . $keywords;
 
 echo UtilityFunctions::checkLinks(
-    UtilityFunctions::replace(
-        [
-            "%%DESCRIPTION%%" =>$description,
-            "%%KEYWORDS%%" => $keywords,
-            "%%TITLE%%" => $title,
-            "%%HEADER%%" => $header,
-            "%%BREADCRUMB%%" => $breadcrumb,
-            "%%MAIN%%" => $main,
-            "%%FOOTER%%" => $footer
-        ],
-        file_get_contents("index.html")
-    ));
+        UtilityFunctions::replace(
+            [
+                "%%DESCRIPTION%%" =>$description,
+                "%%KEYWORDS%%" => $keywords,
+                "%%TITLE%%" => $title,
+                "%%HEADER%%" => $header,
+                "%%BREADCRUMB%%" => $breadcrumb,
+                "%%MAIN%%" => $main,
+                "%%FOOTER%%" => $footer
+            ],
+            file_get_contents("index.html")
+));

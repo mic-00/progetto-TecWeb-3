@@ -8,11 +8,11 @@
   <form action="" method="get" class="form">
     <fieldset>
       <legend>Filtro contenuti</legend>
-      <label for="brand">Scegli una marca:</label>
+      <label for="brand" class="inline">Scegli una marca:</label>
       <select id="brand" name="brand" onchange="f['getModels']()" disabled="disabled">
         <option value="">--Seleziona--</option>
       </select>
-      <label for="model">Scegli un modello:</label>
+      <label for="model" class="inline">Scegli un modello:</label>
       <select id="model" name="model" disabled="disabled">
         <option value="">--Seleziona--</option>
       </select>
@@ -22,10 +22,10 @@
   <form action="" method="post" class="page-control form">
     <fieldset>
       <input type="hidden" name="current-page" class="small button" value="%%CURRENT_PAGE%%" />
-      <input type="submit" name="first" value="<<" class="small button" aria-label="Passa alla prima pagina" />
+      <input type="submit" name="first" value="|<<" class="small button" aria-label="Passa alla prima pagina" />
       <input type="submit" name="prev" value="<" class="small button" aria-label="Passa alla pagina precedente" />
       <input type="submit" name="next" value=">" class="small button" aria-label="Passa alla pagina successiva" />
-      <input type="submit" name="last" value=">>" class="small button" aria-label="Passa all'ultima pagina" />
+      <input type="submit" name="last" value=">>|" class="small button" aria-label="Passa all'ultima pagina" />
     </fieldset>
   </form>
   <a class="sr-only" href="#footer">Salta il contenuto</a>
@@ -35,10 +35,13 @@
   <form action="" method="post" class="page-control form">
     <fieldset>
       <input type="hidden" name="current-page" class="small button" value="%%CURRENT_PAGE%%" />
-      <input type="submit" name="first" value="<<" class="small button" aria-label="Passa alla prima pagina" />
+      <input type="submit" name="first" value="|<<" class="small button" aria-label="Passa alla prima pagina" />
       <input type="submit" name="prev" value="<" class="small button" aria-label="Passa alla pagina precedente" />
       <input type="submit" name="next" value=">" class="small button" aria-label="Passa alla pagina successiva" />
-      <input type="submit" name="last" value=">>" class="small button" aria-label="Passa all'ultima pagina" />
+      <input type="submit" name="last" value=">>|" class="small button" aria-label="Passa all'ultima pagina" />
     </fieldset>
   </form>
+  <a href="/area-amministratore/gestione-modelli/aggiungi" class="button">
+    Aggiungi un nuovo modello
+  </a>
 </main>

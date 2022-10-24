@@ -55,16 +55,17 @@ if (isset($_SESSION["email"], $_SESSION["username"], $_SESSION["password"], $_SE
                 "Visualizza le tue Riparazioni.",
                 ""
             ];
-        }else{//parte ancora da provare
-          $alert = "<P>Non hai richiesto riparazioni</p>";
-          UtilityFunctions::replace(
-              [ "%%ITEM%%" => $alert],
-              file_get_contents(ROOT . "/views/area-utente/riparazioni/index.html")
-          ),
-          "Visualizza le tue Riparazioni.",
-          ""
+        } else {//parte ancora da provare
+            $alert = "<P>Non hai richiesto riparazioni</p>";
+            return [
+                UtilityFunctions::replace(
+                    [ "%%ITEM%%" => $alert],
+                    file_get_contents(ROOT . "/views/area-utente/riparazioni/index.html")
+                ),
+                "Visualizza le tue riparazioni.",
+                ""
+            ];
         }
-
 }
 
 header("Location: /login");
