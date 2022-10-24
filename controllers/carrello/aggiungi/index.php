@@ -8,7 +8,7 @@ if (isset($_GET["id"])) {
         $_SESSION["cart"][] = $_GET["id"];
         header("Location: /acquisto?id={$_GET["id"]}");
     } else {
-        // TODO
+        header("Location: /carrello");
     }
 } else {
     header("Location: /");
