@@ -283,7 +283,7 @@ select:disabled, input:disabled {
   margin-top: 1em;
 }
 
-.slide, .slide-img {
+.slide > div, .slide-img {
   position: relative;
 }
 
@@ -340,6 +340,7 @@ select:disabled, input:disabled {
   position: absolute;
   top: .5em;
   left: .5em;
+  z-index: 2;
   padding: .5em;
   background-color: #D0D0DC;
   border: 1px solid #8C92AC;
@@ -393,12 +394,19 @@ select:disabled, input:disabled {
   border: 1px solid #8C92AC;
 }
 
-.item > img {
+.item-image {
+  width: 100%;
+  height: 0;
+  padding-bottom: 100%;
+}
+
+.item-image > img {
+  display: block;
   width: 100%;
   height: auto;
 }
 
-.item > div {
+.item-card {
   padding: .5em;
 }
 

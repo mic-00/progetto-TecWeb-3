@@ -12,8 +12,9 @@ if (isset($_GET["id"])) {
         $name = "{$item["brand"]} {$item["model"]}";
         $price = $item["price"];
         $description = $item["description"];
-        if(file_exists(ROOT . "/public/img/purchase/$id.jpg")) {
-            $image = "<img src='/public/img/purchase/$id.jpg' alt='' />";
+        if (glob(ROOT . "/public/img/purchase/$id.*")) {
+            $extension = pathinfo(glob(ROOT . "/public/img/purchase/$id.*")[0], PATHINFO_EXTENSION);
+            $image = "<img src='/public/img/purchase/$id.$extension' alt='' />";
         }
         $releasedAt = $item["released_at"];
         $os = $item["os"];
@@ -73,8 +74,9 @@ if (isset($_GET["id"])) {
     foreach ($items as $item) {
         $id = $item["id"];
         $image = "";
-        if(file_exists(ROOT . "/public/img/purchase/$id.jpg")) {
-            $image = "<img src='/public/img/purchase/$id.jpg' alt='' />";
+        if (glob(ROOT . "/public/img/purchase/$id.*")) {
+            $extension = pathinfo(glob(ROOT . "/public/img/purchase/$id.*")[0], PATHINFO_EXTENSION);
+            $image = "<img src='/public/img/purchase/$id.$extension' alt='' />";
         } else {
             $image = "<img src='/public/img/common.jpg' alt='' />";
         }

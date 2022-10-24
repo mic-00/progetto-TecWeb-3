@@ -14,8 +14,9 @@ if (isset($_SESSION["cart"]) && count($_SESSION["cart"])) {
         $price = $cartItem["price"];
         $id = $cartItem["id"];
         $description = $cartItem["description"];
-        if(file_exists(ROOT . "/public/img/purchase/$id.jpg")) {
-            $image = "<img src='/public/img/purchase/$id.jpg' alt='' />";
+        if (glob(ROOT . "/public/img/purchase/$id.*")) {
+            $extension = pathinfo(glob(ROOT . "/public/img/purchase/$id.*")[0], PATHINFO_EXTENSION);
+            $image = "<img src='/public/img/purchase/$id.$extension' alt='' />";
         } else {
             $image = "<img src='/public/img/common.jpg' alt='' />";
         }

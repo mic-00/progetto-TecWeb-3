@@ -19,19 +19,17 @@ if (isset($_SESSION["email"], $_SESSION["username"], $_SESSION["password"], $_SE
                 $price = $model["cost"];
                 $description = $model["description"];
                 $date = $model["start"];
-                if(!$model["expected_time"])
-                  $repaired = "In attesa di riparazione";
+                if (!$model["expected_time"])
+                    $repaired = "In attesa di riparazione";
                 else
-                  $repaired = "Riparazione Completata";
+                    $repaired = "Riparazione Completata";
                 $id = $model["id"];
-                if(file_exists(ROOT . "/public/img/repair/$id/1.jpg")){
-                  $src = "/public/img/purchase/$id/1.jpg";
-                  $alt = $model["img_alt"];
+                if ((glob(ROOT . "/public/img/purchase/$id.*"))) {
+                    $extension = pathinfo(glob(ROOT . "/public/img/purchase/$id.*")[0], PATHINFO_EXTENSION);
+                    $image = "<img src='/public/img/purchase/$id.$extension' alt='{$model["img_alt"]}' />";
                 } else {
-                  $src = "/public/img/common.jpg";
-                  $alt = "computer con schermo acceso, mouse e tastiera";
+                    $image = "<img src='/public/img/common.jpg' alt='Immagine generica di smartphone.' />";
                 }
-                $image = "<img src='$src' alt='$alt' />";
                 $modelsHTML .= UtilityFunctions::replace(
                     [
                         "%%NAME%%" => $name,
