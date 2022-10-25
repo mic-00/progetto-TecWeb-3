@@ -77,7 +77,7 @@ window.onload = () => {
       || window.location.pathname === '/area-amministratore/informazioni-personali/modifica') {
     const username = document.getElementById("username");
     const usernameAlert = document.getElementById('username-alert');
-    const usernameRegex = /^(?=.{4,10}$)(?![_.])(?!.*[_.]{2})[a-zA-Z0-9]+(?<![_.])$/;
+    const usernameRegex = /^[a-z|0-9]{4,10}$/;
     const email = document.getElementById('email');
     const emailAlert = document.getElementById('email-alert');
     const emailRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
