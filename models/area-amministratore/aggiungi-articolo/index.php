@@ -11,7 +11,12 @@ $model = $connection->query($query, $_POST["brand"], $_POST["model"])[0] ?? fals
 
 if ($model) {
     $query = "INSERT INTO `purchase_item` (`model`, `description`, `price`) VALUES (?, ?, ?)";
-    $isInserted = $connection->query($query, $model["id"], $_POST["description"], $_POST["price"]);
+    $isInserted = $connection->query(
+        $query,
+        $model["id"],
+        htmlentities($_POST["description"]),
+        htmlentities($_POST["price"])
+    );
     if ($isInserted) {
         $query = "SELECT LAST_INSERT_ID() as `id`";
         return $connection->query($query)[0]["id"] ?? false;

@@ -5,13 +5,28 @@ use DB\DBConnection;
 $connection = new DBConnection();
 
 $query = "SELECT `id` FROM `brand` WHERE `name`=?";
-$brand = $connection->query($query, $_POST["brand"])[0]["id"];
+$brand = $connection->query(
+    $query,
+    $_POST["brand"]
+)[0]["id"];
 
 $query = "INSERT INTO `model` (`brand`, `name`, `released_at`, `os`, `display_resolution`, `camera_pixels`, `chipset`, `battery_size`, `battery_type`, `bluetooth`, `sim`, `gps`, `weight`, `dimensions`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 return $connection->query(
     $query,
-    $brand, $_POST["name"], $_POST["year"], $_POST["os"], $_POST["screen"], $_POST["camera"], $_POST["processor"], $_POST["battery-size"],
-    $_POST["battery-type"], $_POST["bluetooth"], $_POST["sim"], $_POST["gps"], $_POST["weight"], $_POST["dimensions"]
+    $brand,
+    htmlentities($_POST["name"]),
+    htmlentities($_POST["year"]),
+    htmlentities($_POST["os"]),
+    htmlentities($_POST["screen"]),
+    htmlentities($_POST["camera"]),
+    htmlentities($_POST["processor"]),
+    htmlentities($_POST["battery-size"]),
+    htmlentities($_POST["battery-type"]),
+    htmlentities($_POST["bluetooth"]),
+    htmlentities($_POST["sim"]),
+    htmlentities($_POST["gps"]),
+    htmlentities($_POST["weight"]),
+    htmlentities($_POST["dimensions"])
 );
 
 ?>

@@ -14,10 +14,11 @@ if (isset($_SESSION["email"], $_SESSION["username"], $_SESSION["password"], $_SE
             $id = include ROOT . "/models/area-amministratore/aggiungi-articolo/index.php";
             if ($id) {
                 $error = "Inserimento avvenuto correttamente.";
+                print_r($_FILES["image"]);
                 if ($_FILES["image"]["size"]) {
                     rename(
                         $_FILES["image"]["tmp_name"],
-                        ROOT . "/public/img/repair/$id." . pathinfo($_FILES["image"]["name"])["extension"]
+                        ROOT . "/public/img/purchase/$id." . pathinfo($_FILES["image"]["name"])["extension"]
                     );
                 }
             } else {

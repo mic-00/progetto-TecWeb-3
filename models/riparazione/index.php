@@ -13,10 +13,21 @@ if ($model) {
     $isInserted = false;
     if (isset($_POST["alt"])) {
         $query = "INSERT INTO `repair_item` (`model`, `user`, `description`, `img_alt`) VALUES (?, ?, ?, ?)";
-        $isInserted = $connection->query($query, $model["id"], $_SESSION["username"], $_POST["description"], $_POST["alt"]);
+        $isInserted = $connection->query(
+            $query,
+            $model["id"],
+            htmlentities($_SESSION["username"]),
+            htmlentities($_POST["description"]),
+            htmlentities($_POST["alt"])
+        );
     } else {
         $query = "INSERT INTO `repair_item` (`model`, `user`, `description`) VALUES (?, ?, ?)";
-        $isInserted = $connection->query($query, $model["id"], $_SESSION["username"], $_POST["description"]);
+        $isInserted = $connection->query(
+            $query,
+            $model["id"],
+            htmlentities($_SESSION["username"]),
+            htmlentities($_POST["description"])
+        );
     }
     if ($isInserted) {
         $query = "SELECT LAST_INSERT_ID() as `id`";

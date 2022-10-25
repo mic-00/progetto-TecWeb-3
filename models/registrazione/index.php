@@ -6,6 +6,12 @@ $connection = new DBConnection();
 
 $query = "INSERT INTO `user` VALUES (?, ?, ?, ?)";
 
-return $connection->query($query, $_POST["username"], $_POST["email"], $_POST["password"], 0);
+return $connection->query(
+    $query,
+    htmlentities($_POST["username"]),
+    htmlentities($_POST["email"]),
+    htmlentities($_POST["password"]),
+    0
+);
 
 ?>
