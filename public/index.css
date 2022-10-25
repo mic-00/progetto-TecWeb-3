@@ -251,10 +251,14 @@ select:disabled, input:disabled {
   display: flex;
   flex-wrap: nowrap;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   gap: 1em;
   border-top: 1px solid #8C92AC;
+}
+
+#navigation > ul > li {
+  text-align: center;
 }
  
 /* breadcrumb
@@ -354,8 +358,8 @@ select:disabled, input:disabled {
 
 .dot {
   cursor: pointer;
-  height: 1em;
-  width: 1em;
+  height: 1rem;
+  width: 1rem;
   background-color: #BBBBBB;
   border-radius: 50%;
   display: inline-block;

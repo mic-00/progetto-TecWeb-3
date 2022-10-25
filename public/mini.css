@@ -1,7 +1,12 @@
+p, h1, h2, h3 {
+  margin: .75rem 0;
+}
+
 /* header
 ================================================== */
 #navigation > ul {
   flex-wrap: wrap;
+  gap: .75em;
 }
 
 /* home

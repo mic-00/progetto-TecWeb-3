@@ -13,15 +13,15 @@
   <section>
     <h3>Preventivo</h3>
     <p>Nel <span lang="en">form</span> sottostante inserisci una stima del costo dell'intervento e del tempo necessario.</p>
-    <form class="form" action="" method="post" onsubmit="f['formIsValid'](event)">
+    <form class="form" action="" method="post">
       <fieldset>
         <label for="cost" >Costo della riparazione (in &euro;):</label>
-        <input type="text" id="cost" name="cost" placeholder="Costo:" onchange="f['validateCost']()" />
+        <input type="text" id="cost" name="cost" placeholder="Costo:" />
         <p id="cost-alert" class="hidden" role="alert">
           &Egrave; necessario inserire un valore numerico che sia esprimibile in &euro;.
         </p>
         <label for="time" >Tempo necessario (in giorni):</label>
-        <input type="text" id="time" name="time" placeholder="Tempo necessario:" onchange="f['validateTime']()" />
+        <input type="text" id="time" name="time" placeholder="Tempo necessario:" />
         <p id="time-alert" class="hidden" role="alert">
           &Egrave; necessario inserire un valore intero positivo.
         </p>

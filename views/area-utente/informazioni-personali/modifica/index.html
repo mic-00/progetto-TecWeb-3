@@ -1,7 +1,7 @@
 <main id="main">
   <h2>Modifica i tuoi dati</h2>
   <p>%%ERROR%%</p>
-  <form class="form" action="" method="post" onsubmit="f['formIsValid'](event)">
+  <form class="form" action="" method="post">
     <fieldset>
       <label for="username">Nome utente:</label>
       <input
@@ -10,7 +10,6 @@
           name="username"
           value="%%USERNAME%%"
           placeholder="Nome utente:"
-          onchange="f['validateUsername']()"
       />
       <p id="username-alert" class="hidden" role="alert">
         Il nome utente deve contenere tra 4 e 10 caratteri (solo lettere minuscole e numeri ammessi).
@@ -22,7 +21,6 @@
           name="email"
           value="%%EMAIL%%"
           placeholder="Indirizzo email:"
-          onchange="f['validateEmail']()"
       />
       <p id="email-alert" class="hidden" role="alert">
         Formato dell'indirizzo <span lang='en'>email</span> fornito non valido.
@@ -34,7 +32,6 @@
           name="password"
           value="%%PASSWORD%%"
           placeholder="Password:"
-          onchange="f['validatePwd']()"
       />
       <p id="pwd-alert" class="hidden" role="alert">
         La password deve contenere tra gli 8 e i 40 caratteri alfanumerici, di cui almeno un numero e una lettera maiuscola.

@@ -1,11 +1,11 @@
 <main id="main">
   <h2>Chiedi una riparazione</h2>
   <p>%%ALERT%%</p>
-  <form id="repair-form" class="form" action="" method="post" enctype="multipart/form-data" onsubmit="f['formIsValid'](event)">
+  <form id="repair-form" class="form" action="" method="post" enctype="multipart/form-data">
     <fieldset id="infoDisp">
       <legend>Informazioni sul dispositivo</legend>
       <label for="brand" class="inline">Scegli una marca:</label>
-      <select id="brand" name="brand" onchange="f['getModels']()" disabled="disabled" required="required">
+      <select id="brand" name="brand" disabled="disabled" required="required">
         <option value="">--Seleziona--</option>
       </select>
       <label for="model" class="inline">Scegli un modello:</label>
@@ -23,13 +23,12 @@
           name="description"
           type="text"
           placeholder="Inserisci una descrizione:"
-          onchange="f['validateDescription']()"
       />
       <p id="desc-alert" class="hidden" role="alert">
         &Egrave; necessario fornire una descrizione.
       </p>
       <label for="image">Caricare un'immagine del danno (facoltativo):</label>
-      <input id="image" name="image" type="file" accept="image/*" onchange="f['enableAlt']()" />
+      <input id="image" name="image" type="file" accept="image/*" />
       <label for="alt" >
         Fornire una descrizione alternativa dell'immagine:
       </label>
@@ -39,7 +38,6 @@
           name="alt"
           type="text"
           placeholder="Inserisci una descrizione alternativa:"
-          onchange="f['validateAlt']()"
           disabled="disabled"
       />
       <p id="alt-alert" class="hidden" role="alert">
@@ -47,6 +45,6 @@
       </p>
     </fieldset>
     <input class="submit button" type="submit" value="Invia" />
-    <input class="submit button danger" type="button" value="Reset" onclick="f['resetForm']()" />
+    <input id="reset-button" class="submit button danger" type="button" value="Reset" />
   </form>
 </main>
