@@ -27,7 +27,7 @@ if (isset($_SESSION["email"], $_SESSION["username"], $_SESSION["password"], $_SE
             if ($insert) {
                 header("Location: /area-amministratore/gestione-modelli");
             } else {
-                $error = "Inserimento non avvenuto correttamente. Per favore riprova più tardi.";
+                $error = "Inserimento non avvenuto correttamente. Il modello che stai cercando di inserire potrebbe gi&agrave; esistere.";
             }
         } elseif (!isset(
             $_POST["brand"], $_POST["name"], $_POST["year"], $_POST["os"], $_POST["screen"], $_POST["camera"], $_POST["processor"], $_POST["battery-size"],

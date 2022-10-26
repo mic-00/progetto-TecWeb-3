@@ -10,6 +10,10 @@ $brand = $connection->query(
     $_POST["brand"]
 )[0]["id"];
 
+$query = "SELECT `id` FROM `model` WHERE `brand`=? AND `name`=?";
+if (count($connection->query($query, $brand, $_POST["name"])))
+    return false;
+
 $query = "INSERT INTO `model` (`brand`, `name`, `released_at`, `os`, `display_resolution`, `camera_pixels`, `chipset`, `battery_size`, `battery_type`, `bluetooth`, `sim`, `gps`, `weight`, `dimensions`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 return $connection->query(
     $query,
