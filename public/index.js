@@ -2,7 +2,7 @@ window.onload = () => {
   document.getElementById('back-to-top').classList.add('hidden');
 
   const inputIsValid = function (input, alert, validRegex) {
-    const cond = input.disabled || typeof validRegex === 'Array'
+    const cond = input.disabled || Array.isArray(validRegex)
         ? validRegex.every((regex) => input.value.match(regex))
         : input.value.match(validRegex);
     if (cond) {
@@ -99,7 +99,7 @@ window.onload = () => {
   // ACQUISTO
   // RIPARAZIONE
   // GESTIONE MODELLI
-  if (window.location.pathname === '/acquisto'
+  if (window.location.pathname === '/negozio'
       || window.location.pathname === '/riparazione'
       || window.location.pathname === '/area-amministratore/gestione-modelli'
       || window.location.pathname === '/area-amministratore/gestione-modelli/aggiungi'

@@ -3,7 +3,12 @@
 use Utils\UtilityFunctions;
 
 $urlPath = parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH);
-$urlQuery = parse_url($_SERVER["REQUEST_URI"], PHP_URL_QUERY);
+parse_str(
+    parse_url($_SERVER["REQUEST_URI"], PHP_URL_QUERY),
+    $arr
+);
+unset($arr["redirect"]);
+$urlQuery = http_build_query($arr);
 
 $path = "<a href='/' lang='en'>Home</a> ";
 if ($urlPath !== "/") {

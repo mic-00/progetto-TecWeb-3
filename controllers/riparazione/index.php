@@ -5,7 +5,7 @@ use Utils\UtilityFunctions;
 $alert = "";
 
 if (!isset($_SESSION["username"])) {
-    header("Location: /login");
+    header("Location: /login?redirect=/riparazione");
 } else if (isset($_POST["brand"], $_POST["model"], $_POST["description"])
     && preg_match("/\w+/", $_POST["description"])
     && (!$_FILES["image"]["size"] || (isset($_POST["alt"]) && preg_match("/\w+/", $_POST["alt"])))

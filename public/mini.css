@@ -1,25 +1,94 @@
-p, h1, h2, h3 {
+h1 {
   margin: .75rem 0;
+}
+
+p, h2, h3 {
+  margin: .75rem;
+}
+
+nav > ul > li {
+  padding: .75rem;
+}
+
+img {
+  display: block;
+  margin: .75rem;
+}
+
+table {
+  margin: .75rem;
+}
+
+label {
+  margin: .75rem 0;
+}
+
+select {
+  margin: .75rem;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="file"] {
+  margin: .75rem 0;
+}
+
+.form > fieldset {
+  margin: .75rem;
+}
+
+.form > fieldset > *:not(legend) {
+  width: 90%;
+  margin: .75rem auto;
+}
+
+.button {
+  margin: 0 .25rem;
 }
 
 /* header
 ================================================== */
-#navigation > ul {
-  flex-wrap: wrap;
-  gap: .75em;
+#user-welcome {
+  margin: 1.75rem 0 .75rem 0;
+}
+
+#user-nav > ul > li {
+  padding: 0 0 .75rem .75rem;
+}
+
+#navigation > ul > li {
+  width: 50%;
+}
+
+/* breadcrumb
+================================================== */
+#breadcrumb {
+  padding: .75rem;
 }
 
 /* home
 ================================================== */
 .slide-text {
   position: static;
+  padding-top: .75rem;
 }
 
 .slide-text > div {
-  width: 100%;
+  width: 95%;
 }
 
-/* acquisto
+.dots {
+  margin: .75rem;
+}
+
+/* login, registrazione
+================================================== */
+#signin, #signup {
+  width: 90%;
+}
+
+/* negozio
 ================================================== */
 #items {
   grid-template-columns: 100%;

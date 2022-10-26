@@ -6,7 +6,7 @@ if (isset($_GET["id"])) {
     $itemExists = include ROOT . "/models/carrello/aggiungi/index.php";
     if ($itemExists) {
         $_SESSION["cart"][] = $_GET["id"];
-        header("Location: /acquisto?id={$_GET["id"]}");
+        header("Location: /negozio?id={$_GET["id"]}");
     } else {
         header("Location: /carrello");
     }

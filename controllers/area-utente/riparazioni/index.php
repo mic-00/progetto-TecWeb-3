@@ -66,6 +66,6 @@ if (isset($_SESSION["email"], $_SESSION["username"], $_SESSION["password"], $_SE
         }
 }
 
-header("Location: /login");
+header("Location: /login?redirect=/area-utente/riparazioni");
 
 ?>

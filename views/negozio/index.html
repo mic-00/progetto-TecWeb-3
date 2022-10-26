@@ -1,0 +1,25 @@
+<main id="main">
+  <h2>I nostri articoli</h2>
+  <p>
+    Scopri i nostri prodotti ricondizionati, come nuovi e a prezzi da urlo! Clicca su di uno per visualizzare i dettagli.
+  </p>
+  <form action="" method="get" class="form">
+    <fieldset>
+      <legend>Filtro contenuti</legend>
+      <div>
+        <label for="brand" class="inline">Scegli una marca:</label>
+        <select id="brand" name="brand" disabled="disabled">
+          <option value="">--Seleziona--</option>
+        </select>
+        <label for="model" class="inline">Scegli un modello:</label>
+        <select id="model" name="model" disabled="disabled">
+          <option value="">--Seleziona--</option>
+        </select>
+        <input type="submit" value="Applica filtro" class="small button" />
+      </div>
+    </fieldset>
+  </form>
+  <ul id="items">
+	  %%ITEMS%%
+  </ul>
+</main>

@@ -28,7 +28,10 @@ if (file_exists(ROOT . "/controllers" . $urlPath . "/index.php")) {
 
 $keywords = SITE_NAME . ", tablet, smartphone, " . $keywords;
 
-echo UtilityFunctions::checkLinks(
+echo preg_replace(
+    '~>\s+<~',
+    '><',
+    UtilityFunctions::checkLinks(
         UtilityFunctions::replace(
             [
                 "%%DESCRIPTION%%" =>$description,
@@ -40,4 +43,5 @@ echo UtilityFunctions::checkLinks(
                 "%%FOOTER%%" => $footer
             ],
             file_get_contents("index.html")
-));
+        ))
+);

@@ -2,7 +2,7 @@
 
 use Utils\UtilityFunctions;
 
-$items = include ROOT . "/models/acquisto/index.php";
+$items = include ROOT . "/models/negozio/index.php";
 
 if (isset($_GET["id"])) {
     $name = $error = $price = $description = $image = $specs = $link = "";
@@ -10,7 +10,7 @@ if (isset($_GET["id"])) {
         $item = $items[0];
         $id = $item["id"];
         $name = "{$item["brand"]} {$item["model"]}";
-        $price = $item["price"];
+        $price = "{$item["price"]}&euro;";
         $description = $item["description"];
         if (glob(ROOT . "/public/img/purchase/$id.*")) {
             $extension = pathinfo(glob(ROOT . "/public/img/purchase/$id.*")[0], PATHINFO_EXTENSION);
@@ -64,7 +64,7 @@ if (isset($_GET["id"])) {
                 "%%SPECS%%" => $specs,
                 "%%LINK%%" => $link
             ],
-            file_get_contents(ROOT . "/views/acquisto/id/index.html")
+            file_get_contents(ROOT . "/views/negozio/id/index.html")
         ),
         "",
         ""
@@ -80,7 +80,7 @@ if (isset($_GET["id"])) {
         } else {
             $image = "<img src='/public/img/common.jpg' alt='' />";
         }
-        $name = "<a href='/acquisto?id={$item["id"]}'>{$item["brand"]} {$item["model"]}</a>";
+        $name = "<a href='/negozio?id={$item["id"]}'>{$item["brand"]} {$item["model"]}</a>";
         $price = "{$item["price"]}&euro;";
         $description = $item["description"];
         $itemsHTML .= UtilityFunctions::replace(
@@ -90,7 +90,7 @@ if (isset($_GET["id"])) {
                 "%%PRICE%%" => $price,
                 "%%DESCRIPTION%%" => $description
             ],
-            file_get_contents("./views/acquisto/item.html")
+            file_get_contents("./views/negozio/item.html")
         );
     }
     return [
@@ -98,10 +98,10 @@ if (isset($_GET["id"])) {
             [
                 "%%ITEMS%%" => $itemsHTML
             ],
-            file_get_contents(ROOT . "/views/acquisto/index.html")
+            file_get_contents(ROOT . "/views/negozio/index.html")
         ),
         "Dispositivi elettronici usati come nuovi e a prezzi da urlo! Approfittane subito.",
-        "acquisto, articoli"
+        "negozio, articoli"
     ];
 }
 

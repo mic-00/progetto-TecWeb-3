@@ -1,7 +1,7 @@
 <main id="main">
   <h2>Login</h2>
   <p>%%ERROR%%</p>
-  <form id="signin" class="form" action="" method="post">
+  <form id="signin" class="form" action="?redirect=%%REDIRECT%%" method="post">
     <fieldset>
       <legend>Credenziali di accesso</legend>
       <label for="username">Nome utente:</label>
@@ -9,7 +9,9 @@
       <label for="password" lang="en">Password:</label>
       <input type="password" id="password" name="password" placeholder="Password" />
       <p>Non possiedi un <span lang="en">account</span>? <a href="/registrazione">Registrati!</a></p>
-      <input id="submit" type="submit" class="button submit" value="Invia" />
+      <div>
+        <input id="submit" type="submit" class="button submit" value="Invia" />
+      </div>
     </fieldset>
   </form>
 </main>

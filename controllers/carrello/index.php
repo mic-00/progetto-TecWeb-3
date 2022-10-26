@@ -10,7 +10,7 @@ if (isset($_SESSION["cart"]) && count($_SESSION["cart"])) {
     $cartItemsHTML = "";
     $amount = 0;
     foreach ($cartItems as $cartItem) {
-        $name = "<a href='/acquisto?id={$cartItem["id"]}'>{$cartItem["brand"]} {$cartItem["model"]}</a>";
+        $name = "<a href='/negozio?id={$cartItem["id"]}'>{$cartItem["brand"]} {$cartItem["model"]}</a>";
         $price = $cartItem["price"];
         $id = $cartItem["id"];
         $description = $cartItem["description"];
@@ -43,7 +43,7 @@ if (isset($_SESSION["cart"]) && count($_SESSION["cart"])) {
 } else {
     $main = UtilityFunctions::replace(
         [
-            "%%ERROR%%" => "<p>Nessun articolo è stato selezionato. Per visionare i nostri prodotti, clicca <a href='/acquisto'>qui</a>.</a></p>",
+            "%%ERROR%%" => "<p>Nessun articolo è stato selezionato. Per visionare i nostri prodotti, clicca <a href='/negozio'>qui</a>.</a></p>",
             "%%SHOPPINGCARTITEMS%%" => "",
             "%%AMOUNT%%" => 0
         ],

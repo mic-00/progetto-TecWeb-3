@@ -3,6 +3,7 @@
 use Utils\UtilityFunctions;
 
 $error = "";
+$redirect = $_GET["redirect"] ?? "";
 
 if (isset($_SESSION["username"])) {
     if (!$_SESSION["admin"]) {
@@ -18,7 +19,9 @@ if (isset($_SESSION["username"])) {
         $_SESSION["username"] = $user["username"];
         $_SESSION["password"] = $user["password"];
         $_SESSION["admin"] = $user["admin"];
-        if (!$user["admin"]) {
+        if (isset($_GET["redirect"]) && $_GET["redirect"]) {
+            header("Location: {$_GET["redirect"]}");
+        } elseif (!$_SESSION["admin"]) {
             header("Location: /area-utente/informazioni-personali");
         } else {
             header("Location: /area-amministratore/informazioni-personali");
@@ -27,12 +30,15 @@ if (isset($_SESSION["username"])) {
         $error = "Credenziali errate. Per favore riprovare con un nome utente o <span lang='en'>password</span> diversa.";
     }
 } else {
-    $error = "Inserisci il tuo nome utente e la tua <span lang='en'>password</span> per accedere.";
+    $error = "Inserisci il tuo nome utente e la tua <span lang='en'>password</span> per accedere e quindi usufruire di tutte le funzionalit&agrave; del sito.";
 }
 
 return [
     UtilityFunctions::replace(
-        [ "%%ERROR%%" => $error ],
+        [
+            "%%ERROR%%" => $error,
+            "%%REDIRECT%%" => $redirect
+        ],
         file_get_contents(ROOT . "/views/login/index.html")
     ),
     "Accedi per usufruire dei nostri servizi.",

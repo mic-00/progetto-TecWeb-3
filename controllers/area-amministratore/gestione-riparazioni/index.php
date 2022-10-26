@@ -13,7 +13,11 @@ if (isset($_SESSION["email"], $_SESSION["username"], $_SESSION["password"], $_SE
                     header("Location: /area-amministratore/gestione-riparazioni");
                 } else {
                     $id = $repair["id"];
-                    $alt = $repair["img_alt"];
+                    $image = "";
+                    if (glob( ROOT . "/public/img/repair/$id.*")) {
+                        $extension = pathinfo(glob( ROOT . "/public/img/repair/$id.*")[0], PATHINFO_EXTENSION);
+                        $image = "<img src='/public/img/repair/$id.$extension' alt='{$repair["img_alt"]}' />";
+                    }
                     $name = "{$repair["brand"]} {$repair["model"]}";
                     $description = $repair["description"];
                     $releasedAt = $repair["released_at"];
@@ -50,10 +54,10 @@ if (isset($_SESSION["email"], $_SESSION["username"], $_SESSION["password"], $_SE
                     return [
                         UtilityFunctions::replace(
                             [
+                                "%%ID%%" => $id,
                                 "%%NAME%%" => $name,
                                 "%%DESCRIPTION%%" => $description,
-                                "%%ID%%" => $id,
-                                "%%ALT%%" => $alt,
+                                "%%IMAGE%%" => $image,
                                 "%%SPECS%%" => $specs
                             ],
                             file_get_contents(ROOT . "/views/area-amministratore/gestione-riparazioni/id/index.html")
@@ -90,7 +94,7 @@ if (isset($_SESSION["email"], $_SESSION["username"], $_SESSION["password"], $_SE
         header("Location: /area-utente/informazioni-personali");
     }
 } else {
-    header("Location: /login");
+    header("Location: /login?redirect=/area-amministratore/gestione-riparazioni");
 }
 
 ?>

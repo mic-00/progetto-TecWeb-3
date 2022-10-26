@@ -4,14 +4,16 @@
   <form id="repair-form" class="form" action="" method="post" enctype="multipart/form-data">
     <fieldset id="infoDisp">
       <legend>Informazioni sul dispositivo</legend>
-      <label for="brand" class="inline">Scegli una marca:</label>
-      <select id="brand" name="brand" disabled="disabled" required="required">
-        <option value="">--Seleziona--</option>
-      </select>
-      <label for="model" class="inline">Scegli un modello:</label>
-      <select id="model" name="model" disabled="disabled">
-        <option value="">--Seleziona--</option>
-      </select>
+      <div>
+        <label for="brand" class="inline">Scegli una marca:</label>
+        <select id="brand" name="brand" disabled="disabled" required="required">
+          <option value="">--Seleziona--</option>
+        </select>
+        <label for="model" class="inline">Scegli un modello:</label>
+        <select id="model" name="model" disabled="disabled">
+          <option value="">--Seleziona--</option>
+        </select>
+      </div>
     </fieldset>
     <fieldset id="infoDanno">
       <legend>Informazioni sul danno/malfunzionamento</legend>
@@ -43,8 +45,10 @@
       <p id="alt-alert" class="hidden" role="alert">
         &Egrave; necessario fornire una descrizione alternativa.
       </p>
+      <div>
+        <input class="submit button" type="submit" value="Invia" />
+        <input id="reset-button" class="submit button danger" type="button" value="Reset" />
+      </div>
     </fieldset>
-    <input class="submit button" type="submit" value="Invia" />
-    <input id="reset-button" class="submit button danger" type="button" value="Reset" />
   </form>
 </main>
