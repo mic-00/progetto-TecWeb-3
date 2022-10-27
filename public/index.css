@@ -276,7 +276,7 @@ select:disabled, input:disabled {
 #navigation > ul > li {
   width: 25%;
 }
- 
+
 /* breadcrumb
 ================================================== */
 #breadcrumb {
@@ -482,18 +482,18 @@ select:disabled, input:disabled {
   border: 1px solid #8C92AC;
   display: flex;
   justify-content: space-between;
-  font-size: .75rem;
+
   font-weight: normal;
 }
 
-.userItems p, .userItemsHead p{
+.userItems th,.userItems td, .userItemsHead th{
   padding: .5rem;
   margin: 0;
 }
 
-.userItemsHead p{
+.userItemsHead th{
   font-weight: bold;
-  color: red; /*  DA CAMBIARE!!! */
+
 }
       /* area utente-acquisti
       ================================================== */
