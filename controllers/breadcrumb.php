@@ -26,9 +26,10 @@ if ($urlPath !== "/") {
                     substr($urlPath, 1)
                 ))))
             : "");
-    $path .= " / "
-        . ($urlQuery
-            ? (implode(
+    $path .= $urlQuery
+        ? (
+            " / " .
+            implode(
                 " / ",
                 array_map(function ($a, $k) use ($href, &$params) {
                     $params .= ($k ? "&" : "") . $a;
@@ -39,8 +40,8 @@ if ($urlPath !== "/") {
                 ), array_keys(explode(
                     "&",
                     $urlQuery
-                )))))
-            : "");
+            )))))
+        : "";
 }
 return UtilityFunctions::replace(
     [ "%%PATH%%" => $path ],

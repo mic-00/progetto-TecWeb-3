@@ -23,10 +23,9 @@ if (isset($_SESSION["cart"]) && count($_SESSION["cart"])) {
         $cartItemsHTML .= UtilityFunctions::replace(
             [
                 "%%NAME%%" => $name,
-                "%%PRICE%%" => $price,
+                "%%PRICE%%" => $price . "&euro;",
                 "%%ID%%" => $id,
-                "%%DESCRIPTION%%" => $description,
-                "%%IMG%%" => $image
+                "%%DESCRIPTION%%" => $description
             ],
             file_get_contents(ROOT . "/views/carrello/cart-item.html")
         );

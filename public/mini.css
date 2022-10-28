@@ -47,6 +47,10 @@ input[type="file"] {
   margin: 0 .25rem;
 }
 
+.column-2 {
+  column-count: 1;
+}
+
 /* header
 ================================================== */
 #user-welcome {

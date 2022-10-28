@@ -24,7 +24,7 @@ if (isset($_SESSION["email"], $_SESSION["username"], $_SESSION["password"], $_SE
                 $error = "L'inserimento non &egrave; andato a buon fine. Verificare la corrispondenza tra nome del marchio e nome del modello.";
             }
         } elseif (!isset($_POST["brand"], $_POST["model"], $_POST["description"], $_POST["price"])) {
-            $error = "Aggiungi un nuovo articolo da acquistare fornendo il modello, una descrizione, il prezzo di vendita e in aggiunta un'immagine.";
+            $error = "Aggiungi un nuovo articolo al negozio fornendo il modello, una descrizione, il prezzo di vendita e in aggiunta un'immagine.";
         } else {
             $error = "L'inserimento non &egrave; andato a buon fine. Verificare la correttezza dei dati inseriti.";
         }

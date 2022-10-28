@@ -18,17 +18,17 @@ if (isset($_GET["id"])) {
         }
         $releasedAt = $item["released_at"];
         $os = $item["os"];
-        $displaySize = $item["display_size"];
+        $displaySize = $item["display_size"] . " <abbr title='pollici'>in</abbr>";
         $displayResolution = $item["display_resolution"];
-        $cameraPixels = $item["camera_pixels"];
+        $cameraPixels = $item["camera_pixels"] . " <abbr title='megapixel'>MP</abbr>";
         $chipset = $item["chipset"];
-        $batterySize = $item["battery_size"];
+        $batterySize = $item["battery_size"] . " <abbr title='milliamperora'>mAh</abbr>";
         $batteryType = $item["battery_type"];
         $bluetooth = $item["bluetooth"];
         $sim = $item["sim"];
         $gps = $item["gps"];
-        $weight = $item["weight"] . " gr";
-        $dimensions = $item["dimensions"] . " mm";
+        $weight = $item["weight"] . " <abbr title='grammi'>gr</abbr>";
+        $dimensions = $item["dimensions"] . " <abbr title='millimetri'>mm</abbr>";
         $specs = UtilityFunctions::replace(
             [
                 "%%RELEASED_AT%%" => $releasedAt,
@@ -48,7 +48,7 @@ if (isset($_GET["id"])) {
             file_get_contents(ROOT . "/views/device-specs.html")
         );
         $link = isset($_SESSION["cart"]) && in_array($id, $_SESSION["cart"])
-            ? "<a class='button' href='/carrello/rimuovi?id=$id'>Rimuovi dal carrello</a>"
+            ? "<a class='button danger' href='/carrello/rimuovi?id=$id'>Rimuovi dal carrello</a>"
             : "<a class='button' href='/carrello/aggiungi?id=$id'>Aggiungi al carrello</a>";
     } else {
         $error = "Il prodotto che stai cercando non esiste.";
@@ -76,9 +76,9 @@ if (isset($_GET["id"])) {
         $image = "";
         if (glob(ROOT . "/public/img/purchase/$id.*")) {
             $extension = pathinfo(glob(ROOT . "/public/img/purchase/$id.*")[0], PATHINFO_EXTENSION);
-            $image = "<img src='/public/img/purchase/$id.$extension' alt='' />";
+            $image = "<img src='/public/img/purchase/$id.$extension' alt='' aria-describedby='description-$id' />";
         } else {
-            $image = "<img src='/public/img/common.jpg' alt='' />";
+            $image = "<img src='/public/img/common.jpg' alt='' aria-describedby='description-$id' />";
         }
         $name = "<a href='/negozio?id={$item["id"]}'>{$item["brand"]} {$item["model"]}</a>";
         $price = "{$item["price"]}&euro;";
@@ -88,7 +88,8 @@ if (isset($_GET["id"])) {
                 "%%IMAGE%%" => $image,
                 "%%NAME%%" => $name,
                 "%%PRICE%%" => $price,
-                "%%DESCRIPTION%%" => $description
+                "%%DESCRIPTION%%" => $description,
+                "%%ID%%" => $id
             ],
             file_get_contents("./views/negozio/item.html")
         );

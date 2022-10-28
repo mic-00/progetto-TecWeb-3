@@ -163,6 +163,7 @@ select:disabled, input:disabled {
 
 .form > fieldset {
   margin: 1rem 3rem;
+  padding-top: 2rem;
   background-color: #FFFFFF;
   border: 1px solid #8C92AC;
   border-radius: 1rem;
@@ -214,6 +215,15 @@ select:disabled, input:disabled {
 
 .button.danger:hover {
   background-color: #C80004;
+}
+
+.column-2 {
+  margin-top: 1rem;
+  column-count: 2;
+}
+
+.column-2 > * > *:first-child {
+  margin-top: 0;
 }
 
 /* device specifications
@@ -292,6 +302,7 @@ select:disabled, input:disabled {
 /* main
 ================================================== */
 #main {
+  position: relative;
   overflow: auto;
   background: #E0E0F0;
 }
@@ -430,18 +441,6 @@ select:disabled, input:disabled {
 
 .item-card {
   padding: .5rem;
-}
-
-#images {
-  display: grid;
-  grid-template-columns: auto auto auto auto;
-  justify-content: space-between;
-  grid-gap: 1rem;
-}
-
-#images img {
-  width: auto;
-  height: 100px;
 }
 
 /* chi siamo
