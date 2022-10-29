@@ -187,10 +187,10 @@ select:disabled, input:disabled {
   display: inline-block;
   padding: 1rem;
   margin: 0 .5rem;
-  background-color: #4CAF50;
+  background-color: #2a792d;
   text-align: center;
   cursor: pointer;
-  border: 1px solid #046A38;
+  border: 1px solid #1b4b1c;
   border-radius: .5rem;
   transition-duration: .25s;
 }
@@ -201,21 +201,35 @@ select:disabled, input:disabled {
 
 .button, a.button, .button * {
   color: #FFFFFF;
+  margin: 1em;
 }
 
 .button.danger {
-  background-color: #ED3825;
-  border: 1px solid #DA2A2A;
+  background-color: #af2b1d;
+  border: 1px solid #861f13;
 }
 
 .button:hover {
-  background-color: #046A38;
+  background-color: #1b4b1c;
 }
 
 .button.danger:hover {
-  background-color: #C80004;
+  background-color: #861f13;
 }
 
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
 /* device specifications
 ================================================== */
 .specs {
