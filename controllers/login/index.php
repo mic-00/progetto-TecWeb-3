@@ -7,9 +7,9 @@ $redirect = $_GET["redirect"] ?? "";
 
 if (isset($_SESSION["username"])) {
     if (!$_SESSION["admin"]) {
-        header("Location: /area-utente/informazioni-personali");
+        header("Location: " . SUBFOLDER . "/area-utente/informazioni-personali");
     } else {
-        header("Location: /area-amministratore");
+        header("Location: " . SUBFOLDER . "/area-amministratore");
     }
 } else if (isset($_POST["username"], $_POST["password"])) {
     $user = include ROOT . "/models/login/index.php";
@@ -20,11 +20,11 @@ if (isset($_SESSION["username"])) {
         $_SESSION["password"] = $user["password"];
         $_SESSION["admin"] = $user["admin"];
         if (isset($_GET["redirect"]) && $_GET["redirect"]) {
-            header("Location: {$_GET["redirect"]}");
+            header("Location: " . SUBFOLDER . $_GET["redirect"]);
         } elseif (!$_SESSION["admin"]) {
-            header("Location: /area-utente/informazioni-personali");
+            header("Location: " . SUBFOLDER . "/area-utente/informazioni-personali");
         } else {
-            header("Location: /area-amministratore/informazioni-personali");
+            header("Location: " . SUBFOLDER . "/area-amministratore/informazioni-personali");
         }
     } else {
         $error = "Credenziali errate. Per favore riprovare con un nome utente o <span lang='en'>password</span> diversa.";

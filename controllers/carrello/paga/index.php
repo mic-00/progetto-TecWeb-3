@@ -19,9 +19,9 @@ if (isset($_SESSION["username"], $_SESSION["cart"])) {
         "pagamento"
     ];
 } else if (!isset($_SESSION["username"])) {
-    header("Location: /login?redirect=/carrello/paga");
+    header("Location: " . SUBFOLDER . "/login?redirect=/carrello/paga");
 } else {
-    header("Location: /carrello");
+    header("Location: " . SUBFOLDER . "/carrello");
 }
 
 ?>

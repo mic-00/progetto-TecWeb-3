@@ -9,7 +9,7 @@ use Utils\UtilityFunctions;
 if (session_status() === PHP_SESSION_NONE)
     session_start();
 
-$urlPath = parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH);
+$urlPath = UtilityFunctions::getPath();
 
 $title = include ROOT . "/controllers/title.php";
 $header = include ROOT . "/controllers/header.php";

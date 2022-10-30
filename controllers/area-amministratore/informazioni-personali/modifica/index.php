@@ -19,7 +19,7 @@ if (isset($_SESSION["email"], $_SESSION["username"], $_SESSION["password"], $_SE
                 $_SESSION["email"] = $_POST["email"];
                 $_SESSION["username"] = $_POST["username"];
                 $_SESSION["password"] = $_POST["password"];
-                header("Location: /area-amministratore/informazioni-personali");
+                header("Location: " . SUBFOLDER . "/area-amministratore/informazioni-personali");
             } else {
                 $error = "Nome utente già in uso. Per favore riprovare con uno diverso.";
             }
@@ -49,10 +49,10 @@ if (isset($_SESSION["email"], $_SESSION["username"], $_SESSION["password"], $_SE
             "informazioni personali, info, modifica"
         ];
     } else {
-        header("Location: /area-utente/informazioni-personali/modifica");
+        header("Location: " . SUBFOLDER . "/area-utente/informazioni-personali/modifica");
     }
 } else {
-    header("Location: /login?redirect=/area-amministratore/informazioni-personali/modifica");
+    header("Location: " . SUBFOLDER . "/login?redirect=/area-amministratore/informazioni-personali/modifica");
 }
 
 ?>

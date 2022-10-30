@@ -18,10 +18,10 @@ if (isset($_SESSION["email"], $_SESSION["username"], $_SESSION["password"], $_SE
             "area amministratore, account, informazioni personali, info"
         ];
     } else {
-        header("Location: /area-utente/informazioni-personali");
+        header("Location: " . SUBFOLDER . "/area-utente/informazioni-personali");
     }
 } else {
-    header("Location: /login?redirect=/area-amministratore/informazioni-personali");
+    header("Location: " . SUBFOLDER . "/login?redirect=/area-amministratore/informazioni-personali");
 }
 
 ?>

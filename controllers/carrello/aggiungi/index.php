@@ -6,12 +6,12 @@ if (isset($_GET["id"])) {
     $itemExists = include ROOT . "/models/carrello/aggiungi/index.php";
     if ($itemExists) {
         $_SESSION["cart"][] = $_GET["id"];
-        header("Location: /negozio?id={$_GET["id"]}");
+        header("Location: " . SUBFOLDER . "/negozio?id={$_GET["id"]}");
     } else {
-        header("Location: /carrello");
+        header("Location: " . SUBFOLDER . "/carrello");
     }
 } else {
-    header("Location: /");
+    header("Location: " . SUBFOLDER . "/");
 }
 
 ?>

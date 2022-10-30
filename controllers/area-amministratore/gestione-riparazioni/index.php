@@ -10,7 +10,7 @@ if (isset($_SESSION["email"], $_SESSION["username"], $_SESSION["password"], $_SE
             if (isset($repair)) {
                 if (isset($_POST["cost"], $_POST["time"])) {
                     $update = include ROOT . "/models/area-amministratore/gestione-riparazioni/update.php";
-                    header("Location: /area-amministratore/gestione-riparazioni");
+                    header("Location: " . SUBFOLDER . "/area-amministratore/gestione-riparazioni");
                 } else {
                     $id = $repair["id"];
                     $image = "";
@@ -67,7 +67,7 @@ if (isset($_SESSION["email"], $_SESSION["username"], $_SESSION["password"], $_SE
                     ];
                 }
             } else {
-                header("Location: /area-amministratore/gestione-riparazioni");
+                header("Location: " . SUBFOLDER . "/area-amministratore/gestione-riparazioni");
             }
         } else {
             $repairsHTML = "";
@@ -91,10 +91,10 @@ if (isset($_SESSION["email"], $_SESSION["username"], $_SESSION["password"], $_SE
             ];
         }
     } else {
-        header("Location: /area-utente/informazioni-personali");
+        header("Location: " . SUBFOLDER . "/area-utente/informazioni-personali");
     }
 } else {
-    header("Location: /login?redirect=/area-amministratore/gestione-riparazioni");
+    header("Location: " . SUBFOLDER . "/login?redirect=/area-amministratore/gestione-riparazioni");
 }
 
 ?>

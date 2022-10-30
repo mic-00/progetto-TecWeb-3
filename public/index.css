@@ -187,11 +187,11 @@ select:disabled, input:disabled {
 .button {
   display: inline-block;
   padding: 1rem;
-  margin: 0 .5rem;
-  background-color: #4CAF50;
+  margin: .5rem;
+  background-color: #2a792d;
   text-align: center;
   cursor: pointer;
-  border: 1px solid #046A38;
+  border: 1px solid #1b4b1c;
   border-radius: .5rem;
   transition-duration: .25s;
 }
@@ -205,25 +205,16 @@ select:disabled, input:disabled {
 }
 
 .button.danger {
-  background-color: #ED3825;
-  border: 1px solid #DA2A2A;
+  background-color: #af2b1d;
+  border: 1px solid #861f13;
 }
 
 .button:hover {
-  background-color: #046A38;
+  background-color: #1b4b1c;
 }
 
 .button.danger:hover {
-  background-color: #C80004;
-}
-
-.column-2 {
-  margin-top: 1rem;
-  column-count: 2;
-}
-
-.column-2 > * > *:first-child {
-  margin-top: 0;
+  background-color: #861f13;
 }
 
 /* device specifications
@@ -286,7 +277,7 @@ select:disabled, input:disabled {
 #navigation > ul > li {
   width: 25%;
 }
- 
+
 /* breadcrumb
 ================================================== */
 #breadcrumb {
@@ -481,18 +472,18 @@ select:disabled, input:disabled {
   border: 1px solid #8C92AC;
   display: flex;
   justify-content: space-between;
-  font-size: .75rem;
+
   font-weight: normal;
 }
 
-.userItems p, .userItemsHead p{
+.userItems th,.userItems td, .userItemsHead th{
   padding: .5rem;
   margin: 0;
 }
 
-.userItemsHead p{
+.userItemsHead th{
   font-weight: bold;
-  color: red; /*  DA CAMBIARE!!! */
+
 }
       /* area utente-acquisti
       ================================================== */

@@ -5,9 +5,9 @@ if (isset($_GET["id"])) {
         $key = array_search($_GET["id"], $_SESSION["cart"]);
         unset($_SESSION["cart"][$key]);
     }
-    header("Location: /negozio?id={$_GET["id"]}");
+    header("Location: " . SUBFOLDER . "/negozio?id={$_GET["id"]}");
 } else {
-    header("Location: /");
+    header("Location: " . SUBFOLDER . "/");
 }
 
 ?>

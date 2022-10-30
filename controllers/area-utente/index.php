@@ -1,5 +1,5 @@
 <?php
 
-header("Location: /area-utente/informazioni-personali");
+header("Location: " . SUBFOLDER . "/area-utente/informazioni-personali");
 
 ?>

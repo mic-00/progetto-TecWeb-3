@@ -1,4 +1,7 @@
 window.onload = () => {
+
+  const subfolder = '/mmasetto';
+
   document.getElementById('back-to-top').classList.add('hidden');
 
   const inputIsValid = function (input, alert, validRegex) {
@@ -53,7 +56,7 @@ window.onload = () => {
     showSlides(slideIndex = n);
   };
 
-  if (window.location.pathname === '/') {
+  if (window.location.pathname === subfolder + '/') {
     showSlides(slideIndex);
     const prevs = document.getElementsByClassName('prev');
     for (let i = 0; i < prevs.length; ++i) {
@@ -72,9 +75,9 @@ window.onload = () => {
   // REGISTRAZIONE
   // MODIFICA DATI UTENTE
   // MODIFICA DATI AMMINISTRATORE
-  if (window.location.pathname === '/registrazione'
-      || window.location.pathname === '/area-utente/informazioni-personali/modifica'
-      || window.location.pathname === '/area-amministratore/informazioni-personali/modifica') {
+  if (window.location.pathname === subfolder + '/registrazione'
+      || window.location.pathname === subfolder + '/area-utente/informazioni-personali/modifica'
+      || window.location.pathname === subfolder + '/area-amministratore/informazioni-personali/modifica') {
     const username = document.getElementById("username");
     const usernameAlert = document.getElementById('username-alert');
     const usernameRegex = /^[a-z|0-9]{4,10}$/;
@@ -99,12 +102,12 @@ window.onload = () => {
   // ACQUISTO
   // RIPARAZIONE
   // GESTIONE MODELLI
-  if (window.location.pathname === '/negozio'
-      || window.location.pathname === '/riparazione'
-      || window.location.pathname === '/area-amministratore/gestione-modelli'
-      || window.location.pathname === '/area-amministratore/gestione-modelli/aggiungi'
-      || window.location.pathname === '/area-amministratore/aggiungi-articolo') {
-    fetch('/public/brands.php')
+  if (window.location.pathname === subfolder + '/negozio'
+      || window.location.pathname === subfolder + '/riparazione'
+      || window.location.pathname === subfolder + '/area-amministratore/gestione-modelli'
+      || window.location.pathname === subfolder + '/area-amministratore/gestione-modelli/aggiungi'
+      || window.location.pathname === subfolder + '/area-amministratore/aggiungi-articolo') {
+    fetch(subfolder + '/public/brands.php')
         .then((res) => res.json())
         .then(function (data) {
           const selectBrand = document.getElementById('brand');
@@ -119,7 +122,7 @@ window.onload = () => {
             selectBrand.removeAttribute('disabled');
         });
     document.getElementById('brand').onchange = (event) => {
-      fetch(`/public/models.php?brand=${event.target.value}`)
+      fetch(subfolder + `/public/models.php?brand=${event.target.value}`)
           .then((res) => res.json())
           .then(function (data) {
             const selectModel = document.getElementById('model');
@@ -158,7 +161,7 @@ window.onload = () => {
     enableAlt();
   };
 
-  if (window.location.pathname === '/riparazione') {
+  if (window.location.pathname === subfolder + '/riparazione') {
     const description = document.getElementById('description');
     const descriptionAlert = document.getElementById('desc-alert');
     const descriptionRegex = /\w+/;
@@ -179,7 +182,7 @@ window.onload = () => {
   }
 
   // AREA AMMINISTRATORE -> GESTIONE RIPARAZIONI
-  if (window.location.pathname === '/area-amministratore/gestione-riparazioni') {
+  if (window.location.pathname === subfolder + '/area-amministratore/gestione-riparazioni') {
     const cost = document.getElementById('cost');
     const costAlert = document.getElementById('cost-alert');
     const costRegex = /^[0-9]+.[0-9]{2}$|^[0-9]+$/;

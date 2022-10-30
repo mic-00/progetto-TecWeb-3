@@ -17,7 +17,7 @@ if (isset($_POST["email"], $_POST["username"], $_POST["password"])
             $_SESSION["username"] = $_POST["username"];
             $_SESSION["password"] = $_POST["password"];
             $_SESSION["admin"] = false;
-            header("Location: /area-utente/informazioni-personali");
+            header("Location: " . SUBFOLDER . "/area-utente/informazioni-personali");
         } else {
             $error = "Nome utente già in uso. Cortesemente riprovare con uno diverso.";
         }

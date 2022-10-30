@@ -48,6 +48,6 @@ if (isset($_SESSION["email"], $_SESSION["username"], $_SESSION["password"], $_SE
     ];
 }
 
-header("Location: /login?redirect=/area-utente/informazioni-personali/modifica");
+header("Location: " . SUBFOLDER . "/login?redirect=/area-utente/informazioni-personali/modifica");
 
 ?>

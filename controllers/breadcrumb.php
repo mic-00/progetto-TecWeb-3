@@ -2,7 +2,7 @@
 
 use Utils\UtilityFunctions;
 
-$urlPath = parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH);
+$urlPath = UtilityFunctions::getPath();
 parse_str(
     parse_url($_SERVER["REQUEST_URI"], PHP_URL_QUERY),
     $arr

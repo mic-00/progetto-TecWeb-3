@@ -25,7 +25,7 @@ if (isset($_SESSION["email"], $_SESSION["username"], $_SESSION["password"], $_SE
         ) {
             $insert = include ROOT . "/models/area-amministratore/gestione-modelli/aggiungi/index.php";
             if ($insert) {
-                header("Location: /area-amministratore/gestione-modelli");
+                header("Location: " . SUBFOLDER . "/area-amministratore/gestione-modelli");
             } else {
                 $error = "Inserimento non avvenuto correttamente. Il modello che stai cercando di inserire potrebbe gi&agrave; esistere.";
             }
@@ -48,10 +48,10 @@ if (isset($_SESSION["email"], $_SESSION["username"], $_SESSION["password"], $_SE
             ];
         }
     } else {
-        header("Location: /area-utente/informazioni-personali");
+        header("Location: " . SUBFOLDER . "/area-utente/informazioni-personali");
     }
 } else {
-    header("Location: /login?redirect=/area-amministratore/gestione-modelli/aggiungi");
+    header("Location: " . SUBFOLDER . "/login?redirect=/area-amministratore/gestione-modelli/aggiungi");
 }
 
 ?>
