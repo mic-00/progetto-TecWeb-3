@@ -7,11 +7,12 @@ if (isset($_SESSION["email"], $_SESSION["username"], $_SESSION["password"], $_SE
         $models = include ROOT . "/models/area-utente/acquisti/index.php";
         if (is_array($models)) {
             $modelsHTML = "";
-            $head = "<li class='userItemsHead'>
-                      <p class='purchaseItemModel'>Modello Prodotto</p>
-                      <p class='purchaseItemDescription'>Descrizione</p>
-                      <p class='purchaseItemPrice'>Prezzo</p>
-                    </li>";
+            $caption = "<caption>Lista degli acquisti</caption>";
+           $head = "<tr class='userItemsHead'>
+                     <th scope='col' class='purchaseItemModel'>Modello Prodotto</th>
+                     <th scope='col' class='purchaseItemDescription'>Descrizione</th>
+                     <th scope='col' class='purchaseItemPrice'>Prezzo</th>
+                   </tr>";
             foreach ($models as $model) {
                 $name = "{$model["brand"]} {$model["model"]}";
                 $price = $model["price"];
@@ -37,6 +38,7 @@ if (isset($_SESSION["email"], $_SESSION["username"], $_SESSION["password"], $_SE
                 UtilityFunctions::replace(
                     [ "%%ITEM%%" => $modelsHTML,
                       "%%HEADER%%" => $head,
+                      "%%CAPTION%%" => $caption,
                       "%%SIDEBAR%%" => file_get_contents(ROOT . "/views/area-utente/sidebar.html")
                     ],
                     file_get_contents(ROOT . "/views/area-utente/acquisti/index.html")

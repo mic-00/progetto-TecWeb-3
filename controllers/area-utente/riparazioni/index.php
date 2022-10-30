@@ -7,13 +7,14 @@ if (isset($_SESSION["email"], $_SESSION["username"], $_SESSION["password"], $_SE
         $models = include ROOT . "/models/area-utente/riparazioni/index.php";
         if (is_array($models)) {
             $modelsHTML = "";
-            $head = "<li class='userItemsHead'>
-                      <p class='repairItemModel'>Modello Prodotto</p>
-                      <p class='repairItemDescription'>Descrizione</p>
-                      <p class='repairItemPrice'>Costo</p>
-                      <p class='repairItemStart'>Data inizio</p>
-                      <p class='repairItemEnd'>Data fine</p>
-                    </li>";
+            $caption = "<caption>Lista delle riparazioni</caption>";
+            $head = "<tr class='userItemsHead'>
+                      <th scope='col' class='repairItemModel'>Modello Prodotto</th>
+                      <th scope='col' class='repairItemDescription'>Descrizione</th>
+                      <th scope='col' class='repairItemPrice'>Costo</th>
+                      <th scope='col' class='repairItemStart'>Data inizio</th>
+                      <th scope='col' class='repairItemEnd'>Data fine</th>
+                    </tr>";
             foreach ($models as $model) {
                 $name = "{$model["brand"]} {$model["model"]}";
                 $price = $model["cost"];
@@ -46,6 +47,7 @@ if (isset($_SESSION["email"], $_SESSION["username"], $_SESSION["password"], $_SE
                 UtilityFunctions::replace(
                     [ "%%ITEM%%" => $modelsHTML,
                       "%%HEADER%%" => $head,
+                      "%%CAPTION%%" => $caption,
                       "%%SIDEBAR%%" => file_get_contents(ROOT . "/views/area-utente/sidebar.html")
                     ],
                     file_get_contents(ROOT . "/views/area-utente/riparazioni/index.html")
