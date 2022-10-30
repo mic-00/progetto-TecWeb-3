@@ -34,7 +34,11 @@ class UtilityFunctions
         foreach ($links as $link) {
             $href = $link->getAttribute("href");
             $path = parse_url($href, PHP_URL_PATH);
-            if (!preg_match("/^mailto:/", $href) && !preg_match("/^tel:/", $href)) {
+            if (
+                !preg_match("/^mailto:/", $href)
+                && !preg_match("/^tel:/", $href)
+                && !preg_match("/^#/", $href)
+            ) {
                 $link->setAttribute("href", SUBFOLDER . $href);
                 $href = $link->getAttribute("href");
                 if ($_SERVER["REQUEST_URI"] === $href

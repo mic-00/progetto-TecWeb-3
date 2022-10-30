@@ -21,18 +21,18 @@ if (isset($_SESSION["email"], $_SESSION["username"], $_SESSION["password"], $_SE
                     $name = "{$repair["brand"]} {$repair["model"]}";
                     $description = $repair["description"];
                     $releasedAt = $repair["released_at"];
-                    $os = $repair["os"];
-                    $displaySize = $repair["display_size"];
+                    $os = "<span lang='en'>{$repair["os"]}</span>";
+                    $displaySize = $repair["display_size"] . " <abbr title='pollici'>in</abbr>";
                     $displayResolution = $repair["display_resolution"];
-                    $cameraPixels = $repair["camera_pixels"];
-                    $chipset = $repair["chipset"];
-                    $batterySize = $repair["battery_size"];
+                    $cameraPixels = $repair["camera_pixels"] . " <abbr title='megapixel'>MP</abbr>";
+                    $chipset = "<span lang='en'>{$repair["chipset"]}</span>";
+                    $batterySize = $repair["battery_size"] . " <abbr title='milliamperora'>mAh</abbr>";
                     $batteryType = $repair["battery_type"];
                     $bluetooth = $repair["bluetooth"];
                     $sim = $repair["sim"];
                     $gps = $repair["gps"];
-                    $weight = $repair["weight"] . " gr";
-                    $dimensions = $repair["dimensions"] . " mm";
+                    $weight = $repair["weight"] . " <abbr title='grammi'>gr</abbr>";
+                    $dimensions = $repair["dimensions"] . " <abbr title='millimetri'>mm</abbr>";
                     $specs = UtilityFunctions::replace(
                         [
                             "%%RELEASED_AT%%" => $releasedAt,

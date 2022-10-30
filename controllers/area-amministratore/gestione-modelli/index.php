@@ -9,18 +9,18 @@ if (isset($_SESSION["email"], $_SESSION["username"], $_SESSION["password"], $_SE
             $id = $model["id"];
             $name = "{$model["brand"]} {$model["model"]}";
             $releasedAt = $model["released_at"];
-            $os = $model["os"];
-            $displaySize = $model["display_size"];
+            $os = "<span lang='en'>{$model["os"]}</span>";
+            $displaySize = $model["display_size"] . " <abbr title='pollici'>in</abbr>";
             $displayResolution = $model["display_resolution"];
-            $cameraPixels = $model["camera_pixels"];
-            $chipset = $model["chipset"];
-            $batterySize = $model["battery_size"];
+            $cameraPixels = $model["camera_pixels"] . " <abbr title='megapixel'>MP</abbr>";
+            $chipset = "<span lang='en'>{$model["chipset"]}</span>";
+            $batterySize = $model["battery_size"] . " <abbr title='milliamperora'>mAh</abbr>";
             $batteryType = $model["battery_type"];
             $bluetooth = $model["bluetooth"];
             $sim = $model["sim"];
             $gps = $model["gps"];
-            $weight = $model["weight"] . " gr";
-            $dimensions = $model["dimensions"] . " mm";
+            $weight = $model["weight"] . " <abbr title='grammi'>gr</abbr>";
+            $dimensions = $model["dimensions"] . " <abbr title='millimetri'>mm</abbr>";
             $specs = UtilityFunctions::replace(
                 [
                     "%%RELEASED_AT%%" => $releasedAt,

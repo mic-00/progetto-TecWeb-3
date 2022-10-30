@@ -1,13 +1,17 @@
 <main id="main">
   %%SIDEBAR%%
-  <div class="">
-    <h2>I tuoi acquisti</h2>
-    <table class="items">
-      %%CAPTION%%
-      <tbody>
-        %%HEADER%%
-        %%ITEM%%
-      </tbody>
-    </table>
-  </div>
+  <h2>I tuoi acquisti</h2>
+  <table class="items">
+    <caption>Tabella degli acquisti</caption>
+    <thead>
+    <tr>
+      <th>Modello dispositivo</th>
+      <th>Descrizione</th>
+      <th>Prezzo</th>
+    </tr>
+    </thead>
+    <tbody>
+    %%ITEM%%
+    </tbody>
+  </table>
 </main>

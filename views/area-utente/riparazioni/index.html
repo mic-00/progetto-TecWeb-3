@@ -1,13 +1,18 @@
 <main id="main">
   %%SIDEBAR%%
-  <div class="">
-    <h2>Le tue riparazioni</h2>
-    <table class="items">
-      %%CAPTION%%
-      <tbody>
-        %%HEADER%%
-        %%ITEM%%
-      </tbody>
-    </table>
-  </div>
+  <h2>Le tue riparazioni</h2>
+  <table class="items">
+    <caption>Tabella delle riparazioni</caption>
+    <thead>
+    <tr>
+      <th>Modello dispositivo</th>
+      <th>Descrizione</th>
+      <th>Costo</th>
+      <th>Tempo necessario</th>
+    </tr>
+    </thead>
+    <tbody>
+    %%ITEM%%
+    </tbody>
+  </table>
 </main>

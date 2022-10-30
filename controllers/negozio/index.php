@@ -17,11 +17,11 @@ if (isset($_GET["id"])) {
             $image = "<img src='/public/img/purchase/$id.$extension' alt='' />";
         }
         $releasedAt = $item["released_at"];
-        $os = $item["os"];
+        $os = "<span lang='en'>{$item["os"]}</span>";
         $displaySize = $item["display_size"] . " <abbr title='pollici'>in</abbr>";
         $displayResolution = $item["display_resolution"];
         $cameraPixels = $item["camera_pixels"] . " <abbr title='megapixel'>MP</abbr>";
-        $chipset = $item["chipset"];
+        $chipset = "<span lang='en'>{$item["chipset"]}</span>";
         $batterySize = $item["battery_size"] . " <abbr title='milliamperora'>mAh</abbr>";
         $batteryType = $item["battery_type"];
         $bluetooth = $item["bluetooth"];
