@@ -6,9 +6,29 @@ e diminuire la ridondanza del codice.
 \subsection{HTML5}
 Il linguaggio di markup \textit{HTML5} è stato utilizzato per la parte View del modello.
 
+Per ridurre la ridondanza, la struttura html e' stata "smontata" in diversi file (Header, Breadcrimb, Main, Footer ecc..),
+questi file hanno solo una struttura base e non contengono alcuna informazione.  Una pagina viene 
+riscostrutita utilizzando il codice \textit{PHP}, il quale prende i file html, inserisce dentro le informazioni della pagina da
+visualizzare e ricompone i file per formare una pagina completa.
+
 \subsection{PHP}
 Il lato server, che corrisponde anche alla parte controller, è stato sviluppato utilizzando il linguaggio di programmazione \textit{PHP}.
 
+Esso ricopre un ruolo fondamentale. Come detto sopra, deve ricostruire una pagina completa 
+inserendo nei file le informazioni; infatti ogni pagina del sito ha un file \textit{"index.php"} che funge 
+da costruttore della pagina e in base al funzionamento, ci sono ulteriori file che gestiscono le azioni fatte
+dagli utenti.
+
+
+\subsection{CSS}
+E' stato utilizzato il linguaggio di formattazione \textit{CSS} per modellare il layout sito.
+
+Sono stati prodotti 3 fogli di stile:
+\begin{itemize}
+	\item \textit{index.css}: foglio di stile principale;
+	\item \textit{mini.css}: foglio di stile per schermi di piccole dimensioni;
+	\item \textit{print.css}: foglio di stile per la stampa.
+\end{itemize}
 
 \subsection{SQL}
 \textit{SQL} è stato utilizzato nella crazione del database, il quale è formato dalle seguenti tabelle:
